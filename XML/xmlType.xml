@@ -1,0 +1,86 @@
+<ouvrage>
+	<page gabarit="couverture">
+		<titre>Le titre</titre>
+		<auteur>Auteur</auteur>
+		<image>img/imageCouverture.jpg</image>
+	</page>
+	<page gabarit="blanche"></page>
+	<page gabarit="sommaire">
+		<ligne>
+			<num>4</num>
+			<nom>Artiste 1<num>
+		</ligne>
+		<ligne>
+			<num>5</num>
+			<nom>Artiste 2<num>
+		</ligne>
+		<ligne>
+			<num>6</num>
+			<nom>Artiste 3<num>
+		</ligne>
+	</page>
+	<page gabarit="blanche"></page>
+	<page gabarit="fiche1">
+		<type>Groupe</type>
+		<nomArtiste>Nom du groupe</nomArtiste>
+		<sousTitre>Musicien 1, musicien2 et musicien 3</sousTitre>
+		<imagePortrait>img/imagePortrait.jpg</imagePortrait>
+		<descriptif>Texte descriptif</descriptif>
+		<disque>
+			<date>1990</date>
+			<nomDisque>Nom du disque</nomDisque>
+		</disque>
+		<disque>
+			<date>1991</date>
+			<nomDisque>Nom du disque</nomDisque>
+		</disque>
+		<disque>
+			<date>1993</date>
+			<nomDisque>Nom du disque</nomDisque>
+		</disque>
+		<imageCouverture>img/imgCouverture.jpg</imageCouverture>
+	</page>
+	<page gabarit="fiche2">
+		<type>Groupe</type>
+		<nomArtiste>Nom du groupe</nomArtiste>
+		<sousTitre>Musicien 1, musicien2 et musicien 3</sousTitre>
+		<imagePortrait>img/imagePortrait.jpg</imagePortrait>
+		<descriptif>Texte descriptif</descriptif>
+		<disque>
+			<date>1990</date>
+			<nomDisque>Nom du disque</nomDisque>
+		</disque>
+		<disque>
+			<date>1991</date>
+			<nomDisque>Nom du disque</nomDisque>
+		</disque>
+		<disque>
+			<date>1993</date>
+			<nomDisque>Nom du disque</nomDisque>
+		</disque>
+		<imageCouverture>img/imgCouverture.jpg</imageCouverture>
+	</page>
+	<page gabarit="fiche3">
+		<type>Musicien</type>
+		<nomArtiste>Nom de l'artiste</nomArtiste>
+		<sousTitre>Chanteur, guitariste et comédien</sousTitre>
+		<imagePortrait>img/imagePortrait.jpg</imagePortrait>
+		<descriptif>Texte descriptif</descriptif>
+		<disque>
+			<date>1990</date>
+			<nomDisque>Nom du disque</nomDisque>
+		</disque>
+		<disque>
+			<date>1991</date>
+			<nomDisque>Nom du disque</nomDisque>
+		</disque>
+		<disque>
+			<date>1993</date>
+			<nomDisque>Nom du disque</nomDisque>
+		</disque>
+		<imageCouverture>img/imgCouverture.jpg</imageCouverture>
+	</page>
+	<page gabarit="quatrieme">
+		<texte>Texte de quatrième de couverture</texte>
+	</gabarit>
+</ouvrage>
