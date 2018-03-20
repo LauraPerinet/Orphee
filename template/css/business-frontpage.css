@@ -37,6 +37,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   position: fixed;
+  z-index: 1032;
+
 }
 
 .black-bg-opacity {
@@ -47,4 +49,12 @@ body {
   top: 0;
   left: 0;
   z-index: 1031;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns:v-on="http://www.w3.org/1999/xhtml">
 
   <head>
 
@@ -58,8 +58,7 @@
     </header>
 
     <!-- Page Content -->
-    <div class="container">
-
+    <div class="container" id="orphee">
 
       <!-- /.row -->
 
@@ -95,9 +94,8 @@
       </div>
       <!-- /.row -->
 
-    </div>
-    <div class="black-bg-opacity">
-      <div class="container popup-log">
+      <div class="black-bg-opacity show" v-on:click="closePopUp()"></div>
+      <div class="container popup-log show">
         <div class="row">
           <div class="col-md-12"><h2>Connectez-vous</h2></div>
         </div>
@@ -113,12 +111,13 @@
                 <input type="password" class="form-control" id="mdp" placeholder="Password">
               </div>
               <button type="submit" class="btn btn-primary">Se connecter</button>
-              <p>Vous n'avez pas encore de compte ? <a href="#">Créez un compte en cliquant ici</a></p>
+              <p >Vous n'avez pas encore de compte ? <a href="#">Créez un compte en cliquant ici</a></p>
             </form>
           </div>
         </div>
       </div>
     </div>
+
     <!-- /.container -->
 
     <!-- Footer -->
@@ -134,7 +133,18 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <script>
+      new Vue({
+          el: '#orphee',
+          data: {
 
+          },
+          methods: {
+              closePopUp: function () {
+                  document.getElementsByClassName("show")[0].classList.toggle("hide");
+                  document.getElementsByClassName("show")[1].classList.toggle("hide");
+              }
+          }
+      });
   </script>
 
   </body>
