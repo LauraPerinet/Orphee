@@ -1,0 +1,9 @@
+<?php
+class Student extends CI_Controller{
+	public view($page="all"){
+		$this->load->helper('url');
+		if(!isset($this->session->user)){
+			redirect("login/view");
+		};
+	}
+}
