@@ -42,8 +42,9 @@ CREATE TABLE Utilisateur(
         ID         int (11) Auto_increment  NOT NULL ,
         Nom        Varchar (50) ,
         MotDePasse Varchar (100) ,
+        Email Varchar (100) ,
         PRIMARY KEY (ID ) ,
-        UNIQUE (Nom )
+        UNIQUE (Nom ,Email )
 )ENGINE=InnoDB;
 
 
