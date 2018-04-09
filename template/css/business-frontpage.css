@@ -30,7 +30,7 @@ body {
 
 
 
-.popup-log {
+.popup-log , .popup-sub {
   width: 500px;
   background-color: #ffffff;
   top: 50%;
