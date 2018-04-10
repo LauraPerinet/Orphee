@@ -12,6 +12,7 @@
 	</title>
 	<link href="<?php echo base_url(); ?>vendor/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
 	<link href="<?php echo base_url(); ?>styles/business-frontpage.css" type="text/css" rel="stylesheet"/>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
