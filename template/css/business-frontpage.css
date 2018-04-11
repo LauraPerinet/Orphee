@@ -14,6 +14,15 @@ body {
   }
 }
 
+footer {
+  margin-top: 50px; 
+}
+
+.centrer {
+  text-align: center;
+}
+
+
 .business-header {
   height: 50vh;
   min-height: 300px;
@@ -61,4 +70,105 @@ body {
 
 h1 {
   text-align: center;
+}
+
+.fiche_form_apercu {
+  padding-bottom: 50px; 
+}
+
+.bloc_form_fiche {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px 0px #d3d3d3;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: auto;
+}
+
+.bloc_form_fiche form {
+  position: absolute;
+  width: 100%;
+  height: 100%; 
+}
+
+
+.bloc_form_fiche:after {
+  padding-bottom: 141.89%;
+  content: "";
+  display: block;
+}
+
+.apercu_page {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px 0px #d3d3d3;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  top: 0;
+}
+
+.apercu_page:after {
+  padding-bottom: 141.89%;
+  content: "";
+  display: block;
+}
+
+.apercu_page:hover {
+  box-shadow: 0px 10px 20px 5px #d3d3d3;
+  top: -5px;
+}
+
+.apercu_page_content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.preview_artiste_portrait {
+  width: 130px;
+  height: 130px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.preview_artiste_couverture {
+  width: 100%;
+  height: 170px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.btn_creer_fiche {
+  font-size: 20px;
+}
+
+/* TEMPLATE TEST */
+
+.template_test {}
+
+.template_test .preview_artiste_portrait {
+  position: absolute;
+  top:120px;
+  left: 20px;
+  width: 130px;
+  height: 130px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
+}
+
+.template_test .preview_artiste_nom {
+  position: absolute;
+  left: 170px;
+  font-size: 27px;
+  text-transform: uppercase;
+  font-weight: 600;
+  top: 170px;
+}
+
+.template_test .preview_artiste_soustitre {
+  position: absolute;
+  left: 170px;
+  top: 210px;
 }
