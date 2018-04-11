@@ -2,19 +2,26 @@
 
 class Fiche extends CI_Controller {
 	private $champsFiche=["Nom","Portrait","Couverture","SousTitre","Description","Citation"];
-	public function creation(){
-		$data['problemes']="";
+	
+	public function __construct(){
+        parent::__construct();
 		$this->load->helper('url', 'form');
-		 $this->load->library('form_validation');
-			if(!isset($this->session->user)){
-				redirect("login/view");
-			};
+		$this->load->library('form_validation');
+		if(!isset($this->session->user)){
+			redirect("login/view");
+		};
+		$this->load->model('InformationSheet_model','ficheManager');
+		
+    }
+	public function creation($fiche=null){
+		$data['fiche']=$fiche;
+		$data['problemes']="";
 		
 		
         $this->form_validation->set_rules('Nom', 'Nom', 'required');
         $this->form_validation->set_rules('Genre', 'Genre', 'required');
         $this->form_validation->set_rules('Description', 'Description', 'required');
-		$this->load->model('fiche_model','ficheManager');
+		
 		
 		if($this->form_validation->run()){
 			$fiche=array();
@@ -65,6 +72,11 @@ class Fiche extends CI_Controller {
 		}
 	}
 	
+	public function modification($id){
+		$fiche=$this->ficheManager->get_fiche($id);
+		$this->creation($fiche);
+	}
+	
 	private function do_upload($inputName, $dir){
 		 $config['upload_path']   = './'.$dir.'/'; 
 		 switch($dir){
@@ -87,38 +99,13 @@ class Fiche extends CI_Controller {
          if ( ! $this->upload->do_upload($inputName)) {
             $error = array('error' => $this->upload->display_errors()); 
 			return false;
-            //$this->load->view('forms/fiche', $error); 
          }
 			
          else { 
             $data = array('upload_data' => $this->upload->data()); 
 			return $this->upload->data('file_name');
-            //$this->load->view('upload_success', $data); 
          } 
-		 
-		/*
-		$filename = $_FILES[$inputName]['name'];
-		$ext = pathinfo($filename, PATHINFO_EXTENSION);
-		switch($dir){
-			case "video":
-				$allowed =  array('mp4', 'ogg', 'mov');
-				break;
-			case "musique":
-				$allowed =  array('mp3');
-				break;
-			default : $allowed=array("jpg", "jpeg", "gif", "png");
-		}
-		
-		if(!in_array($ext,$allowed) ) return false;
-		$uploaddir = base_url().$dir.'/';
-		$uploadfile = $uploaddir . basename($filename);
-		if (move_uploaded_file($_FILES[$inputName]['tmp_name'], $uploadfile)) {
-			echo "oui ".$uploaddir;
-			return $filename;
-		}else{
-			echo "non ".$uploaddir;
-			return false;
-		}*/
+
 		
 	}
 
