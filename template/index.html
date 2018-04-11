@@ -111,7 +111,7 @@
                   <input type="password" class="form-control" id="co_mdp" placeholder="Password">
                 </div>
                 <button type="submit" class="btn btn-primary">Se connecter</button>
-                <p >Vous n'avez pas encore de compte ? <a href="#">Créez un compte en cliquant ici</a></p>
+                <p >Vous n'avez pas encore de compte ? <a href="#" v-on:click="openPopUp('popup-sub')">Créez un compte en cliquant ici</a></p>
               </form>
             </div>
           </div>
@@ -140,7 +140,7 @@
                   <input type="password" class="form-control" id="insc_mdp_2" placeholder="Password">
                 </div>
                 <button type="submit" class="btn btn-primary">Se connecter</button>
-                <p>Vous avez déjà un compte ? <a href="#">Connectez-vous en cliquant ici</a></p>
+                <p>Vous avez déjà un compte ? <a href="#" v-on:click="openPopUp('popup-log')">Connectez-vous en cliquant ici</a></p>
               </form>
             </div>
           </div>
@@ -176,6 +176,9 @@
                   document.getElementsByClassName('show')[0].classList.remove("show");      
               },
               openPopUp: function (className) {
+                  if(document.getElementsByClassName('show')[0] != undefined) {
+                    this.closePopUp();
+                  }
                   document.getElementsByClassName(className)[0].classList.add("show");
                   document.getElementsByClassName(className)[0].classList.remove("hide");
                   document.getElementsByClassName('black-bg-opacity')[0].classList.add("show");
