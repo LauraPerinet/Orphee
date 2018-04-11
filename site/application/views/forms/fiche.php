@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="creationFiche">
 	<?php echo form_open_multipart('fiche/creation');?>
 		<p><label>Nom de l'artiste ou du groupe</label>
 		<input name="Nom"></p>
@@ -20,7 +20,7 @@
 		<p><label>Citation</label>
 		<textarea name="Citation"></textarea></p>
 		
-		<div id="historique">
+		<div >
 			<p>Historique </p>
 			<table >
 				<tr v-for="(dates, index) in histo">
@@ -45,8 +45,10 @@
 		<input type="file" name="Portrait"/>
 		<label>Photo couverture</label>
 		<input type="file" name="Couverture"/>
-		<!--<label>Musique :</label>
-		<input type="file" name="Musique[]" multiple/>-->
+		<p>Musique :</p>
+		<label>Nom du morceau :</label>
+		<input name="nomMusique"/>
+		<input type="file" name="Musique" />
 		<label>Video :</label>
 		<input type="file" name="Video" />
 		<input type="submit" value="Créer la fiche" />
@@ -57,7 +59,7 @@
 	var date=document.getElementById("dateHistorique"); 
 	var dateDescription=document.getElementById("descriptionHistorique"); 
 	new Vue({
-          el: '#historique',
+          el: '#creationFiche',
           data: {
 			dateHisto:"",
 			descriptionHisto:"",
