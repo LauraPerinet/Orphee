@@ -82,7 +82,8 @@ h1 {
   box-shadow: 0px 0px 10px 0px #d3d3d3;
   transition: all 0.2s ease;
   position: relative;
-  overflow: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .bloc_form_fiche form {
@@ -96,6 +97,10 @@ h1 {
   padding-bottom: 141.89%;
   content: "";
   display: block;
+}
+
+.bloc_form_fiche button {
+  width: 100%;
 }
 
 .apercu_page {
@@ -151,24 +156,33 @@ h1 {
 
 .template_test .preview_artiste_portrait {
   position: absolute;
-  top:120px;
-  left: 20px;
-  width: 130px;
-  height: 130px;
+  top:13%;
+  left: 5%;
+  width: 23%;
+  height: 0;
+  padding-bottom: 23%;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
 }
 
 .template_test .preview_artiste_nom {
   position: absolute;
-  left: 170px;
-  font-size: 27px;
+  left: 32%;
+  font-size: 3vh;
   text-transform: uppercase;
   font-weight: 600;
-  top: 170px;
+  top: 21%;
 }
 
 .template_test .preview_artiste_soustitre {
   position: absolute;
   left: 170px;
   top: 210px;
+}
+
+.template_test .preview_artiste_couverture {
+  width: 100%;
+  height: 20%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
