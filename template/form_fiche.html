@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Business Frontpage - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/business-frontpage.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+  </head>
+
+  <body>
+    <div id="orphee">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="#">Orphee</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Accueil
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" v-on:click="openPopUp('popup-log')">Connexion</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" v-on:click="openPopUp('popup-sub')">Inscription</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+    <div class="container" id="fiche">
+        <div class="row">
+            <div class="col-12"><h1>Créer une fiche</h1></div>
+        </div>
+        <div class="row fiche_form_apercu">
+                <div class="col-12 col-md-6">
+                    <div class="bloc_form_fiche">
+                    <form id="form_fiche">
+                        <h2 class="col-12">Détails</h2>
+                        <div class="form-group col-12">
+                            <label for="artiste_nom">Nom de l'artiste ou du groupe*</label>
+                            <input type="text" class="form-control" id="artiste_nom" v-model="artiste_nom" maxlength="30" required>
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="artiste_genre">Genre Musical*</label>
+                            <select class="form-control" id="artiste_genre" v-model="artiste_genre" maxlength="20" required>
+                                <option>1</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="artiste_soustitre">Sous-titre*</label>
+                            <input type="text" class="form-control" id="artiste_soustitre" v-model="artiste_soustitre" maxlength="40" required>
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="artiste_soustitre">Nationalité*</label>
+                            <input type="text" class="form-control" id="artiste_nationalite" v-model="artiste_nationalite" maxlength="42" required>
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="artiste_description">Description*</label>
+                            <textarea class="form-control" id="artiste_description" rows="3" v-model="artiste_description" maxlength="650" required></textarea>
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="artiste_citation">Citation / Punchline*</label>
+                            <textarea class="form-control" id="artiste_citation" rows="1" v-model="artiste_citation" maxlength="100" required></textarea>
+                        </div>
+                        <h2 class="col-12">Discographie</h2>
+                        <div class="form-group col-12">
+                            <div class="row">
+                                <div class="col-12 col-sm-4">
+                                    <label for="artiste_discographie_date">Date*</label>
+                                    <input type="date" class="form-control" id="artiste_discographie_date" v-model="dateHisto" id="dateHistorique" required>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="artiste_discographie_nom">Nom de l'album*</label>
+                                    <input type="text" class="form-control" id="artiste_discographie_nom" v-model="descriptionHisto" id="DescriptionHistorique" required>
+                                    
+                                </div> 
+                                <div class="col-12 col-sm-2">
+                                    <label for="artiste_discographie_nom">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                    <button type="button" class="btn btn-primary" @click="ajouter()" >+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-12">
+                            <div class="row" v-for="(dates, index) in histo">
+                                <div class="col-12 col-sm-4">
+                                    <input type="date" class="form-control" id="artiste_discographie_date" v-bind:value="dates.date" name="dateHisto[]">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" class="form-control" id="artiste_discographie_nom" v-bind:value="dates.description" name="descriptionHisto[]">       
+                                </div> 
+                                <div class="col-12 col-sm-2">
+                                    <button type="button" class="btn btn-danger" @click="supprimer(index)">-</button>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 class="col-12">Multimédia</h2>
+                        <div class="form-group col-12">
+                            <label for="artiste_video_url">Vidéo</label>
+                            <input type="url" class="form-control" id="artiste_video_url" placeholder="https://www.youtube.com/...">
+                        </div>  
+                        <div class="row col-12">
+                            <div class="form-group col-xs-12 col-md-6">
+                                <label for="artiste_portrait">Photo portrait*</label>
+                                <input type="file" class="form-control-file" id="artiste_portrait" @change="previewImage($event,'artiste_portrait')" accept="image/*" required>
+                            </div>
+                            <div class="form-group col-xs-12 col-md-6">
+                                <label for="artiste_couverture">Image de couverture</label>
+                                <input type="file" class="form-control-file" id="artiste_couverture" @change="previewImage($event,'artiste_couverture')" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="artiste_template">Template*</label>
+                            <select class="form-control" id="artiste_template" v-model="artiste_template" maxlength="20" required>
+                                <option>template_test</option>
+                                <option>Template_2</option>
+                            </select>
+                        </div>               
+                    </form>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="apercu_page">
+                        <div class="apercu_page_content" v-bind:class="changeTemplate">
+                            <div class="preview_artiste_couverture" v-if="artiste_couverture.length > 0" :style="{ backgroundImage: 'url(' + artiste_couverture + ')' }"></div>
+                            <div class="preview_artiste_portrait" v-if="artiste_portrait.length > 0" :style="{ backgroundImage: 'url(' + artiste_portrait + ')' }"></div>
+                            <span class="preview_artiste_nom" v-text="artiste_nom"></span>
+                            <span class="preview_artiste_soustitre" v-text="artiste_soustitre"></span>
+                            <span v-text="artiste_genre"></span>                           
+                            <span v-text="artiste_description"></span>
+                            <span v-text="artiste_citation"></span>
+                            <span v-text="artiste_nationalite"></span>                            
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="col-xs-12 centrer">
+            <button type="submit" class="btn btn-primary col-xs-12 btn_creer_fiche" v-on:click="valider_form">Créer la fiche</button>    
+        </div>
+    </div>
+    <script>
+        var date=document.getElementById("dateHistorique"); 
+        var dateDescription=document.getElementById("descriptionHistorique"); 
+        new Vue({
+            el: '#fiche',
+            data: {
+                artiste_nom:"",
+                artiste_genre:"",
+                artiste_soustitre:"",
+                artiste_nationalite:"",
+                artiste_description:"",
+                artiste_citation:"",
+                artiste_portrait: "https://vignette.wikia.nocookie.net/outlast-roblox/images/5/5d/Unknown-person.jpg/revision/latest?cb=20160503161502",
+                artiste_couverture: "https://www.planwallpaper.com/static/images/6909249-black-hd-background.jpg",
+                artiste_template:"template_test",
+                dateHisto:"",
+                descriptionHisto:"",
+                histo:[]
+            },
+            computed: {
+                changeTemplate: function () {
+                    return this.artiste_template;
+                }
+            },
+            methods:{
+                supprimer:function(index){
+                    this.histo.splice(index,1);
+                },
+                ajouter:function(){
+                    if(this.dateHisto && this.descriptionHisto) {
+                        this.histo.push({date:this.dateHisto, description:this.descriptionHisto});
+                    }
+                },
+                previewImage: function(event,img) {
+                    var input = event.target;
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = (e) => {
+                            if(img == "artiste_portrait") this.artiste_portrait = e.target.result;
+                            else if(img == "artiste_couverture") this.artiste_couverture = e.target.result;
+                        }
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                },
+                valider_form: function() {
+                    document.getElementById("form_fiche").submit(); 
+                },
+            }
+        });
+    </script>
+      <!-- Footer -->
+      <footer class="py-5 bg-dark">
+        <div class="container">
+          <p class="m-0 text-center text-white">Copyright &copy; Orphee 2018</p>
+        </div>
+        <!-- /.container -->
+      </footer>
+  </div>
+
+  </body>
+
+</html>
