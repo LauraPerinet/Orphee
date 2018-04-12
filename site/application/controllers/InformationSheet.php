@@ -11,10 +11,19 @@ class InformationSheet extends CI_Controller{
     }
 
     public function show(){
-        $data = $this->InformationSheet->getAllSheets();
-        $this->load->view('template/header');
-        $this->load->view('pages/',$data);
-        $this->load->view('template/footer');
+        $informationSheets = $this->InformationSheet->getAllSheets();
+        if(is_null($informationSheets)){
+                $this->load->view('templates/header');
+                echo "Aucune fiche n'a été trouvé";
+                $this->load->view('templates/footer');
+        }
+        else{
+            $data['InformationSheets'] = $this->InformationSheet->getFormatedSheetsList($informationSheets);
+            $this->load->view('templates/header');
+            $this->load->view('pages/informationSheetSlider',$data);
+            $this->load->view('templates/footer');
+        }
+        
     }
 }
 ?>
