@@ -2,7 +2,7 @@
 
 class InformationSheet_model extends CI_Model{
 
-    protected $table = 'Fiche';
+    protected $table = 'fiche';
 
     public function __construct(){
         parent::__construct();
