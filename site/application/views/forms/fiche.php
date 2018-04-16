@@ -1,16 +1,28 @@
 <div class="container" id="creationFiche">
-	<?php echo form_open_multipart('fiche/creation');	print_r($fiche);?>
+	<?php 
+		$idFicheModifiee = isset($fiche) ? $fiche->ID:"";
+		echo form_open_multipart('fiche/creation/'.$idFicheModifiee);
+		if(isset($problemes)) echo $problemes;
+	?>
+		<p><label>Gabarit fiche</label>
+		<select name="template">
+			<option value="black">Black</option>
+			<option value="black">Black</option>
+			<option value="black">Black</option>
+		</select></p>
 		<p><label>Nom de l'artiste ou du groupe</label>
 		<input name="Nom" <?php if(isset($fiche)) echo 'value="'.$fiche->Nom.'"'; ?>></p>
 		<p><label>Genre musical</label>
 		<select name="Genre">
 			<?php 
+			
 			foreach($genres as $genre){ ?>
 				
-				<option value="<?php echo $genre['ID']; ?>" <?php if(isset($fiche)) echo $fiche->Genre===$genre['Nom'] ? "selected" : "";?>><?php echo $genre['Nom']; ?></option>
+				<option value="<?php echo $genre['ID']; ?>" <?php if(isset($fiche)) echo $fiche->genre===$genre['Nom'] ? "selected" : "";?>><?php echo $genre['Nom']; ?></option>
 			<?php }?>
 		</select></p>
-		
+		<p>Nationnalité
+		<input name="nationnalite" <?php if(isset($fiche)) echo 'value="'.$fiche->nationnalite.'"'; ?>>
 		<p><label>Sous-titre</label>
 		<input name="SousTitre" <?php if(isset($fiche)) echo 'value="'.$fiche->SousTitre.'"'; ?>></p>
 		
@@ -50,7 +62,7 @@
 		<input name="nomMusique" />
 		<input type="file" name="Musique" />
 		<label>Video :</label>
-		<input type="file" name="Video" />
+		<input name="Video" <?php if(isset($fiche)) echo 'value="'.$fiche->Video.'"'; ?>/>
 		<input type="submit" value="Créer la fiche" />
 		
 	</form>

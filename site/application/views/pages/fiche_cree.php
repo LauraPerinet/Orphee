@@ -5,7 +5,7 @@
 		<p><a href="">Retour à la création de fiche</a></p>
 	<?php }else{ ?>
 		<p>La fiche a bien été créée</p>
-		<p><a href="">Voir toutes les fiches</a></p>
+		<p><a href="<?php echo site_url().'/fiche/show'; ?>">Voir toutes les fiches</a></p>
 	<?php } ?>
 	
 </div>
