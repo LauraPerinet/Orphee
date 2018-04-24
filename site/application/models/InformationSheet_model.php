@@ -11,7 +11,7 @@ class InformationSheet_model extends CI_Model{
     }
 
     public function checkResult($query){
-        if($query->num_rows){
+        if($query->num_rows()){
             return $query->result_array();
         }
         else{
@@ -29,8 +29,8 @@ class InformationSheet_model extends CI_Model{
 
     public function getAllSheetsByUser($idUser){
         $query = $this->db->select('*')
-                ->from($this->table)
-                ->join('ficheutilisateur','ficheutilisateur.ID = '.$this->table.'.ID')
+                ->from('fiche')
+                ->join('ficheutilisateur','ficheutilisateur.ID = fiche.ID')
                 ->where('ficheutilisateur.ID_Utilisateur',$idUser)
                 ->get();
 
@@ -82,6 +82,35 @@ class InformationSheet_model extends CI_Model{
         return $sheetPagesList;
     }
 
+    public function get_genres(){
+		return $this->db->select('*')
+			->from("genre")
+			->get()
+			->result_array();
+	}
+	public function get_fiche($id){
+		$query = $this->db->query(
+			"SELECT fiche.*, genre.Nom AS genre FROM fiche
+			INNER JOIN genre ON genre.ID = (SELECT ID_Genre FROM fichegenre WHERE fichegenre.ID=fiche.ID) 
+			WHERE fiche.ID=".$id
+		 )->row();
+		 $query->Historique = $this->db->query(
+			"SELECT DateHistorique, Description FROM historique WHERE ID_Fiche=".$id
+		 )->result();
+		return $query;
+	}
+	
+	public function supprime($id_fiche){
+		$deleteTable=array("ID_Fiche"=>array("historique", "ouvragefiche"),
+			"ID"=>array("fichegenre", "musiquefiche","ficheutilisateur","fiche")
+		);
+		
+		foreach($deleteTable as $colonne=>$tables){
+			foreach($tables as $table){
+				$this->db->query("DELETE FROM ".$table." WHERE ".$colonne."=".$id_fiche);
+			}
+		}
+	}
 }
 
 
