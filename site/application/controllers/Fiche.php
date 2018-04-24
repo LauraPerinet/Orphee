@@ -9,7 +9,7 @@ class Fiche extends CI_Controller {
 		if(!isset($this->session->user)){
 			redirect("login/view");
 		};
-		$this->load->model('InformationSheet_model','ficheManager');
+		$this->load->model('Fiche_model','ficheManager');
 		
     }
 	public function show(){
