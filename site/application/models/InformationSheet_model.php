@@ -89,6 +89,7 @@ class InformationSheet_model extends CI_Model{
 			$this->db->set($key, $value);
 		}
 		if($id_ficheModifiee){
+			$this->db->where('ID', $id_ficheModifiee);
 			$this->db->update("fiche");
 			$idFiche=$id_ficheModifiee;
 		}else{
@@ -149,7 +150,8 @@ class InformationSheet_model extends CI_Model{
 			}
 		}
 	}
-
+	
+	
 }
 
 

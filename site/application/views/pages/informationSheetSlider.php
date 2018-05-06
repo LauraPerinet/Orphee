@@ -38,4 +38,8 @@
 
             </div>
         </div>
-    </div>
+   
+	<div>
+		<a href="<?php echo site_url('fiche/creation'); ?>">Créer une nouvelle fiche</a>
+	</div>
+ </div>

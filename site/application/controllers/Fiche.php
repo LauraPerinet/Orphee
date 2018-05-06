@@ -1,7 +1,7 @@
 <?php
 
 class Fiche extends CI_Controller {
-	private $champsFiche=["Nom","Portrait","Couverture","SousTitre","Description","Citation", "Video", "template","nationnalite"];
+	private $champsFiche=["Nom","Portrait","Couverture","SousTitre","Description","Citation", "template","nationnalite"];
 	
 	public function __construct(){
         parent::__construct();
@@ -15,9 +15,11 @@ class Fiche extends CI_Controller {
     }
 	public function show(){
         $informationSheets = $this->ficheManager->getAllSheetsByUser($this->session->user->ID);
-        if(is_null($informationSheets)){
+
+        if(is_null($informationSheets) || empty($informationSheets)){
+				$data['type']="fiche";
                 $this->load->view('templates/header');
-                echo "Aucune fiche n'a été trouvé";
+                $this->load->view('pages/nothing',$data);
                 $this->load->view('templates/footer');
         }
         else{
@@ -44,10 +46,8 @@ class Fiche extends CI_Controller {
 			$dataFiche=$this->getDataFiche();
 			if(!isset($data["problemes"]) || $data["problemes"]===""){ 
 				if($ficheModifiee){
-					echo "modifie fiche";
 					$this->ficheManager->creation_fiche($dataFiche, $ficheModifiee);
 				}else{
-					echo "creation nouveau fiche";
 					$this->ficheManager->creation_fiche($dataFiche);
 				}
 			}
@@ -151,48 +151,6 @@ class Fiche extends CI_Controller {
 			return $dataFiche;
 	}
 	
-	public function exportEpub($id_fiche){
-		$fiche=$this->ficheManager->get_fiche($id_fiche);
-		$test="Laura";
-		$filename=base_url().'epubs/templates/'.$fiche->template.'.html';
-		$handle=fopen($filename, 'rb');
-		$template=fread($handle, 10000);
-		fclose($handle);
-		/*
-		foreach($this->champsFiche as $champs){
-			$template=str_replace("%".$champs."%", $fiche->$champs, $template);
-		}*/
-		foreach($fiche as $key=>$value){
-			echo $key.'<br/>';
-			if($key==="Historique"){
-				$histo="";
-				foreach($value as $disque){
-					$histo.="<p><span class='dateDisque'>".$disque->DateHistorique."</span><span class='DescriptionHistorique'>".$disque->Description."</span></p>";
-				} 
-				$template=str_replace("%historique%", $histo, $template);
-			}else{
-				$template=str_replace("%".$key."%", $fiche->$key, $template);
-			}
-		}
-		
-		print_r($template);
-		
-		$directory=$this->checkDirectory();
-		if(!copy(base_url()."img/".$fiche->Portrait, $directory.'/'.$fiche->Portrait)){ echo "probleme image";}else{echo "pade de PROBLEME";} ;
-		copy(base_url()."img/".$fiche->Couverture, $directory.'/'.$fiche->Couverture);
-		file_put_contents($directory.'/'.$fiche->ID.'.html', $template);
-		
-	}
-	private function checkDirectory(){
-		$dirname=$this->session->user->ID.$this->session->user->Nom;
-		$filename=FCPATH.'epubs/'.$dirname.'/';
-
-		if (!file_exists($filename)) {
-
-			mkdir(FCPATH.'epubs/'. $dirname, 0777);
-		} 
-		return FCPATH.'epubs/'. $dirname;
-	}
 	
 
 	

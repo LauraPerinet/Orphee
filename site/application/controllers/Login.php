@@ -24,7 +24,7 @@ class Login extends CI_Controller {
 				$this->load->view('forms/'.$page, $data);
 			}
 		}else{
-			
+			$this->load->view('pages/home', $data);
 			$this->load->view('forms/'.$page, $data);
 		}
 		

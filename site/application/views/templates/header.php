@@ -12,6 +12,7 @@
 	</title>
 	<link href="<?php echo base_url(); ?>vendor/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
 	<link href="<?php echo base_url(); ?>styles/business-frontpage.css" type="text/css" rel="stylesheet"/>
+	<link href="<?php echo base_url(); ?>styles/styles.css" type="text/css" rel="stylesheet"/>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
@@ -28,6 +29,14 @@
                 <span class="sr-only">(current)</span>
               </a>
             </li>
+			<?php if(isset($this->session->user)){ ?>
+				<li class="nav-item">
+					<a class="nav-link" href="<?php echo site_url('fiche/show'); ?>">Fiches</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="<?php echo site_url('ouvrage/show'); ?>">Ouvrages</a>
+				</li>
+			<?php } ?>
             <li class="nav-item">
 				<?php if(isset($this->session->user)){ ?>
 					<a class="nav-link" href="<?php echo site_url('login/disconnect'); ?>">Deconnexion</a>

@@ -1,9 +1,11 @@
 <div class="container" id="creationFiche">
+	
 	<?php 
 		$idFicheModifiee = isset($fiche) ? $fiche->ID:"";
 		echo form_open_multipart('fiche/creation/'.$idFicheModifiee);
 		if(isset($problemes)) echo $problemes;
 	?>
+		<h2><?php echo isset($fiche)?"Modifier":"Créer"; ?> une fiche</h2>
 		<p><label>Gabarit fiche</label>
 		<select name="template">
 			<option value="black">Black</option>
@@ -57,13 +59,14 @@
 		<input type="file" name="Portrait" />
 		<label>Photo couverture</label>
 		<input type="file" name="Couverture"/>
+		<!--
 		<p>Musique :</p>
 		<label>Nom du morceau :</label>
 		<input name="nomMusique" />
 		<input type="file" name="Musique" />
 		<label>Video :</label>
-		<input name="Video" <?php if(isset($fiche)) echo 'value="'.$fiche->Video.'"'; ?>/>
-		<input type="submit" value="Créer la fiche" />
+		<input type="file" name="Video" />-->
+		<input type="submit" value="Créer la fiche" /> 
 		
 	</form>
 </div>
