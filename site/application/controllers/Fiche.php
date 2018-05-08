@@ -118,7 +118,7 @@ class Fiche extends CI_Controller {
 					$ficheData[$type]=$this->do_upload($type, $dir);
 					if(!$ficheData[$type]) $data['problemes'] .= "<br/>Mauvaise extension pour le fichier ".$type;
 				}else{
-					$ficheData[$type]="default".$type.".jpg";
+					if($dir=="img") $ficheData[$type]="default".$type.".jpg";
 				}
 			}
 			 

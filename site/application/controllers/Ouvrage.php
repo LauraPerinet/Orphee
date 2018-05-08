@@ -213,20 +213,32 @@ class Ouvrage extends CI_Controller{
 				array("lang","fr")
 			),
 			"manifest"=>array(
-				array("ncx1","summary.html","application/xhtml+xml")
+				array("html1","summary.html","application/xhtml+xml"),
+				array("imgCouvOuvrage",$book->imagecouverture,"image/".substr($book->imagecouverture, strrpos($book->imagecouverture, '.'))),
+				array("imgCouvOuvrage","black.css","text/css")
 			),
 			"toc"=>array(
-				array("ncx1","summary.html","Sommaire")
+				array("html1","summary.html","Sommaire")
 			),
 			"spine"=>array(
-				array("ncx1")
+				array("html1")
 			)
 		);
+		echo "From Ouvrage controller l.227<br/>";
+		echo "A completer :  gestion dynamique export fueilles de style";
+		
 		$i=2;
 		foreach($book->fiches as $fiche){
-			array_push($data["manifest"], array("ncx".$i,$fiche->ID.".html","application/xhtml+xml"));
-			array_push($data["toc"], array("ncx".$i,$fiche->ID.".html",$fiche->Nom));
-			array_push($data["spine"], array("ncx".$i));
+			var_dump($fiche);
+			array_push($data["manifest"], array("html".$i,$fiche->ID.".html","application/xhtml+xml"));
+			array_push($data["manifest"], array("imgPortrait".$i,$fiche->Portrait,"image/".substr($fiche->Portrait, strrpos($fiche->Portrait, '.'))));
+			array_push($data["manifest"], array("imgCouverture".$i,$fiche->Couverture,"image/".substr($fiche->Portrait, strrpos($fiche->Couverture, '.'))));
+			if(isset($fiche->Video)){
+				array_push($data["manifest"], array("video".$i,$fiche->Video,"video/".substr($fiche->Portrait, strrpos($fiche->Couverture, '.'))));
+			}
+			
+			array_push($data["toc"], array("html".$i,$fiche->ID.".html",$fiche->Nom));
+			array_push($data["spine"], array("html".$i));
 			$i++;
 		}
 		foreach($data as $filename=>$content){
@@ -236,6 +248,9 @@ class Ouvrage extends CI_Controller{
 			}
 			fclose($fp);
 		}
+		$identifier = fopen($directory.'/identifier', 'w');
+		fputcsv($identifier,array($directory.'_'.date("Y_m_d"), ":"));
+		fclose($identifier);
 		
 
 		

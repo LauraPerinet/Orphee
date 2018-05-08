@@ -14,7 +14,11 @@
                             <div class="row">
                             <?php foreach($sheetRow as $sheet):?>
                                 <div class="col-xs-2">
+<<<<<<< HEAD
                                     <img src="<?php echo base_url().'img/'; echo $sheet['Portrait']; ?>" class="img-responsive">
+=======
+                                    <img src="<?php echo base_url(); echo $sheet['Portrait']; ?>" class="img-responsive">
+>>>>>>> af08c6ac2455015b3c639d65f67cecf6caba68e5
                                     <div>
                                         <h5><?php echo $sheet['Nom']; ?></h5>
                                         <p><?php echo $sheet['SousTitre']; ?></p>
@@ -38,8 +42,12 @@
 
             </div>
         </div>
+<<<<<<< HEAD
    
 	<div>
 		<a href="<?php echo site_url('fiche/creation'); ?>">Créer une nouvelle fiche</a>
 	</div>
  </div>
+=======
+    </div>
+>>>>>>> af08c6ac2455015b3c639d65f67cecf6caba68e5
