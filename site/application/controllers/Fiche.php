@@ -68,38 +68,40 @@ class Fiche extends CI_Controller {
 	}
 	
 	private function do_upload($inputName, $dir){
-		 $config['upload_path']   = './'.$dir.'/'; 
-		 switch($dir){
-			 case "video":
-				$config['allowed_types'] = 'mp4|ogg|mov'; 
-				break;
-			 case "musique":
-				$config['allowed_types'] = 'mp3'; 
-				break;
-			 case "img":
-				$config['allowed_types'] = 'gif|jpg|png|jpeg'; 
-				break;
-		 }
-         
-         $config['max_size']      = 1000; 
-         $config['max_width']     = 2000; 
-         $config['max_height']    = 2000;  
-         $this->load->library('upload', $config);
-			
-         if ( ! $this->upload->do_upload($inputName)) {
-            $error = array('error' => $this->upload->display_errors()); 
-			print_r($error);
-			return false;
-         }
-			
-         else { 
-            $data = array('upload_data' => $this->upload->data()); 
-			return $this->upload->data('file_name');
-         } 
-
-		
+			 $config['upload_path']   = './'.$dir.'/'; 
+			 switch($dir){
+				 case "video":
+					$config['allowed_types'] = 'mp4|ogg|mov'; 
+					break;
+				 case "musique":
+					$config['allowed_types'] = 'mp3'; 
+					break;
+				 case "img":
+					$config['allowed_types'] = 'gif|jpg|png|jpeg'; 
+					break;
+			 }
+			 
+			 $config['max_size']      = 1000; 
+			 $config['max_width']     = 2000; 
+			 $config['max_height']    = 2000;  
+			 $this->load->library('upload', $config);
+				
+			 if ( ! $this->upload->do_upload($inputName)) {
+				$error = array('error' => $this->upload->display_errors()); 
+				print_r($error);
+				return false;
+			 }
+				
+			 else { 
+				$data = array('upload_data' => $this->upload->data()); 
+				return $this->upload->data('file_name');
+			 }
+				
 	}
 	public function suppression($id_fiche){
+		$fiche=$this->ficheManager->get_fiche($id_fiche);
+		unlink("./img/".$fiche->Portrait);
+		unlink("./img/".$fiche->Couverture);
 		$this->ficheManager->supprime($id_fiche);
 		$this->show();
 	}
@@ -115,6 +117,8 @@ class Fiche extends CI_Controller {
 				if(isset($_FILES[$type]) && !empty($_FILES[$type]['name'])){
 					$ficheData[$type]=$this->do_upload($type, $dir);
 					if(!$ficheData[$type]) $data['problemes'] .= "<br/>Mauvaise extension pour le fichier ".$type;
+				}else{
+					$ficheData[$type]="default".$type.".jpg";
 				}
 			}
 			 

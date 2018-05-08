@@ -1,5 +1,8 @@
 <div class="container" id="creationFiche">
-	
+	TO DO :<br/>
+	- Gestion des fichiers video et musique à l'import et export format epub
+	<br/>-Modification : récupération des noms des fichiers video, musique et images et suppression si l'utilisateur en change
+	<br/>- Modification : récupération de l'historique
 	<?php 
 		$idFicheModifiee = isset($fiche) ? $fiche->ID:"";
 		echo form_open_multipart('fiche/creation/'.$idFicheModifiee);

@@ -110,7 +110,12 @@ class Ouvrage extends CI_Controller{
 		redirect("ouvrage/completerOuvrage/".$id_book);
 	}
 	public function addSheet($id_book=null, $id_sheet=null){
-		if($id_book && $id_sheet) $this->bookManager->addSheet($id_book, $id_sheet);
+		if($id_book && $id_sheet) $this->bookManager->addSheet($id_book, $id_sheet, count($this->bookManager->getBook($id_book)->fiches));
+		redirect("ouvrage/completerOuvrage/".$id_book);
+	}
+	
+	public function moveSheet($id_book=null, $id_sheet=null, $sens){
+		$this->bookManager->changePage($id_book, $id_sheet, $sens);
 		redirect("ouvrage/completerOuvrage/".$id_book);
 	}
 	public function export($id){
@@ -206,8 +211,24 @@ class Ouvrage extends CI_Controller{
 				array("title",$book->Nom),
 				array("author",$book->Auteur),
 				array("lang","fr")
+			),
+			"manifest"=>array(
+				array("ncx1","summary.html","application/xhtml+xml")
+			),
+			"toc"=>array(
+				array("ncx1","summary.html","Sommaire")
+			),
+			"spine"=>array(
+				array("ncx1")
 			)
 		);
+		$i=2;
+		foreach($book->fiches as $fiche){
+			array_push($data["manifest"], array("ncx".$i,$fiche->ID.".html","application/xhtml+xml"));
+			array_push($data["toc"], array("ncx".$i,$fiche->ID.".html",$fiche->Nom));
+			array_push($data["spine"], array("ncx".$i));
+			$i++;
+		}
 		foreach($data as $filename=>$content){
 			$fp = fopen($directory.'/'.$filename.'.csv', 'w');
 			foreach ($content as $row) {

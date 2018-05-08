@@ -24,10 +24,11 @@ class Book_model extends CI_Model{
 	
 	public function getBook($id){
 		$book=$this->db->query("SELECT * FROM ouvrage WHERE ID=".$id." AND ID_utilisateur=".$this->session->user->ID)->row();
-		$book->fiches=$this->db->query("SELECT fiche.ID, Nom, Portrait from fiche, ouvragefiche WHERE ouvragefiche.ID=".$id." AND fiche.ID=ouvragefiche.ID_Fiche")->result();
+		$book->fiches=$this->db->query("SELECT fiche.ID, Nom, Portrait, Page from fiche, ouvragefiche WHERE ouvragefiche.ID=".$id." AND fiche.ID=ouvragefiche.ID_Fiche ORDER BY ouvragefiche.Page")->result();
 			
 		return $book;
 	}
+	
 	public function deleteBook($id){
 		$this->db->query("DELETE FROM ouvragefiche WHERE ID=".$id);
 		$this->db->query("DELETE FROM ouvrage WHERE ID=".$id);
@@ -38,4 +39,49 @@ class Book_model extends CI_Model{
 	public function addSheet($id_book, $id_sheet, $num){
 		$this->db->set("ID", $id_book)->set('ID_Fiche', $id_sheet)->set("Page", $num)->insert("ouvragefiche");
 	}
+	public function changePage($id_book, $id_sheet, $sens){
+		$page=$this->db->query("SELECT Page FROM ouvragefiche WHERE ID=".$id_book." AND ID_Fiche=".$id_sheet)->row()->Page;
+		$newPage = $sens=="right" ? $page+1 : $page-1;
+		
+		
+		$query="UPDATE ouvragefiche SET Page=".$page." WHERE ID=".$id_book." AND Page=".$newPage;
+		$query2="UPDATE ouvragefiche SET Page=".$newPage." WHERE ID=".$id_book." AND ID_Fiche=".$id_sheet;
+		$this->db->query("UPDATE ouvragefiche SET Page=".$page." WHERE ID=".$id_book." AND Page=".$newPage);
+		$this->db->query("UPDATE ouvragefiche SET Page=".$newPage." WHERE ID=".$id_book." AND ID_Fiche=".$id_sheet);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

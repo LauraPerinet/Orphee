@@ -14,6 +14,7 @@ footer{clear:both;}
 	width:46px;
 	float:left;
 	margin-left:-10px;
+	clear:both;
 }
 .action .delete, .action .addSheet{
 	width:30px;
@@ -23,6 +24,22 @@ footer{clear:both;}
 }
 .action .addSheet{
 	background-position:30px top;
+}
+.action.move{
+	top:-35px;
+}
+.action.move div{
+	background-image:url(../img/actions_fleche.png);
+	width:42px;
+}
+.action .moveLeft{
+	margin-left:-10px;
+	float:left;
+}
+.action .moveRight{
+	float:right;
+	margin-right:-10px;
+	background-position:right top;
 }
 .sheet{
 	width:18%;
