@@ -18,8 +18,8 @@
                                     <div>
                                         <h5><?php echo $sheet['Nom']; ?></h5>
                                         <p><?php echo $sheet['SousTitre']; ?></p>
-                                        <a role="button" class="btn btn-primary" href="<?php echo base_url(); echo "index.php/Fiche/modification/"; echo $sheet['ID']; ?>">Modifier</a>
-                                        <a role="button" class="btn btn-danger" href="<?php echo base_url(); echo "index.php/Fiche/suppression/"; echo $sheet['ID']; ?>">Supprimer</a>
+                                        <a role="button" class="btn orphee-btn" href="<?php echo base_url(); echo "index.php/Fiche/modification/"; echo $sheet['ID']; ?>">Modifier</a>
+                                        <a role="button" class="btn orphee-btn orphee-btn-error" href="<?php echo base_url(); echo "index.php/Fiche/suppression/"; echo $sheet['ID']; ?>">Supprimer</a>
                                     </div>
                                 </div>
                             <?php endforeach;?>
@@ -40,6 +40,6 @@
         </div>
    
 	<div>
-		<a href="<?php echo site_url('fiche/creation'); ?>">Créer une nouvelle fiche</a>
+		<a href="<?php echo site_url('fiche/creation'); ?>" class="orphee-link">Créer une nouvelle fiche</a>
 	</div>
  </div>
