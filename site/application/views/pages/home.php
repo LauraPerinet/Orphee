@@ -44,7 +44,7 @@
 
     <div class="black-bg-opacity hide" v-on:click="closePopUp()"></div>
     <div class="container popup-log hide orphee-bloc">
-        <div class="row">
+        <div class="row title-form">
             <div class="col-md-12"><h2>Connectez-vous</h2></div>
         </div>
         <div class="row">
@@ -53,11 +53,11 @@
                 <?php echo form_open('login/view'); ?>
                     <div class="form-group">
                         <label for="co_email">Votre email</label>
-                        <input type="email" name="email" class="form-control orphee-btn" id="co_email" aria-describedby="emailHelp" placeholder="">
+                        <input type="email" name="email" class="form-control orphee-input" id="co_email" aria-describedby="emailHelp" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="co_mdp">Mot de passe</label>
-                        <input type="password" name="MotDePasse" class="form-control orphee-btn" id="co_mdp" placeholder="">
+                        <input type="password" name="MotDePasse" class="form-control orphee-input" id="co_mdp" placeholder="">
                     </div>
                     <button type="submit" class="btn orphee-btn">Se connecter</button>
                     <p >Vous n'avez pas encore de compte ? <a href="#" v-on:click="openPopUp('popup-sub')" class="orphee-link">Créez un compte en cliquant ici</a></p>
@@ -66,7 +66,7 @@
         </div>
     </div>
     <div class="container popup-sub hide orphee-bloc">
-        <div class="row">
+        <div class="row title-form">
             <div class="col-md-12"><h2>Créer votre compte</h2></div>
         </div>
         <div class="row">
@@ -74,19 +74,19 @@
                 <form>
                     <div class="form-group">
                         <label for="insc_name">Votre nom</label>
-                        <input type="email" class="form-control orphee-btn" id="insc_name" aria-describedby="emailHelp" placeholder="">
+                        <input type="text" class="form-control orphee-input" id="insc_name" aria-describedby="emailHelp" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="insc_email">Votre email</label>
-                        <input type="email" class="form-control orphee-btn" id="insc_email" aria-describedby="emailHelp" placeholder="">
+                        <input type="email" class="form-control orphee-input" id="insc_email" aria-describedby="emailHelp" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="insc_mdp_1">Mot de passe</label>
-                        <input type="password" class="form-control orphee-btn" id="insc_mdp_1" placeholder="">
+                        <input type="password" class="form-control orphee-input" id="insc_mdp_1" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="insc_mdp_2">Entrez de nouveau votre mot de passe</label>
-                        <input type="password" class="form-control orphee-btn" id="insc_mdp_2" placeholder="">
+                        <input type="password" class="form-control orphee-input" id="insc_mdp_2" placeholder="">
                     </div>
                     <button type="submit" class="btn btn-primary orphee-btn">Se connecter</button>
                     <p>Vous avez déjà un compte ? <a href="#" v-on:click="openPopUp('popup-log')" class="orphee-link">Connectez-vous en cliquant ici</a></p>

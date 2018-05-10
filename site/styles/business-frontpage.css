@@ -49,6 +49,11 @@ footer {
   position: fixed;
   z-index: 1032;
   padding: 20px 50px 20px 50px;
+    opacity: 0.9;
+    transition: all 0.4s ease;
+}
+.popup-log:hover , .popup-sub:hover {
+    opacity: 1;
 }
 
 .black-bg-opacity {
@@ -190,6 +195,33 @@ h1 {
 
 
 /* ORPHEE STYLE */
+.orphee-input {
+    border:none;
+    background-color: #EFEFEF;
+    transition: all 0.4s ease;
+    outline: none;
+    border : 2px solid #ffffff;
+}
+.orphee-input:focus {
+    border-radius: 50px;
+    outline: none;
+    background-color: #EFEFEF;
+    box-shadow: none;
+}
+.orphee-input:invalid {
+    color: #BF263C;
+    box-shadow: none;
+}
+.orphee-input:focus:invalid {
+    color: #BF263C;
+    box-shadow: none;
+    outline: none;
+    border : 2px solid #BF263C;
+}
+.orphee-input:focus:valid {
+    border : 2px solid #48CFAD;
+}
+
 .orphee-btn {
   padding: 5px 15px;
   border-radius: 3px;
@@ -206,7 +238,6 @@ h1 {
   border-radius: 50px;
   box-shadow: 0px 1px 10px #A2A2A2;
   outline: none;
-  
 }
 .orphee-btn:active {
   animation-duration: 0.4s;
@@ -266,6 +297,10 @@ h1 {
     position: absolute;
     width: 100%;
     top: 200px;
+}
+
+.title-form {
+    padding-bottom: 50px;
 }
 
 #background-home {
