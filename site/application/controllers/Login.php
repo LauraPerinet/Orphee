@@ -21,11 +21,11 @@ class Login extends CI_Controller {
 				redirect("pages/view/home");
 			}else{
 				$this->load->view('pages/home', $data);
-				$this->load->view('forms/'.$page, $data);
+//				$this->load->view('forms/'.$page, $data);
 			}
 		}else{
 			$this->load->view('pages/home', $data);
-			$this->load->view('forms/'.$page, $data);
+//			$this->load->view('forms/'.$page, $data);
 		}
 		
 		$this->load->view('templates/footer', $data);

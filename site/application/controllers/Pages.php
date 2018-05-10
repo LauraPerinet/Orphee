@@ -1,7 +1,7 @@
 <?php
 class Pages extends CI_Controller {
 	public function view($page='home'){
-			$this->load->helper('url');
+			$this->load->helper(array('url','form'));
 			if(!isset($this->session->user)){
 				redirect("login/view");
 			};

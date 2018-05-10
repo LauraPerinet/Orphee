@@ -55,7 +55,7 @@ class Fiche extends CI_Controller {
 			$this->load->view('pages/fiche_cree', $data);
 			$this->load->view('templates/footer');
 		}else{
-			echo "Problemes : ".$this->problemes;
+
 			$data['problemes']=$this->problemes;
 			$this->load->view('templates/header');
 			$this->load->view('forms/fiche',$data);

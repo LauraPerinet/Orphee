@@ -47,7 +47,7 @@ footer {
   transform: translate(-50%, -50%);
   position: fixed;
   z-index: 1032;
-
+  padding: 20px 50px 20px 50px;
 }
 
 .black-bg-opacity {
@@ -185,4 +185,66 @@ h1 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+
+/* ORPHEE STYLE */
+.orphee-btn {
+  padding: 5px 15px;
+  border-radius: 3px;
+  border : 2px solid #48CFAD !important;
+  background-color: #ffffff;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  box-shadow: 0px 0px 1px #676767;
+  color: #000000;
+}
+.orphee-btn:hover, .orphee-btn:focus {
+  background-color: #48CFAD;
+  color: #ffffff;
+  border-radius: 50px;
+  box-shadow: 0px 1px 10px #A2A2A2;
+  outline: none;
+  
+}
+.orphee-btn:active {
+  animation-duration: 0.4s;
+  animation-name: click;
+  animation-timing-function: ease; 
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+.orphee-btn-error {
+  border-color: #BF263C;
+  color: #BF263C;
+}
+.orphee-btn-error:hover, .orphee-btn-error:focus {background-color:#BF263C;}
+
+.orphee-link {
+  color: #48CFAD;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+.orphee-link:hover {
+  color: #48CFAD;
+  text-decoration: none;
+  background-color: rgba(72,207,173,0.1);
+}
+
+.orphee-bloc {
+  border-radius: 3px;
+}
+
+
+
+@keyframes click {
+  0% {
+    border-radius: 15px;
+  }
+
+  100% {
+    border-radius: 2px;
+  }
 }
