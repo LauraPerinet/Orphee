@@ -103,4 +103,29 @@
     for(let i=0;nav_link.length;i++) {
         nav_link[i].style.color = "#ffffff";
     }
+	 <script>
+        new Vue({
+            el: '#orphee',
+            data: {
+
+            },
+            methods: {
+                closePopUp: function () {
+                    document.getElementsByClassName('show')[0].classList.add("hide");
+                    document.getElementsByClassName('show')[0].classList.remove("show");
+                    document.getElementsByClassName('show')[0].classList.add("hide");
+                    document.getElementsByClassName('show')[0].classList.remove("show");
+                },
+                openPopUp: function (className) {
+                    if(document.getElementsByClassName('show')[0] != undefined) {
+                        this.closePopUp();
+                    }
+                    document.getElementsByClassName(className)[0].classList.add("show");
+                    document.getElementsByClassName(className)[0].classList.remove("hide");
+                    document.getElementsByClassName('black-bg-opacity')[0].classList.add("show");
+                    document.getElementsByClassName('black-bg-opacity')[0].classList.remove("hide");
+                }
+            }
+        });
+    </script>
 </script>

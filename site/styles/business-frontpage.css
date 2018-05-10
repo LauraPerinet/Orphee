@@ -48,12 +48,16 @@ footer {
   transform: translate(-50%, -50%);
   position: fixed;
   z-index: 1032;
+<<<<<<< HEAD
+
+=======
   padding: 20px 50px 20px 50px;
     opacity: 0.9;
     transition: all 0.4s ease;
 }
 .popup-log:hover , .popup-sub:hover {
     opacity: 1;
+>>>>>>> 106296a5ba6956d2cb7b43b3a2f9ca137a0cf367
 }
 
 .black-bg-opacity {
@@ -136,7 +140,7 @@ h1 {
   height: 100%;
 }
 
-.preview_artiste_portrait {
+.preview_Portrait {
   width: 130px;
   height: 130px;
   background-size: cover;
@@ -144,7 +148,7 @@ h1 {
   background-position: center;
 }
 
-.preview_artiste_couverture {
+.preview_Couverture {
   width: 100%;
   height: 170px;
   background-size: cover;
@@ -191,8 +195,73 @@ h1 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  
 }
 
+
+/* Black CSS */
+.black{
+	background-color:#000;
+	color:#fff;
+	padding:30px;
+	font-size:130%;
+	font-family:arial, sans-serif;
+}
+.black #header{
+	height:250px;
+	overflow:hidden;
+}
+.black #header img{
+	width:100%;
+}
+.black #content{
+	background-color:#333;
+	padding:20px;
+}
+.black #Generalites p{
+	display:inline-block;
+	float:left;
+	width:65%;
+	margin-right:5%;
+}
+.black #encartPortrait{
+	width:30%;
+	display:inline-block;
+	float:left;
+}
+.black #thumbPortrait{
+	overflow:hidden;
+	height:200px;
+}
+.black #thumbPortrait img{
+	width:99%;
+	border:1px solid #8ed1c1;
+}
+.black #encartPortrait h1{
+	font-size:140%;
+}
+.black #encartPortrait .genre{
+	text-align:center;
+	background-color:#555;
+	width:100%;
+	padding:10px 0;
+	border-radius:10px;
+}
+.black #citation{
+	clear:left;
+	font-style:italic;
+	font-size:150%;
+}
+.black #discographie .dateDisque{
+	color:#8ed1c1;
+}
+body.autreTemplate{
+	background-color:red;
+}
+video{width:100%;}
+.morceau img{
+	width:50px;
+}
 
 /* ORPHEE STYLE */
 .orphee-input {
@@ -357,4 +426,5 @@ h1 {
   100% {
     border-radius: 2px;
   }
+>>>>>>> 106296a5ba6956d2cb7b43b3a2f9ca137a0cf367
 }

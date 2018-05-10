@@ -1,6 +1,7 @@
 a{
 	text-decoration:none;
 }
+.hidden{display:none !important;}
 footer{clear:both;}
 .action{
 	position:relative;
