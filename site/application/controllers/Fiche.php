@@ -1,7 +1,8 @@
 <?php
 
 class Fiche extends CI_Controller {
-	private $champsFiche=["Nom","Portrait","Couverture","SousTitre","Description","Citation"];
+	private $champsFiche=["Nom","Portrait","Couverture","SousTitre","Description","Citation", "template","nationnalite"];
+	private $problemes;
 	
 	public function __construct(){
         parent::__construct();
@@ -13,27 +14,114 @@ class Fiche extends CI_Controller {
 		$this->load->model('InformationSheet_model','ficheManager');
 		
     }
-	public function creation($fiche=null){
-		$data['fiche']=$fiche;
+	public function show(){
+        $informationSheets = $this->ficheManager->getAllSheetsByUser($this->session->user->ID);
+
+        if(is_null($informationSheets) || empty($informationSheets)){
+				$data['type']="fiche";
+                $this->load->view('templates/header');
+                $this->load->view('pages/nothing',$data);
+                $this->load->view('templates/footer');
+        }
+        else{
+            $data['InformationSheets'] = $this->ficheManager->getFormatedSheetsList($informationSheets);
+            $this->load->view('templates/header');
+            $this->load->view('pages/informationSheetSlider',$data);
+            $this->load->view('templates/footer');
+        }
+        
+    }
+	
+	public function creation($ficheModifiee=null){
+		$data['fiche']=$ficheModifiee;
 		$data['problemes']="";
 		
 		
         $this->form_validation->set_rules('Nom', 'Nom', 'required');
-        $this->form_validation->set_rules('Genre', 'Genre', 'required');
         $this->form_validation->set_rules('Description', 'Description', 'required');
 		
+		$data["genres"]=$this->ficheManager->get_genres();
 		
 		if($this->form_validation->run()){
-			$fiche=array();
+			$dataFiche=$this->getDataFiche();
+			if(!isset($this->problemes) || $this->problemes===""){ 
+				if($ficheModifiee){
+					$this->ficheManager->creation_fiche($dataFiche, $ficheModifiee);
+				}else{
+					$this->ficheManager->creation_fiche($dataFiche);
+				}
+			}
+			$this->load->view('templates/header');
+			$this->load->view('pages/fiche_cree', $data);
+			$this->load->view('templates/footer');
+		}else{
+			echo "Problemes : ".$this->problemes;
+			$data['problemes']=$this->problemes;
+			$this->load->view('templates/header');
+			$this->load->view('forms/fiche',$data);
+			$this->load->view('templates/footer');
+		}
+	}
+	
+	public function modification($id){
+		$ficheModifiee=$this->ficheManager->get_fiche($id);
+		$this->creation($ficheModifiee);
+	}
+	
+	private function do_upload($inputName, $dir){
+			 $config['upload_path']   = './'.$dir.'/'; 
+			 switch($dir){
+				 case "video":
+					$config['allowed_types'] = 'mp4|ogg|mov'; 
+					$config['max_size']      = 10000; 
+					break;
+				 case "musique":
+					$config['allowed_types'] = 'mp3'; 
+					$config['max_size']      = 10000; 
+					
+					break;
+				 case "img":
+					$config['allowed_types'] = 'gif|jpg|png|jpeg'; 
+					$config['max_size']      = 10000; 
+					$config['max_width']     = 2000; 
+					$config['max_height']    = 2000;  
+					break;
+			 }
+			 
+			 $this->load->library('upload', $config);
+				
+			 if ( ! $this->upload->do_upload($inputName)) {
+				return array('input'=>$inputName, 'error' => $this->upload->display_errors()); 
+				//return false;
+			 }
+				
+			 else { 
+				$data = array('upload_data' => $this->upload->data()); 
+				return $this->upload->data('file_name');
+			 }
+				
+	}
+	public function suppression($id_fiche){
+		$fiche=$this->ficheManager->get_fiche($id_fiche);
+		if($fiche->Portrait !=="defaultPortrait.jpg") unlink("./img/".$fiche->Portrait);
+		if($fiche->Couverture !=="defaultCouverture.jpg") unlink("./img/".$fiche->Couverture);
+		if(isset($fiche->Video)) unlink("./video/".$fiche->Video);
+		$this->ficheManager->supprime($id_fiche);
+		$this->show();
+	}
+	public function getDataFiche(){
+		
+			$ficheData=array();
 			foreach($this->champsFiche as $key){
-				$fiche[$key]=$this->input->post($key);
+				$ficheData[$key]=$this->input->post($key);
 			}
 			
 			$fichiers=array("Video"=>"video", "Portrait"=>"img", "Couverture"=>"img");
 			foreach($fichiers as $type=>$dir){
 				if(isset($_FILES[$type]) && !empty($_FILES[$type]['name'])){
-					$fiche[$type]=$this->do_upload($type, $dir);
-					if(!$fiche[$type]) $data['problemes'] .= "<br/>Mauvaise extension pour le fichier ".$type;
+					$ficheData[$type]=$this->do_upload($type, $dir);
+				}else{
+					if($dir=="img") $ficheData[$type]="default".$type.".jpg";
 				}
 			}
 			 
@@ -53,61 +141,65 @@ class Fiche extends CI_Controller {
 				}
 			}
 			$musique=null;
-			if(isset($_FILES["Musique"]) && !empty($_FILES["Musique"]['name'])){
-				$musique=array(
-					"Nom"=>$this->input->post("nomMusique"),
-					"Chemin"=>$this->do_upload("Musique", "musique")
-				);
-				if(!$musique["Chemin"]) $data["problemes"].="<br/>Mauvaise extension pour le fichier Musique.";
+			for($i=0;$i<3;$i++){
+				if(isset($_FILES["mp3Musique".$i]) && !empty($_FILES["mp3Musique".$i]['name'])){
+					$nom = empty($this->input->post("nomMusique".$i)) ? "Morceau ".$i+1 : $this->input->post("nomMusique".$i);
+					//$image=empty($_FILES["imgMusique".$i]["name"]) ? "defaultMusique.jpg" : $this->do_upload("imgMusique".$i,"img");
+					$image= "defaultMusique.jpg";
+					$musique=array(
+						"Nom"=> $nom,
+						"Chemin"=>$this->do_upload("mp3Musique".$i, "musique"),
+						"image"=>$image
+					);
+					var_dump($musique["Chemin"]);
+					//if(!$musique["Chemin"]) echo "<br/>Mauvaise extension pour le fichier Musique.";
+				}
 			}
-			if(!isset($data["problemes"]) && $data["problemes"]==="") $this->ficheManager->creation_fiche($fiche, $ficheGenre,$historique, $musique);
-			$this->load->view('templates/header');
-			$this->load->view('pages/fiche_cree', $data);
-			$this->load->view('templates/footer');
-		}else{
-			$data["genres"]=$this->ficheManager->get_genres();
-			$this->load->view('templates/header');
-			$this->load->view('forms/fiche',$data);
-			$this->load->view('templates/footer');
-		}
+			
+			$dataFiche=array(
+				"fiche"=>$ficheData,
+				"fichegenre"=>$ficheGenre,
+				"historique"=>$historique,
+				"musique"=>$musique
+			);
+			
+			return $dataFiche;
 	}
 	
-	public function modification($id){
-		$fiche=$this->ficheManager->get_fiche($id);
-		$this->creation($fiche);
-	}
 	
-	private function do_upload($inputName, $dir){
-		 $config['upload_path']   = './'.$dir.'/'; 
-		 switch($dir){
-			 case "video":
-				$config['allowed_types'] = 'mp4|ogg|mov'; 
-				break;
-			 case "musique":
-				$config['allowed_types'] = 'mp3'; 
-				break;
-			 case "img":
-				$config['allowed_types'] = 'gif|jpg|png'; 
-				break;
-		 }
-         
-         $config['max_size']      = 100; 
-         $config['max_width']     = 1024; 
-         $config['max_height']    = 768;  
-         $this->load->library('upload', $config);
-			
-         if ( ! $this->upload->do_upload($inputName)) {
-            $error = array('error' => $this->upload->display_errors()); 
-			return false;
-         }
-			
-         else { 
-            $data = array('upload_data' => $this->upload->data()); 
-			return $this->upload->data('file_name');
-         } 
-
-		
-	}
 
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

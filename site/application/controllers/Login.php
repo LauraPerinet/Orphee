@@ -20,12 +20,11 @@ class Login extends CI_Controller {
 			if($this->testConnexion()){
 				redirect("pages/view/home");
 			}else{
-
 				$this->load->view('pages/home', $data);
 				$this->load->view('forms/'.$page, $data);
 			}
 		}else{
-			
+			$this->load->view('pages/home', $data);
 			$this->load->view('forms/'.$page, $data);
 		}
 		
@@ -42,7 +41,7 @@ class Login extends CI_Controller {
 	private function testConnexion(){
 		$email = $this->input->post("email");
 		
-		$query=$this->db->query('SELECT * FROM Utilisateur where email="'.$email.'"' );
+		$query=$this->db->query('SELECT * FROM utilisateur where email="'.$email.'"' );
 
 		$user=$query->row();
 		
