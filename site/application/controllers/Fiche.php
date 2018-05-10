@@ -55,7 +55,7 @@ class Fiche extends CI_Controller {
 			$this->load->view('pages/fiche_cree', $data);
 			$this->load->view('templates/footer');
 		}else{
-			echo "Problemes : ".$this->problemes;
+
 			$data['problemes']=$this->problemes;
 			$this->load->view('templates/header');
 			$this->load->view('forms/fiche',$data);
@@ -69,30 +69,19 @@ class Fiche extends CI_Controller {
 	}
 	
 	private function do_upload($inputName, $dir){
-			 $config['upload_path']   = './'.$dir.'/'; 
-			 switch($dir){
-				 case "video":
-					$config['allowed_types'] = 'mp4|ogg|mov'; 
-					$config['max_size']      = 10000; 
-					break;
-				 case "musique":
-					$config['allowed_types'] = 'mp3'; 
-					$config['max_size']      = 10000; 
-					
-					break;
-				 case "img":
-					$config['allowed_types'] = 'gif|jpg|png|jpeg'; 
-					$config['max_size']      = 10000; 
-					$config['max_width']     = 2000; 
-					$config['max_height']    = 2000;  
-					break;
-			 }
+			$config['upload_path']   = './'.$dir.'/'; 
+
+			$config['allowed_types'] = 'gif|jpg|png|jpeg|mp4|ogg|mov|mp3'; 
+			$config['max_size']      = 10000; 
+			$config['max_width']     = 2000; 
+			$config['max_height']    = 2000;  
+
 			 
 			 $this->load->library('upload', $config);
 				
 			 if ( ! $this->upload->do_upload($inputName)) {
-				return array('input'=>$inputName, 'error' => $this->upload->display_errors()); 
-				//return false;
+				//return array('input'=>$inputName, 'error' => $this->upload->display_errors()); 
+				return false;
 			 }
 				
 			 else { 
@@ -116,15 +105,20 @@ class Fiche extends CI_Controller {
 				$ficheData[$key]=$this->input->post($key);
 			}
 			
-			$fichiers=array("Video"=>"video", "Portrait"=>"img", "Couverture"=>"img");
-			foreach($fichiers as $type=>$dir){
-				if(isset($_FILES[$type]) && !empty($_FILES[$type]['name'])){
-					$ficheData[$type]=$this->do_upload($type, $dir);
-				}else{
-					if($dir=="img") $ficheData[$type]="default".$type.".jpg";
-				}
+			if(isset($_FILES["Video"]) && !empty($_FILES["Video"]["name"])){
+				$ficheData["Video"]=$this->do_upload("Video", "video");
+				
+			}else{echo "ta mère";}
+			if(isset($_FILES["Portrait"]) && !empty($_FILES["Portrait"]["name"])){
+				$ficheData["Portrait"]=$this->do_upload("Portrait", "img");
+			}else{
+				$ficheData["Portrait"]="defaultPortrait.jpg";
 			}
-			 
+			if(isset($_FILES["Couverture"]) && !empty($_FILES["Couverture"]["name"])){ 
+				$ficheData["Couverture"]=$this->do_upload("Couverture", "img");
+			}else{
+				$ficheData["Couverture"]="defaultCouverture.jpg";
+			}	 
 
 			$ficheGenre=$this->input->post('Genre');
 	

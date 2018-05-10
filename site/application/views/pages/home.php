@@ -104,4 +104,6 @@
         nav_link[i].style.color = "#ffffff";
     }
     document.getElementsByClassName('logo-nav')[0].src = "<?php echo base_url(); ?>img/arpeorphev3_white.png";
+    </script>
+
 </script>
