@@ -14,6 +14,15 @@ body {
   }
 }
 
+footer {
+  margin-top: 50px; 
+}
+
+.centrer {
+  text-align: center;
+}
+
+
 .business-header {
   height: 50vh;
   min-height: 300px;
@@ -26,4 +35,154 @@ body {
 
 .card {
   height: 100%;
+}
+
+
+
+.popup-log , .popup-sub {
+  width: 500px;
+  background-color: #ffffff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  z-index: 1032;
+
+}
+
+.black-bg-opacity {
+  position: fixed;
+  background-color: rgba(0,0,0,0.7);
+  width: 2000px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1031;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+h1 {
+  text-align: center;
+}
+
+.fiche_form_apercu {
+  padding-bottom: 50px; 
+}
+
+.bloc_form_fiche {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px 0px #d3d3d3;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.bloc_form_fiche form {
+  position: absolute;
+  width: 100%;
+  height: 100%; 
+}
+
+
+.bloc_form_fiche:after {
+  padding-bottom: 141.89%;
+  content: "";
+  display: block;
+}
+
+.bloc_form_fiche button {
+  width: 100%;
+}
+
+.apercu_page {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px 0px #d3d3d3;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  top: 0;
+}
+
+.apercu_page:after {
+  padding-bottom: 141.89%;
+  content: "";
+  display: block;
+}
+
+.apercu_page:hover {
+  box-shadow: 0px 10px 20px 5px #d3d3d3;
+  top: -5px;
+}
+
+.apercu_page_content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.preview_artiste_portrait {
+  width: 130px;
+  height: 130px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.preview_artiste_couverture {
+  width: 100%;
+  height: 170px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.btn_creer_fiche {
+  font-size: 20px;
+}
+
+/* TEMPLATE TEST */
+
+.template_test {}
+
+.template_test .preview_artiste_portrait {
+  position: absolute;
+  top:13%;
+  left: 5%;
+  width: 23%;
+  height: 0;
+  padding-bottom: 23%;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
+}
+
+.template_test .preview_artiste_nom {
+  position: absolute;
+  left: 32%;
+  font-size: 3vh;
+  text-transform: uppercase;
+  font-weight: 600;
+  top: 21%;
+}
+
+.template_test .preview_artiste_soustitre {
+  position: absolute;
+  left: 170px;
+  top: 210px;
+}
+
+.template_test .preview_artiste_couverture {
+  width: 100%;
+  height: 20%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
