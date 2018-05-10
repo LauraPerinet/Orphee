@@ -2,46 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88d03c7c-3d1e-4c7c-85dd-4dc01b4ab40e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/orphee2(1).sql" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/site/application/views/forms/fiche_old.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/site/epubs/3test2_16.zip" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/site/img/1f1.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/site/img/1h.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/site/video/guyv2.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/site/video/jimmyv2.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/site/video/kineticText_LauraPerinet-Marquet21.mp4" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/site/.gitignore" afterPath="$PROJECT_DIR$/site/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/site/application/config/database.php" afterPath="$PROJECT_DIR$/site/application/config/database.php" />
-      <change beforePath="$PROJECT_DIR$/site/application/controllers/Fiche.php" afterPath="$PROJECT_DIR$/site/application/controllers/Fiche.php" />
-      <change beforePath="$PROJECT_DIR$/site/application/controllers/Ouvrage.php" afterPath="$PROJECT_DIR$/site/application/controllers/Ouvrage.php" />
-      <change beforePath="$PROJECT_DIR$/site/application/views/forms/fiche.php" afterPath="$PROJECT_DIR$/site/application/views/forms/fiche.php" />
-      <change beforePath="$PROJECT_DIR$/site/application/views/pages/home.php" afterPath="$PROJECT_DIR$/site/application/views/pages/home.php" />
       <change beforePath="$PROJECT_DIR$/site/application/views/templates/footer.php" afterPath="$PROJECT_DIR$/site/application/views/templates/footer.php" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/1a_1.jpg" afterPath="$PROJECT_DIR$/site/video/1a_1.jpg" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/54.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/55.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/56.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/EdSheeranShapeOfYou.mp3" afterPath="$PROJECT_DIR$/site/video/EdSheeranShapeOfYou.mp3" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/EdSheeranShapeOfYou1.mp3" afterPath="$PROJECT_DIR$/site/video/EdSheeranShapeOfYou1.mp3" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/EdSheeranShapeOfYou2.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/EdSheeranShapeOfYou3.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/EdSheeranShapeOfYou4.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/black.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/couv.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/defaultCouverture.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/defaultMusique.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/defaultPortrait.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/kineticText_LauraPerinet-Marquet2.mp4" afterPath="$PROJECT_DIR$/site/video/kineticText_LauraPerinet-Marquet.mp4" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/params/identifier" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/params/manifest.csv" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/params/metadata.csv" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/params/spine.csv" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/params/toc.csv" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_16/summary.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/site/styles/business-frontpage.css" afterPath="$PROJECT_DIR$/site/styles/business-frontpage.css" />
-      <change beforePath="$PROJECT_DIR$/site/styles/styles.css" afterPath="$PROJECT_DIR$/site/styles/styles.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -65,7 +26,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="database.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="database.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/site/application/config/database.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="427">
@@ -100,8 +61,8 @@
       <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/site/application/views/templates/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-101">
-              <caret line="24" column="93" lean-forward="false" selection-start-line="24" selection-start-column="93" selection-end-line="24" selection-end-column="93" />
+            <state relative-caret-position="428">
+              <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -119,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="footer.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="footer.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/site/application/views/templates/footer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+            <state relative-caret-position="644">
+              <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -141,12 +102,12 @@
         <option value="$PROJECT_DIR$/site/application/views/forms/login.php" />
         <option value="$PROJECT_DIR$/site/application/controllers/Login.php" />
         <option value="$PROJECT_DIR$/site/application/controllers/Pages.php" />
-        <option value="$PROJECT_DIR$/site/application/views/templates/footer.php" />
         <option value="$PROJECT_DIR$/site/styles/business-frontpage.css" />
         <option value="$PROJECT_DIR$/site/application/views/templates/header.php" />
         <option value="$PROJECT_DIR$/site/application/views/pages/home.php" />
         <option value="$PROJECT_DIR$/site/.gitignore" />
         <option value="$PROJECT_DIR$/site/application/config/database.php" />
+        <option value="$PROJECT_DIR$/site/application/views/templates/footer.php" />
       </list>
     </option>
   </component>
@@ -319,12 +280,12 @@
       <option name="presentableId" value="Default" />
       <updated>1525962553908</updated>
       <workItem from="1525962555048" duration="13278000" />
-      <workItem from="1525987119037" duration="3441000" />
+      <workItem from="1525987119037" duration="3853000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16719000" />
+    <option name="totallyTimeSpent" value="17131000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -528,14 +489,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/site/application/views/templates/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/site/application/controllers/Login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="106">
@@ -543,14 +496,6 @@
           <folding>
             <marker date="1525965917025" expanded="true" signature="1088:1138" ph="SELECT * FRO... utilisateur" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/site/application/views/templates/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-101">
-          <caret line="24" column="93" lean-forward="false" selection-start-line="24" selection-start-column="93" selection-end-line="24" selection-end-column="93" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -600,6 +545,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
           <caret line="82" column="21" lean-forward="true" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/application/views/templates/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/application/views/templates/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
           <folding />
         </state>
       </provider>
