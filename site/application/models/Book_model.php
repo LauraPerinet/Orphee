@@ -24,7 +24,7 @@ class Book_model extends CI_Model{
 	
 	public function getBook($id){
 		$book=$this->db->query("SELECT * FROM ouvrage WHERE ID=".$id." AND ID_utilisateur=".$this->session->user->ID)->row();
-		$book->fiches=$this->db->query("SELECT fiche.ID, Nom, Portrait, Couverture, Page from fiche, ouvragefiche WHERE ouvragefiche.ID=".$id." AND fiche.ID=ouvragefiche.ID_Fiche ORDER BY ouvragefiche.Page")->result();
+		$book->fiches=$this->db->query("SELECT fiche.ID, Nom, Portrait, Couverture, Page, Video from fiche, ouvragefiche WHERE ouvragefiche.ID=".$id." AND fiche.ID=ouvragefiche.ID_Fiche ORDER BY ouvragefiche.Page")->result();
 			
 		return $book;
 	}
