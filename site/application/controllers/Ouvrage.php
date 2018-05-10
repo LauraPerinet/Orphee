@@ -146,13 +146,40 @@ class Ouvrage extends CI_Controller{
 					$histo.="<p><span class='dateDisque'>".$disque->DateHistorique."</span> • <span class='DescriptionHistorique'>".$disque->Description."</span></p>";
 				} 
 				$template=str_replace("%historique%", $histo, $template);
+			}elseif($key=="Musiques"){
+				$musique="";
+				foreach($value as $morceau){
+					$musique.='<div class="morceau">
+						<img src="'.$morceau->image.'" alt="'.$morceau->Nom.'" /> 
+						<audio controls="controls">
+						  <source src="'.$morceau->Chemin.'" type="audio/mp3">
+						  Votre navigateur ne prend pas en charge l\'élément <code>audio</code>.
+						</audio>
+						<h3>'.$morceau->Nom.'<h3>
+					</div>';
+					copy(base_url()."musique/".$morceau->Chemin, $directory.'/'.$morceau->Chemin);
+					if (!file_exists($directory.'/'.$morceau->image)){ 
+						copy(base_url()."img/".$morceau->image, $directory.'/'.$morceau->image);
+					}
+				}
+				$template=str_replace("%musique%", $musique, $template);
+			}elseif($key=="Video"){
+				if($fiche->Video==""){
+					$video="";
+				}else{
+					$video='<video id="video" src="'.$fiche->Video.'" controls >Pas de video enregistrée</video>';
+				}
+				$template=str_replace("%video%", $fiche->Video, $template);
 			}else{
-				$template=str_replace("%".$key."%", $fiche->$key, $template);
+				 $template=str_replace("%".$key."%", $fiche->$key, $template);
 			}
 		}
 		
 		if(!copy(base_url()."img/".$fiche->Portrait, $directory.'/'.$fiche->Portrait)){ $data.=$fiche->Nom." n'a pas d'image Portrait !<br/><br/>";} ;
 		if(!copy(base_url()."img/".$fiche->Couverture, $directory.'/'.$fiche->Couverture)){$data.=$fiche->Nom." n'a pas d'image de couverture !<br/><br/>";} ;
+		if(isset($fiche->Video)){
+			copy(base_url()."video/".$fiche->Video, $directory.'/'.$fiche->Video);
+		}
 		file_put_contents($directory.'/'.$fiche->ID.'.html', $template);
 		if (!file_exists($directory.'/'.$fiche->template.'.css')) {
 			if(!copy(base_url().'epubs/templates/'.$fiche->template.'.css', $directory.'/'.$fiche->template.'.css')){ echo "<br/><br/>Probleme CSS<br/><br/>";};}
@@ -213,14 +240,17 @@ class Ouvrage extends CI_Controller{
 				array("lang","fr")
 			),
 			"manifest"=>array(
+				array("html0","couv.html","application/xhtml+xml"),
 				array("html1","summary.html","application/xhtml+xml"),
 				array("imgCouvOuvrage",$book->imagecouverture,"image/".substr($book->imagecouverture, strrpos($book->imagecouverture, '.'))),
-				array("imgCouvOuvrage","black.css","text/css")
+				array("css","black.css","text/css")
 			),
 			"toc"=>array(
+				array("html0","couv.html","Couverture"),
 				array("html1","summary.html","Sommaire")
 			),
 			"spine"=>array(
+				array("html0"),
 				array("html1")
 			)
 		);
@@ -231,14 +261,24 @@ class Ouvrage extends CI_Controller{
 		foreach($book->fiches as $fiche){
 			var_dump($fiche);
 			array_push($data["manifest"], array("html".$i,$fiche->ID.".html","application/xhtml+xml"));
-			array_push($data["manifest"], array("imgPortrait".$i,$fiche->Portrait,"image/".substr($fiche->Portrait, strrpos($fiche->Portrait, '.'))));
-			array_push($data["manifest"], array("imgCouverture".$i,$fiche->Couverture,"image/".substr($fiche->Portrait, strrpos($fiche->Couverture, '.'))));
+			array_push($data["manifest"], array("imgPortrait".$i,$fiche->Portrait,"image/".substr($fiche->Portrait, strrpos($fiche->Portrait, '.')+1)));
+			array_push($data["manifest"], array("imgCouverture".$i,$fiche->Couverture,"image/".substr($fiche->Couverture, strrpos($fiche->Couverture, '.')+1)));
 			if(isset($fiche->Video)){
-				array_push($data["manifest"], array("video".$i,$fiche->Video,"video/".substr($fiche->Portrait, strrpos($fiche->Couverture, '.'))));
+				echo "coucou";
+				array_push($data["manifest"], array("video".$i,$fiche->Video,"video/".substr($fiche->Video, strrpos($fiche->Video, '.')+1)));
+			}else{
+				var_dump($fiche);
 			}
 			
 			array_push($data["toc"], array("html".$i,$fiche->ID.".html",$fiche->Nom));
 			array_push($data["spine"], array("html".$i));
+			$mus=0;
+			$fiche->Musiques=$this->sheetManager->getMusiques($fiche->ID);
+			var_dump($fiche);
+			foreach($fiche->Musiques as $morceau){
+				array_push($data["manifest"], array("musique".$i.$mus,$morceau->Chemin,"audio/".substr($morceau->Chemin, strrpos($morceau->Chemin, '.')+1)));
+				$mus++;
+			}
 			$i++;
 		}
 		foreach($data as $filename=>$content){

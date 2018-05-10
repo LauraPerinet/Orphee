@@ -112,7 +112,10 @@ class InformationSheet_model extends CI_Model{
 		}
 		
 		if($dataFiche["musique"]){ 
-			$this->db->set("Nom", $musique["Nom"])->set("Chemin", $musique["Chemin"])->insert("musique");
+			$this->db->set("Nom", $dataFiche["musique"]["Nom"])
+				->set("Chemin", $dataFiche["musique"]["Chemin"])
+				->set("image", $dataFiche["musique"]["image"])
+				->insert("musique");
 			$idMusique=$this->db->insert_id();
 			$this->db->set('ID', $idFiche)->set('ID_Musique', $idMusique)->insert("musiquefiche");
 		}
@@ -127,18 +130,21 @@ class InformationSheet_model extends CI_Model{
 	}
 
 	public function get_fiche($id){
-		$query = $this->db->query(
+		$fiche = $this->db->query(
 			"SELECT fiche.*, genre.Nom AS genre FROM fiche
 			INNER JOIN genre ON genre.ID = (SELECT ID_Genre FROM fichegenre WHERE fichegenre.ID=fiche.ID) 
 			WHERE fiche.ID=".$id
 		 )->row();
-		 $query->Historique = $this->db->query(
+		 $fiche->Historique = $this->db->query(
 			"SELECT DateHistorique, Description FROM historique WHERE ID_Fiche=".$id
 		 )->result();
+		 $fiche->Musiques=$this->getMusiques($id);
 
-		return $query;
+		return $fiche;
 	}
-	
+	public function getMusiques($id_fiche){
+		return $this->db->query("SELECT Chemin,Nom,image FROM musique, musiquefiche where musique.ID=musiquefiche.ID_Musique AND musiquefiche.ID=".$id_fiche)->result();
+	}
 	public function supprime($id_fiche){
 		$deleteTable=array("ID_Fiche"=>array("historique", "ouvragefiche"),
 			"ID"=>array("fichegenre", "musiquefiche","ficheutilisateur","fiche")
