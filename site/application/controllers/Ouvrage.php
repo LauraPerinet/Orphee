@@ -70,7 +70,7 @@ class Ouvrage extends CI_Controller{
 					}
 				}
 			}
-			$this->load->view('forms/sheetsinBook', $data);
+			$this->load->view('forms/sheetsInBook', $data);
 			$this->load->view('forms/menu_book', $data);
 		}
 		$this->load->view('templates/footer');

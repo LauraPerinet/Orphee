@@ -114,7 +114,7 @@ class InformationSheet_model extends CI_Model{
 		if($dataFiche["musique"]){ 
 			$this->db->set("Nom", $dataFiche["musique"]["Nom"])
 				->set("Chemin", $dataFiche["musique"]["Chemin"])
-				->set("image", $dataFiche["musique"]["image"])
+				->set("image", $dataFiche["musique"]["Image"])
 				->insert("musique");
 			$idMusique=$this->db->insert_id();
 			$this->db->set('ID', $idFiche)->set('ID_Musique', $idMusique)->insert("musiquefiche");
