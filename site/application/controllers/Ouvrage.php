@@ -88,7 +88,7 @@ class Ouvrage extends CI_Controller{
 	}
 	private function do_upload(){
 		$config['allowed_types'] = 'gif|jpg|png|jpeg'; 
-		 $config['upload_path']   = './img/'; 
+		 $config['upload_path']   = './uploads/'; 
          $config['max_size']      = 1000; 
          $config['max_width']     = 2000; 
          $config['max_height']    = 2000;  
@@ -114,10 +114,17 @@ class Ouvrage extends CI_Controller{
 		redirect("ouvrage/completerOuvrage/".$id_book);
 	}
 	
+    
 	public function moveSheet($id_book=null, $id_sheet=null, $sens){
 		$this->bookManager->changePage($id_book, $id_sheet, $sens);
 		redirect("ouvrage/completerOuvrage/".$id_book);
 	}
+    
+    public function reorganiseSheet($id_book=null, $sheets=null, $redirect=null) {
+        $this->bookManager->reorganisePage($id_book,explode("-",$sheets));
+        if ($redirect) redirect("ouvrage/completerOuvrage/".$id_book);
+    }
+    
 	public function export($id){
 		$book=$this->bookManager->getBook($id);
 		$directory=$this->checkDirectory($book->ID);
@@ -149,37 +156,41 @@ class Ouvrage extends CI_Controller{
 			}elseif($key=="Musiques"){
 				$musique="";
 				foreach($value as $morceau){
-					$musique.='<div class="morceau">
-						<img src="'.$morceau->image.'" alt="'.$morceau->Nom.'" /> 
+					$musique.='<tr >
+					<td>
+						<img src="'.$morceau->image.'" alt="'.$morceau->Nom.'" />
+					</td><td>
+						<h3>'.$morceau->Nom.'<h3>
 						<audio controls="controls">
 						  <source src="'.$morceau->Chemin.'" type="audio/mp3">
 						  Votre navigateur ne prend pas en charge l\'élément <code>audio</code>.
 						</audio>
-						<h3>'.$morceau->Nom.'<h3>
-					</div>';
-					copy(base_url()."musique/".$morceau->Chemin, $directory.'/'.$morceau->Chemin);
+						
+					</tr>';
+					copy(base_url()."uploads/".$morceau->Chemin, $directory.'/'.$morceau->Chemin);
 					if (!file_exists($directory.'/'.$morceau->image)){ 
-						copy(base_url()."img/".$morceau->image, $directory.'/'.$morceau->image);
+						copy(base_url()."uploads/".$morceau->image, $directory.'/'.$morceau->image);
 					}
 				}
 				$template=str_replace("%musique%", $musique, $template);
 			}elseif($key=="Video"){
 				if($fiche->Video==""){
-					$video="";
+					$video="Pas de video";
 				}else{
-					$video='<video id="video" src="'.$fiche->Video.'" controls >Pas de video enregistrée</video>';
+					$video='<video id="videoTOTO" src="'.$fiche->Video.'" controls style="display:none;">Pas de video enregistrée</video>';
 				}
-				$template=str_replace("%Video%", $fiche->Video, $template);
+				$template=str_replace("%Video%", $video, $template);
 			}else{
 				 $template=str_replace("%".$key."%", $fiche->$key, $template);
 			}
 		}
 		
-		if(!copy(base_url()."img/".$fiche->Portrait, $directory.'/'.$fiche->Portrait)){ $data.=$fiche->Nom." n'a pas d'image Portrait !<br/><br/>";} ;
-		if(!copy(base_url()."img/".$fiche->Couverture, $directory.'/'.$fiche->Couverture)){$data.=$fiche->Nom." n'a pas d'image de couverture !<br/><br/>";} ;
+		if(!copy(base_url()."uploads/".$fiche->Portrait, $directory.'/'.$fiche->Portrait)){ $data.=$fiche->Nom." n'a pas d'image Portrait !<br/><br/>";} ;
+		if(!copy(base_url()."uploads/".$fiche->Couverture, $directory.'/'.$fiche->Couverture)){$data.=$fiche->Nom." n'a pas d'image de couverture !<br/><br/>";} ;
 		if(isset($fiche->Video)){
-			copy(base_url()."video/".$fiche->Video, $directory.'/'.$fiche->Video);
+			copy(base_url()."uploads/".$fiche->Video, $directory.'/'.$fiche->Video);
 		}
+		copy(base_url()."uploads/logo.png", $directory.'/logo.png');
 		file_put_contents($directory.'/'.$fiche->ID.'.html', $template);
 		if (!file_exists($directory.'/'.$fiche->template.'.css')) {
 			if(!copy(base_url().'epubs/templates/'.$fiche->template.'.css', $directory.'/'.$fiche->template.'.css')){ echo "<br/><br/>Probleme CSS<br/><br/>";};}
@@ -195,7 +206,7 @@ class Ouvrage extends CI_Controller{
 			if($key!="fiches") $template=str_replace("%".$key."%", $book->$key, $template);
 		}
 		
-		if(!copy(base_url()."img/".$book->imagecouverture, $directory.'/'.$book->imagecouverture)){ 
+		if(!copy(base_url()."uploads/".$book->imagecouverture, $directory.'/'.$book->imagecouverture)){ 
 			$data.="La couverture n'a pas d'image de couverture !<br/><br/>";
 		} 
 		file_put_contents($directory.'/couv.html', $template);
@@ -243,7 +254,9 @@ class Ouvrage extends CI_Controller{
 				array("html0","couv.html","application/xhtml+xml"),
 				array("html1","summary.html","application/xhtml+xml"),
 				array("imgCouvOuvrage",$book->imagecouverture,"image/".substr($book->imagecouverture, strrpos($book->imagecouverture, '.'))),
-				array("css","black.css","text/css")
+				array("css","black.css","text/css"),
+				array("css","curve.css","text/css"),
+				array("css","green.css","text/css")
 			),
 			"toc"=>array(
 				array("html0","couv.html","Couverture"),
@@ -264,7 +277,6 @@ class Ouvrage extends CI_Controller{
 			array_push($data["manifest"], array("imgPortrait".$i,$fiche->Portrait,"image/".substr($fiche->Portrait, strrpos($fiche->Portrait, '.')+1)));
 			array_push($data["manifest"], array("imgCouverture".$i,$fiche->Couverture,"image/".substr($fiche->Couverture, strrpos($fiche->Couverture, '.')+1)));
 			if(isset($fiche->Video)){
-				echo "coucou";
 				array_push($data["manifest"], array("video".$i,$fiche->Video,"video/".substr($fiche->Video, strrpos($fiche->Video, '.')+1)));
 			}else{
 				var_dump($fiche);
@@ -289,7 +301,7 @@ class Ouvrage extends CI_Controller{
 			fclose($fp);
 		}
 		$identifier = fopen($directory.'/identifier', 'w');
-		fputcsv($identifier,array($directory.'_'.date("Y_m_d"), ":"));
+		fputcsv($identifier,array($this->session->user->ID.$book->ID.date("Ymd"), ":"));
 		fclose($identifier);
 		
 
@@ -299,34 +311,3 @@ class Ouvrage extends CI_Controller{
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

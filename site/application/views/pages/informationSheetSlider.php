@@ -13,8 +13,7 @@
                         <?php foreach($sheetPage as $sheetRow):?>
                             <div class="row">
                             <?php foreach($sheetRow as $sheet):?>
-                                <div class="col-2 orphee-sheet" style="background-image: url(<?php echo base_url().'img/'; echo $sheet['Portrait']; ?>);">
-<!--                                    <img src="--><?php //echo base_url().'img/'; echo $sheet['Portrait']; ?><!--" style="width:150px;height:150px;">-->
+                                <div class="col-2 orphee-sheet" style="background-image: url(<?php echo base_url().'uploads/'; echo $sheet['Portrait']; ?>);">
                                     <div>
                                         <div class="row">
                                             <p class="orphee-sheet-title"><?php echo $sheet['Nom']; ?></p>

@@ -22,7 +22,7 @@
 			<div class="sheet draggable">
 				
 				<div class="thumb">
-					<img src="<?php echo base_url().'img/'.$sheet['Portrait'];?>" alt="Couverture de <?php echo $sheet['Nom']; ?>" />
+					<img src="<?php echo base_url().'uploads/'.$sheet['Portrait'];?>" alt="Couverture de <?php echo $sheet['Nom']; ?>" />
 				</div>
 				<div class="action">
 					<a href="<?php echo site_url('ouvrage/addSheet/'.$book->ID.'/'.$sheet['ID'].'/'.count($book->fiches)); ?>" /><div class="addSheet"></div></a>
@@ -44,7 +44,7 @@
 		<div class="bloc">
 		<div class="sheet">
 			<div class="thumb">
-					<img src="<?php echo base_url().'img/'.$book->imagecouverture;?>" alt="Couverture de <?php echo $book->Nom; ?>" />
+					<img src="<?php echo base_url().'uploads/'.$book->imagecouverture;?>" alt="Couverture de <?php echo $book->Nom; ?>" />
 				</div>
 				<h3>Couverture</h3>
 				<div class="action">
@@ -65,19 +65,19 @@
 			<?php }
 			?>
 			
-			<div class="sheet draggable" id="<?php echo $fiche->Portrait; ?>">
+			<div class="sheet draggable" id="<?php echo $fiche->ID; ?>">
 				
 				<div class="thumb">
-					<img src="<?php echo base_url().'img/'.$fiche->Portrait;?>" alt="Couverture de <?php echo $fiche->Nom; ?>" />
+					<img src="<?php echo base_url().'uploads/'.$fiche->Portrait;?>" alt="Couverture de <?php echo $fiche->Nom; ?>" />
 				</div>
 				<div class="action">
 					<a href="<?php echo site_url('ouvrage/deleteSheet/'.$book->ID.'/'.$fiche->ID); ?>" /><div class="delete"></div></a>
 				</div>
 				<div class="action move">
-					<?php if($fiche->Page>0){?>
+					<?php if($fiche->Page>1){?>
 						<a href="<?php echo site_url('ouvrage/moveSheet/'.$book->ID.'/'.$fiche->ID).'/left'; ?>" /><div class="moveLeft"></div></a>
 					<?php } 
-					if($fiche->Page<count($book->fiches)-1){ ?>
+					if($fiche->Page<count($book->fiches)){ ?>
 						<a href="<?php echo site_url('ouvrage/moveSheet/'.$book->ID.'/'.$fiche->ID).'/right'; ?>" /><div class="moveRight"></div></a>
 					<?php }?>
 				</div>

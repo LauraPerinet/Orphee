@@ -37,7 +37,7 @@ class Book_model extends CI_Model{
 		$this->db->query("DELETE FROM ouvragefiche WHERE ID=".$id_book." AND ID_Fiche=".$id_sheet);
 	}
 	public function addSheet($id_book, $id_sheet, $num){
-		$this->db->set("ID", $id_book)->set('ID_Fiche', $id_sheet)->set("Page", $num)->insert("ouvragefiche");
+		$this->db->set("ID", $id_book)->set('ID_Fiche', $id_sheet)->set("Page", $num+1)->insert("ouvragefiche");
 	}
 	public function changePage($id_book, $id_sheet, $sens){
 		$page=$this->db->query("SELECT Page FROM ouvragefiche WHERE ID=".$id_book." AND ID_Fiche=".$id_sheet)->row()->Page;
@@ -49,39 +49,12 @@ class Book_model extends CI_Model{
 		$this->db->query("UPDATE ouvragefiche SET Page=".$page." WHERE ID=".$id_book." AND Page=".$newPage);
 		$this->db->query("UPDATE ouvragefiche SET Page=".$newPage." WHERE ID=".$id_book." AND ID_Fiche=".$id_sheet);
 	}
+    public function reorganisePage($id_book, $list_sheets) {
+        $i = 1;
+        foreach ($list_sheets as $sheet) {
+            if ($sheet) $this->db->query("UPDATE ouvragefiche SET Page=".$i." WHERE ID=".$id_book." AND ID_Fiche=".$sheet);
+            $i++;
+        }
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

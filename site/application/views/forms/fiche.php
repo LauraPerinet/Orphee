@@ -20,8 +20,8 @@
 						<label for="template">Gabarit fiche</label>
 						<select name="template" class="form-control" id="template" v-model="template" maxlength="20" required>
 							<option value="black">Black</option>
-							<option value="black">Black</option>
-							<option value="black">Black</option>
+							<option value="curve">Curve</option>
+							<option value="green">Green</option>
 						</select>
 					</div>
                     <div class="form-group col-12">
@@ -30,7 +30,7 @@
 					</div>
                     <div class="form-group col-12">
                             <label for="Genre">Genre musical</label>
-							<select name="Genre" class="form-control" id="Genre" v-model="Genre" maxlength="20" >
+							<select name="Genre" class="form-control" id="Genre" v-model="Genre" maxlength="20" required>
 								<?php 
 								
 								foreach($genres as $genre){ ?>
@@ -243,8 +243,9 @@
 		fiche.Citation=document.getElementById("keyCitation").textContent;
 		fiche.Portrait= document.getElementById("keyPortrait").textContent;
 		fiche.Couverture= document.getElementById("keyCouverture").textContent;
-		fiche.template=document.getElementById("j=keytemplate").textContent;
+		fiche.template=document.getElementById("keytemplate").textContent;
 	}
+	console.log(fiche.Portrait);
 	
 	
 </script>
