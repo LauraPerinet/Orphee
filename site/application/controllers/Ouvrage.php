@@ -177,7 +177,7 @@ class Ouvrage extends CI_Controller{
 				if($fiche->Video==""){
 					$video="Pas de video";
 				}else{
-					$video='<video id="videoTOTO" src="'.$fiche->Video.'" controls >Pas de video enregistrée</video>';
+					$video='<video id="videoTOTO" src="'.$fiche->Video.'" controls style="display:none;">Pas de video enregistrée</video>';
 				}
 				$template=str_replace("%Video%", $video, $template);
 			}else{

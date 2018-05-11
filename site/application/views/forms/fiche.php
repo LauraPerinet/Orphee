@@ -21,7 +21,7 @@
 						<select name="template" class="form-control" id="template" v-model="template" maxlength="20" required>
 							<option value="black">Black</option>
 							<option value="curve">Curve</option>
-							<option value="black">Black</option>
+							<option value="green">Green</option>
 						</select>
 					</div>
                     <div class="form-group col-12">

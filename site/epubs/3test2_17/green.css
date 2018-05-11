@@ -1,0 +1,157 @@
+body.white{
+	background-color:#000;
+	color:#fff;
+	padding:30px;
+	font-size:130%;
+	font-family:arial, sans-serif;}
+
+
+#header{
+	margin-left: 40%;
+    margin-right:40%;
+}
+
+
+#hero img{
+    left: -8px; 
+	 top: 100px; 
+	 width: 102%;
+	 overflow:hidden;
+	 z-index:1;
+}
+    
+
+#Portrait1{
+	overflow:hidden;
+	height:200px;
+	width: 180px;
+	float:left;
+}
+
+#informationsG P0{
+  width:20%;
+	margin-right:8%;
+	overflow:hidden;
+	height:200px;
+}
+#info{
+	margin-left:16%;
+}
+#blocInfo{
+	margin:0 auto;
+	width:80%;
+}
+
+#rectangle {
+	border-color:#8dcac7;
+	border-style:solid;
+	border-width:1px;
+	margin:0 auto;
+	margin-top: 180px;
+	width:80%;
+	border-color: #8dcac7;
+	border-style: solid;
+	
+  }
+
+#Generalites{
+    text-align: center;
+    color: #8dcac7;
+	margin-top: 30px;
+}
+
+.musique *{
+	float:left;
+}
+.musique div *{
+	clear:left;
+}
+#extraitMusique1{  
+	text-align: left;
+    
+	
+}
+#extraitMusique img{  
+	width:50px;
+    
+	
+}
+#videoTOTO{
+	width:100%;
+}
+
+
+#extraitMusique2{
+text-align: left;
+
+	
+}
+#extraitMusique{
+
+	text-align: left;
+}
+
+#extraitaudio1 {
+     float:left;
+	margin-left: 30%;
+	margin-top: -180px;
+	}
+#extraitaudio2 {
+   
+float:left;
+	margin-left: 30%;
+	margin-top: -150px;
+	}
+}
+
+#extraitaudio3 {
+      float:right;
+	margin-left:%;
+	margin-top: 180px;
+
+	
+}
+
+
+#musique{
+    display:inline-block;
+	float:left;
+	width:65%;
+	margin-right:0%;
+	margin-bottom:0px;
+    border-color: #8dcac7;
+    border-style: solid;
+    border-width: 2px;
+    color: #8dcac7;
+   width: 100px;
+    height: 50px;
+    
+}
+
+#video{
+display:inline-block;
+	float:left;
+	width:65%;
+	margin-right:-90%;
+	margin-bottom: px;
+    border-color: #8dcac7;
+    border-style: solid;
+    border-width: 2px;
+    color: white;
+     background-color: #8dcac7;
+   width: 100px;
+    height: 50px;   
+    
+}
+#placement{
+	float:right;
+	margin-top:-30px;
+	overflow:hidden;
+	height:200px;
+}
+
+#videoTOTO{
+    margin:10px auto;
+	
+}
+
