@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88d03c7c-3d1e-4c7c-85dd-4dc01b4ab40e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/site/application/views/pages/informationSheetSlider.php" afterPath="$PROJECT_DIR$/site/application/views/pages/informationSheetSlider.php" />
+      <change beforePath="$PROJECT_DIR$/site/styles/business-frontpage.css" afterPath="$PROJECT_DIR$/site/styles/business-frontpage.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,10 +16,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="informationSheetSlider.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="informationSheetSlider.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/site/application/views/pages/informationSheetSlider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
+            <state relative-caret-position="-390">
               <caret line="3" column="40" lean-forward="false" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -38,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="business-frontpage.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="business-frontpage.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/site/styles/business-frontpage.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
-              <caret line="381" column="15" lean-forward="false" selection-start-line="381" selection-start-column="15" selection-end-line="381" selection-end-column="15" />
+              <caret line="414" column="19" lean-forward="false" selection-start-line="414" selection-start-column="19" selection-end-line="414" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -91,8 +91,8 @@
         <option value="$PROJECT_DIR$/site/application/views/templates/header.php" />
         <option value="$PROJECT_DIR$/site/application/views/templates/footer.php" />
         <option value="$PROJECT_DIR$/site/application/config/database.php" />
-        <option value="$PROJECT_DIR$/site/styles/business-frontpage.css" />
         <option value="$PROJECT_DIR$/site/application/views/pages/informationSheetSlider.php" />
+        <option value="$PROJECT_DIR$/site/styles/business-frontpage.css" />
       </list>
     </option>
   </component>
@@ -242,12 +242,12 @@
       <updated>1525962553908</updated>
       <workItem from="1525962555048" duration="13278000" />
       <workItem from="1525987119037" duration="5041000" />
-      <workItem from="1526024548093" duration="13458000" />
+      <workItem from="1526024548093" duration="13913000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31777000" />
+    <option name="totallyTimeSpent" value="32232000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -554,14 +554,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/site/styles/business-frontpage.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="381" column="15" lean-forward="false" selection-start-line="381" selection-start-column="15" selection-end-line="381" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/site/application/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
@@ -572,11 +564,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/site/application/views/pages/informationSheetSlider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
+        <state relative-caret-position="-390">
           <caret line="3" column="40" lean-forward="false" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/styles/business-frontpage.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="414" column="19" lean-forward="false" selection-start-line="414" selection-start-column="19" selection-end-line="414" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>

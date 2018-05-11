@@ -411,7 +411,16 @@ video{width:100%;}
     width: 45px;
     height: 45px;
 }
-
+.icon-update {
+    margin-left: 22px;
+}
+.icon-remove {
+    margin-right: 18px;
+}
+.icon-update path, .icon-remove path {
+    fill: #ffffff;
+    transition: all 0.4s ease;
+}
 .icon-update:hover path {
     fill: #48CFAD;
 }
@@ -448,7 +457,6 @@ video{width:100%;}
 .orphee-sheet-subtitle {
     color: #ffffff;
     display: none;
-
 }
 
 #background-home {
