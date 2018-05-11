@@ -243,7 +243,7 @@
 		fiche.Citation=document.getElementById("keyCitation").textContent;
 		fiche.Portrait= document.getElementById("keyPortrait").textContent;
 		fiche.Couverture= document.getElementById("keyCouverture").textContent;
-		fiche.template=document.getElementById("j=keytemplate").textContent;
+		fiche.template=document.getElementById("keytemplate").textContent;
 	}
 	
 	
