@@ -439,20 +439,27 @@ video{width:100%;}
     opacity: 1;
 }
 
+.orphee-sheet:hover .orphee-sheet-title {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
 .orphee-sheet-title {
     font-size: 18px;
     font-weight: 600;
     color: #ffffff;
     background-color: #48CFAD;
     padding: 3px 15px;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
     display: inline;
     box-shadow: 0 0 8px rgba(0,0,0,0.5);
     float: left;
     transition: all 0.4s ease;
     margin-left: 10px;
+    transition : all 0.4s ease;
 }
 .orphee-sheet-subtitle {
     color: #ffffff;
