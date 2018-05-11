@@ -15,6 +15,10 @@ body {
   /*}*/
 }
 
+h1 {
+    font-size: 1.5rem;
+}
+
 footer {
   margin-top: 50px; 
 }
@@ -375,13 +379,12 @@ video{width:100%;}
 }
 
 .orphee-sheet {
-    height: 250px;
+    height: 230px;
     border-radius: 5px;
     background-color: white;
     transition: all 0.4s ease;
     box-shadow: 0 0 8px rgba(0,0,0,0.2);
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-top: 20px;
     background-image: url("https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fpeopledotcom.files.wordpress.com%2F2018%2F01%2F070816-chicago-kanye-west.jpg&w=700&q=85");
     -webkit-background-size: cover;
     background-size: cover;

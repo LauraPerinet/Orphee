@@ -1,6 +1,12 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
+
+        </div>
+        <h1>Liste de vos fiches</h1>
+    </div>
+    <div class="row">
+        <div class="col-12">
             <div id="imageCarousel" class="carousel slide" data-interval="2000" data-ride="carousel" data-pause="hover" data-wrap="true">
                 <ol class="carousel-indicators">
                     <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
@@ -13,7 +19,8 @@
                         <?php foreach($sheetPage as $sheetRow):?>
                             <div class="row">
                             <?php foreach($sheetRow as $sheet):?>
-                                <div class="col-2 orphee-sheet" style="background-image: url(<?php echo base_url().'uploads/'; echo $sheet['Portrait']; ?>);">
+                                <div class="col-2">
+                                <div class="orphee-sheet" style="background-image: url(<?php echo base_url().'uploads/'; echo $sheet['Portrait']; ?>);">
                                     <div>
                                         <div class="row">
                                             <p class="orphee-sheet-title"><?php echo $sheet['Nom']; ?></p>
@@ -113,6 +120,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                </div>
                             <?php endforeach;?>
                             </div>
                         <?php endforeach;?>
@@ -129,7 +137,7 @@
 
             </div>
         </div>
-   
+
 	<div>
 		<a href="<?php echo site_url('fiche/creation'); ?>" class="orphee-link">Créer une nouvelle fiche</a>
 	</div>
