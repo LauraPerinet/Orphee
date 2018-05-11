@@ -114,10 +114,17 @@ class Ouvrage extends CI_Controller{
 		redirect("ouvrage/completerOuvrage/".$id_book);
 	}
 	
+    
 	public function moveSheet($id_book=null, $id_sheet=null, $sens){
 		$this->bookManager->changePage($id_book, $id_sheet, $sens);
 		redirect("ouvrage/completerOuvrage/".$id_book);
 	}
+    
+    public function reorganiseSheet($id_book=null, $sheets=null, $redirect=null) {
+        $this->bookManager->reorganisePage($id_book,explode("-",$sheets));
+        if ($redirect) redirect("ouvrage/completerOuvrage/".$id_book);
+    }
+    
 	public function export($id){
 		$book=$this->bookManager->getBook($id);
 		$directory=$this->checkDirectory($book->ID);
@@ -299,34 +306,3 @@ class Ouvrage extends CI_Controller{
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
