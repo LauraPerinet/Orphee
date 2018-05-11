@@ -103,31 +103,27 @@
 						<tr>
 							<td></td>
 							<th><label >Nom du morceau :</label></th>
-							<!--<th><label >Image du morceau :</label></th>-->
 							<th><label >Fichier mp3 du morceau :</label></th>
 						</tr>
 						<tr>
 							<th>Morceau 1</th>
-							<td><input name="nomMusique0" id="nomMusique0"/></td>
-							<!--<td><input type="file" name="imgMusique0" id="imgMusique0"/></td>-->
+							<td><input name="nomMusique0" id="nomMusique0" v-model="Musiques[0]"/></td>
 							<td><input type="file" name="mp3Musique0" id="mp3Musique0"/></td>
 						</tr>
 						<tr>
 						<th>Morceau 2</th>
-							<td><input name="nomMusique1" id="nomMusique1"/></td>
-							<!--<td><input type="file" name="imgMusique1" id="imgMusique1"/></td>-->
+							<td><input name="nomMusique1" id="nomMusique1" v-model="Musiques[1]"/></td>
 							<td><input type="file" name="mp3Musique1" id="mp3Musique1"/></td>
 						</tr>
 						<tr>
 							<th>Morceau 3</th>
-							<td><input name="nomMusique2" id="nomMusique2"/></td>
-							<!--<td><input type="file" name="imgMusique2" id="imgMusique2"/></td>-->
+							<td><input name="nomMusique2" id="nomMusique2" v-model="Musiques[2]"/></td>
 							<td><input type="file" name="mp3Musique2" id="mp3Musique2"/></td>
 						</tr>
 					</table>
 				
 					<label>Video :</label>
-					<input type="file" name="Video" />
+					<input type="file" name="Video" v-on:change="videoOn" />
 					
 		
 				</form>
@@ -143,7 +139,20 @@
 					<span v-text="Genre"></span>                           
 					<span v-text="Description"></span>
 					<span v-text="Citation"></span>
-					<span v-text="nationnalite"></span>                            
+					<span v-text="nationnalite"></span>     
+					<ul id="musiques">
+					  <li v-for="musique in Musiques">
+						{{ musique }}
+					  </li>
+					</ul>
+					<ul id="historiqueView">
+					  <li v-for="historique in histo">
+							<span class="date">{{ historique.date }}</span><span>{{ historique.description }}</span>
+					  </li>
+					</ul>
+					<div v-show="video">
+						Video
+					</div>
 				</div>
 			</div>
 		</div>
@@ -202,7 +211,8 @@
                 dateHisto:"",
                 descriptionHisto:"",
                 histo:[],
-				Musiques:[]
+				Musiques:[],
+				video:false
             },
             computed: {
                 changeTemplate: function () {
@@ -232,6 +242,9 @@
                 valider_form: function() {
                     document.getElementById("form_fiche").submit(); 
                 },
+				videoOn:function(){
+					this.video=true;
+				}
             }
         });
 	if(document.getElementById("phpData")){
@@ -245,7 +258,6 @@
 		fiche.Couverture= document.getElementById("keyCouverture").textContent;
 		fiche.template=document.getElementById("keytemplate").textContent;
 	}
-	console.log(fiche.Portrait);
 	
 	
 </script>
