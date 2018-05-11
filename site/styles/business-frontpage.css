@@ -374,6 +374,80 @@ video{width:100%;}
     padding-bottom: 50px;
 }
 
+.orphee-sheet {
+    height: 250px;
+    border-radius: 5px;
+    background-color: white;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    margin-left: 10px;
+    margin-right: 10px;
+    background-image: url("https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fpeopledotcom.files.wordpress.com%2F2018%2F01%2F070816-chicago-kanye-west.jpg&w=700&q=85");
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.4s ease;
+    text-align: center;
+}
+
+.orphee-sheet > div {
+    height: 100%;
+    padding: 10px 0px;
+}
+
+.orphee-sheet-row-img {
+    margin-top: 45px;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.orphee-sheet-link-img {
+    text-align: center;
+}
+.orphee-sheet-link-img svg {
+    width: 45px;
+    height: 45px;
+}
+
+.icon-update:hover path {
+    fill: #48CFAD;
+}
+.icon-remove:hover path {
+    fill: #BF263C;
+}
+
+.orphee-sheet:hover {
+    background-color: rgba(0,0,0,0.7);
+    background-blend-mode: multiply;
+}
+.orphee-sheet:hover .orphee-sheet-title {
+    margin-top: -5px;
+}
+.orphee-sheet:hover .orphee-sheet-row-img {
+    opacity: 1;
+}
+
+.orphee-sheet-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #48CFAD;
+    padding: 3px 15px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    display: inline;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    float: left;
+    transition: all 0.4s ease;
+    margin-left: 10px;
+}
+.orphee-sheet-subtitle {
+    color: #ffffff;
+    display: none;
+
+}
+
 #background-home {
     width: 100%;
     height: 65vh;
@@ -428,5 +502,4 @@ video{width:100%;}
   100% {
     border-radius: 2px;
   }
->>>>>>> 106296a5ba6956d2cb7b43b3a2f9ca137a0cf367
 }

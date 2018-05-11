@@ -16,6 +16,7 @@
 	<link href="<?php echo base_url(); ?>styles/styles.css" type="text/css" rel="stylesheet"/>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
 </head>
 <body>
 <div id="orphee">
