@@ -69,14 +69,14 @@ class Fiche extends CI_Controller {
 	}
 	
 	private function do_upload($inputName, $dir){
-			$config['upload_path']   = './'.$dir.'/'; 
-
+	echo "72. ".$inputName.' '.$dir;
+			$config['upload_path']   = './uploads/'; 
 			$config['allowed_types'] = 'gif|jpg|png|jpeg|mp4|ogg|mov|mp3'; 
 			$config['max_size']      = 10000; 
 			$config['max_width']     = 2000; 
 			$config['max_height']    = 2000;  
 
-			 
+			 echo "79. ".$config['upload_path'];
 			 $this->load->library('upload', $config);
 				
 			 if ( ! $this->upload->do_upload($inputName)) {
@@ -104,23 +104,24 @@ class Fiche extends CI_Controller {
 			foreach($this->champsFiche as $key){
 				$ficheData[$key]=$this->input->post($key);
 			}
-			
+			var_dump($_FILES);
 			if(isset($_FILES["Video"]) && !empty($_FILES["Video"]["name"])){
 				$ficheData["Video"]=$this->do_upload("Video", "video");
-				
-			}else{echo "ta mère";}
+			}
+			
 			if(isset($_FILES["Portrait"]) && !empty($_FILES["Portrait"]["name"])){
 				$ficheData["Portrait"]=$this->do_upload("Portrait", "img");
 			}else{
 				$ficheData["Portrait"]="defaultPortrait.jpg";
 			}
+			
 			if(isset($_FILES["Couverture"]) && !empty($_FILES["Couverture"]["name"])){ 
 				$ficheData["Couverture"]=$this->do_upload("Couverture", "img");
 			}else{
 				$ficheData["Couverture"]="defaultCouverture.jpg";
 			}	 
 
-			$ficheGenre=$this->input->post('Genre');
+			$ficheGenre= empty($this->input->post('Genre')) ? 1 : $this->input->post('Genre');
 	
 			$historique=array();
 			$dates=$this->input->post('dateHisto');
@@ -138,15 +139,12 @@ class Fiche extends CI_Controller {
 			for($i=0;$i<3;$i++){
 				if(isset($_FILES["mp3Musique".$i]) && !empty($_FILES["mp3Musique".$i]['name'])){
 					$nom = empty($this->input->post("nomMusique".$i)) ? "Morceau ".$i+1 : $this->input->post("nomMusique".$i);
-					//$image=empty($_FILES["imgMusique".$i]["name"]) ? "defaultMusique.jpg" : $this->do_upload("imgMusique".$i,"img");
 					$image= "defaultMusique.jpg";
 					$musique=array(
 						"Nom"=> $nom,
 						"Chemin"=>$this->do_upload("mp3Musique".$i, "musique"),
-						"image"=>$image
+						"Image"=>$image
 					);
-					var_dump($musique["Chemin"]);
-					//if(!$musique["Chemin"]) echo "<br/>Mauvaise extension pour le fichier Musique.";
 				}
 			}
 			

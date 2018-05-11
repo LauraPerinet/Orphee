@@ -14,7 +14,7 @@
                             <div class="row">
                             <?php foreach($sheetRow as $sheet):?>
                                 <div class="col-xs-2">
-                                    <img src="<?php echo base_url().'img/'; echo $sheet['Portrait']; ?>" style="width:150px;height:150px;">
+                                    <img src="<?php echo base_url().'uploads/'; echo $sheet['Portrait']; ?>" style="width:150px;height:150px;">
                                     <div>
                                         <h5><?php echo $sheet['Nom']; ?></h5>
                                         <p><?php echo $sheet['SousTitre']; ?></p>
