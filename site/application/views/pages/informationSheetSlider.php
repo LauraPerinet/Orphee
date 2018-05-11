@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-
+            <h1>Liste de vos fiches</h1>
         </div>
-        <h1>Liste de vos fiches</h1>
+
     </div>
     <div class="row">
         <div class="col-12">
