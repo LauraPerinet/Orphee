@@ -1,4 +1,4 @@
-<div class="container" id="">
+<div class="container" id="completeOuvrage">
 	TO DO :<br/>
 	- Quand on supprime une page du bouquin, réordonner les num de pages dans la base de donnée. ça fait bugguer les fleches sinon.
 	<br/>- JS : drag and drop joli et tout
@@ -6,7 +6,7 @@
 	<br/>- téléchargement automatique de l'epub
 	<?php  echo form_open_multipart("ouvrage/completerOuvrage/".$book->ID); ?>
 	<h2>Choississez les fiches de l'ouvrage</h2>
-	<div class="allSheets">
+	<div class="allSheets drop">
 	<?php 
 		$i=0;
 		if(count($sheets)==0){ ?>
@@ -19,7 +19,7 @@
 			<?php }
 			?>
 			
-			<div class="sheet">
+			<div class="sheet draggable">
 				
 				<div class="thumb">
 					<img src="<?php echo base_url().'img/'.$sheet['Portrait'];?>" alt="Couverture de <?php echo $sheet['Nom']; ?>" />
@@ -40,7 +40,7 @@
 		}?>
 		</div>
 	</div>
-	<div class="book">
+	<div class="book drop">
 		<div class="bloc">
 		<div class="sheet">
 			<div class="thumb">
@@ -65,7 +65,7 @@
 			<?php }
 			?>
 			
-			<div class="sheet">
+			<div class="sheet draggable" id="<?php echo $fiche->Portrait; ?>">
 				
 				<div class="thumb">
 					<img src="<?php echo base_url().'img/'.$fiche->Portrait;?>" alt="Couverture de <?php echo $fiche->Nom; ?>" />
