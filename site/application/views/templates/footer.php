@@ -69,18 +69,15 @@
                         
                         function updateSheet(exclude = null) {
                             if (!exclude) exclude = "";
-                            console.log(exclude);
                             var sheets = "";
                             var elems = $(".book .draggable");
                             for (var i of elems) if (i.id != exclude) sheets += i.id + "-";
-                            console.log(sheets);
                             return sheets;
                         }
                         
                         function suppSheet(item) {
-                            console.log(item);
                             $.ajax({
-                                url: '<?php echo base_url() . "index.php/" . "ouvrage/reorganiseSheet/" . $book->ID . '/'; ?>' + updateSheet(item.prop("id")),
+                                url: '<?php if (isset($book)) echo base_url() . "index.php/" . "ouvrage/reorganiseSheet/" . $book->ID . '/'; ?>' + updateSheet(item.prop("id")),
                                 success: function(res){
                                     window.open(item.find(".delete").parent().prop("href"),"_self",false);
                                 }
@@ -90,7 +87,7 @@
                             items: ".draggable", 
                             
                             update: function() {
-                                window.open('<?php echo base_url() . "index.php/" . "ouvrage/reorganiseSheet/" . $book->ID . '/'; ?>' + updateSheet() + '/true', '_self', false);
+                                window.open('<?php if (isset($book)) echo base_url() . "index.php/" . "ouvrage/reorganiseSheet/" . $book->ID . '/'; ?>' + updateSheet() + '/true', '_self', false);
                             },
                             
                             out: function(event, ui) {out = event.timeStamp},
