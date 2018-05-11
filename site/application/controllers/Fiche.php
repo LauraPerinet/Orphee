@@ -69,32 +69,29 @@ class Fiche extends CI_Controller {
 	}
 	
 	private function do_upload($inputName, $dir){
-	echo "72. ".$inputName.' '.$dir;
+
 			$config['upload_path']   = './uploads/'; 
 			$config['allowed_types'] = 'gif|jpg|png|jpeg|mp4|ogg|mov|mp3'; 
 			$config['max_size']      = 10000; 
 			$config['max_width']     = 2000; 
 			$config['max_height']    = 2000;  
 
-			 echo "79. ".$config['upload_path'];
-			 $this->load->library('upload', $config);
+			$this->load->library('upload', $config);
 				
-			 if ( ! $this->upload->do_upload($inputName)) {
-				//return array('input'=>$inputName, 'error' => $this->upload->display_errors()); 
-				return false;
-			 }
-				
-			 else { 
+			 if ( $this->upload->do_upload($inputName)) {
+
 				$data = array('upload_data' => $this->upload->data()); 
 				return $this->upload->data('file_name');
-			 }
-				
+	
+			}
+			return false;					
 	}
 	public function suppression($id_fiche){
 		$fiche=$this->ficheManager->get_fiche($id_fiche);
-		if($fiche->Portrait !=="defaultPortrait.jpg") unlink("./img/".$fiche->Portrait);
-		if($fiche->Couverture !=="defaultCouverture.jpg") unlink("./img/".$fiche->Couverture);
-		if(isset($fiche->Video)) unlink("./video/".$fiche->Video);
+		if($fiche->Portrait !=="defaultPortrait.jpg") unlink("./uploads/".$fiche->Portrait);
+		if($fiche->Couverture !=="defaultCouverture.jpg") unlink("./uploads/".$fiche->Couverture);
+		if($fiche->Video !=="" && $fiche->Video !==null) unlink("./uploads/".$fiche->Video);
+
 		$this->ficheManager->supprime($id_fiche);
 		$this->show();
 	}
@@ -104,19 +101,22 @@ class Fiche extends CI_Controller {
 			foreach($this->champsFiche as $key){
 				$ficheData[$key]=$this->input->post($key);
 			}
-			var_dump($_FILES);
+
 			if(isset($_FILES["Video"]) && !empty($_FILES["Video"]["name"])){
 				$ficheData["Video"]=$this->do_upload("Video", "video");
+				if(!$ficheData["Video"]) $this->problemes.="Problème avec la video... Trop lourde ?<br/>";
 			}
 			
 			if(isset($_FILES["Portrait"]) && !empty($_FILES["Portrait"]["name"])){
 				$ficheData["Portrait"]=$this->do_upload("Portrait", "img");
+				if(!$ficheData["Portrait"]) $this->problemes.="Problème avec l'image Portrait... Trop lourde ?<br/>";
 			}else{
 				$ficheData["Portrait"]="defaultPortrait.jpg";
 			}
 			
 			if(isset($_FILES["Couverture"]) && !empty($_FILES["Couverture"]["name"])){ 
 				$ficheData["Couverture"]=$this->do_upload("Couverture", "img");
+				if(!$ficheData["Couverture"]) $this->problemes.="Problème avec l'image Couverture... Trop lourde ?<br/>";
 			}else{
 				$ficheData["Couverture"]="defaultCouverture.jpg";
 			}	 
@@ -146,6 +146,7 @@ class Fiche extends CI_Controller {
 						"Image"=>$image
 					);
 				}
+				if(!$musique["Chemin"]) $this->problemes.="Problème avec le morceau ".$musique['Nom'].". Trop lourd ?<br/>";
 			}
 			
 			$dataFiche=array(
