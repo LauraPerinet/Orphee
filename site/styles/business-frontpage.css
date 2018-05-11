@@ -160,6 +160,10 @@ h1 {
   font-size: 20px;
 }
 
+.logo-nav {
+    height: 40px;
+}
+
 /* TEMPLATE TEST */
 
 .template_test {}
@@ -317,8 +321,9 @@ video{width:100%;}
 }
 
 .orphee-btn-error {
-  border-color: #BF263C;
+  border-color: #BF263C !important;
   color: #BF263C;
+
 }
 .orphee-btn-error:hover, .orphee-btn-error:focus {background-color:#BF263C;}
 

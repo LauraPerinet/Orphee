@@ -52,7 +52,7 @@
                 <?php //echo validation_errors(); ?>
                 <?php echo form_open('login/view'); ?>
                     <div class="form-group">
-                        <label for="co_email">Votre email</label>
+                        <label for="co_email">E-mail</label>
                         <input type="email" name="email" class="form-control orphee-input" id="co_email" aria-describedby="emailHelp" placeholder="">
                     </div>
                     <div class="form-group">
@@ -73,11 +73,11 @@
             <div class="col-md-12">
                 <form>
                     <div class="form-group">
-                        <label for="insc_name">Votre nom</label>
+                        <label for="insc_name">Nom</label>
                         <input type="text" class="form-control orphee-input" id="insc_name" aria-describedby="emailHelp" placeholder="">
                     </div>
                     <div class="form-group">
-                        <label for="insc_email">Votre email</label>
+                        <label for="insc_email">E-mail</label>
                         <input type="email" class="form-control orphee-input" id="insc_email" aria-describedby="emailHelp" placeholder="">
                     </div>
                     <div class="form-group">
@@ -85,7 +85,7 @@
                         <input type="password" class="form-control orphee-input" id="insc_mdp_1" placeholder="">
                     </div>
                     <div class="form-group">
-                        <label for="insc_mdp_2">Entrez de nouveau votre mot de passe</label>
+                        <label for="insc_mdp_2">Confirmez le mot de passe</label>
                         <input type="password" class="form-control orphee-input" id="insc_mdp_2" placeholder="">
                     </div>
                     <button type="submit" class="btn btn-primary orphee-btn">Se connecter</button>
@@ -100,32 +100,10 @@
 <script>
     document.getElementsByClassName('orphee-nav')[0].style.backgroundColor = "rgba(0,0,0,0)";
     var nav_link = document.getElementsByClassName('orphee-nav')[0].getElementsByTagName('a');
-    for(let i=0;nav_link.length;i++) {
+    for(let i=0;i<nav_link.length;i++) {
         nav_link[i].style.color = "#ffffff";
     }
-	 <script>
-        new Vue({
-            el: '#orphee',
-            data: {
-
-            },
-            methods: {
-                closePopUp: function () {
-                    document.getElementsByClassName('show')[0].classList.add("hide");
-                    document.getElementsByClassName('show')[0].classList.remove("show");
-                    document.getElementsByClassName('show')[0].classList.add("hide");
-                    document.getElementsByClassName('show')[0].classList.remove("show");
-                },
-                openPopUp: function (className) {
-                    if(document.getElementsByClassName('show')[0] != undefined) {
-                        this.closePopUp();
-                    }
-                    document.getElementsByClassName(className)[0].classList.add("show");
-                    document.getElementsByClassName(className)[0].classList.remove("hide");
-                    document.getElementsByClassName('black-bg-opacity')[0].classList.add("show");
-                    document.getElementsByClassName('black-bg-opacity')[0].classList.remove("hide");
-                }
-            }
-        });
+    document.getElementsByClassName('logo-nav')[0].src = "<?php echo base_url(); ?>img/arpeorphev3_white.png";
     </script>
+
 </script>
