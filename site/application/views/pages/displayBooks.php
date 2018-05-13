@@ -10,7 +10,7 @@
 		<div class="sheet">
 			
 			<div class="thumb">
-				<img src="<?php echo base_url().'img/'.$book->imagecouverture;?>" alt="Couverture de <?php echo $book->Nom; ?>" />
+				<img src="<?php echo base_url().'uploads/'.$book->imagecouverture;?>" alt="Couverture de <?php echo $book->Nom; ?>" />
 			</div>
 			<div class="action">
 				<a href="<?php echo site_url('ouvrage/completerOuvrage/'.$book->ID); ?>" /><div class="modification"></div></a>

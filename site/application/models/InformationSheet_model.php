@@ -86,7 +86,7 @@ class InformationSheet_model extends CI_Model{
 	
 	public function creation_fiche($dataFiche, $id_ficheModifiee=null){
 		foreach($dataFiche["fiche"] as $key=>$value){
-			if($value!==null) $this->db->set($key, $value);
+			if($value!==null || !empty($value)) $this->db->set($key, $value);
 		}
 		if($id_ficheModifiee){
 			$this->db->where('ID', $id_ficheModifiee);

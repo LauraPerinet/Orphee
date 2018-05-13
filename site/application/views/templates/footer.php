@@ -15,9 +15,11 @@
         $(function(){
             
             if ($(".home-screen").length) {
-                new Vue({
+                var popUp=new Vue({
                     el: '#orphee',
                     data: {
+						mdp:"",
+						classMdp:"error"
                     },
                     methods: {
                         closePopUp: function () {
@@ -37,6 +39,16 @@
                         }
                     }
                 });
+
+				if(document.getElementById("error")){
+					 if(document.getElementsByClassName('show')[0] != undefined) {
+						this.closePopUp();
+					}
+					document.getElementsByClassName('popup-sub')[0].classList.add("show");
+					document.getElementsByClassName('popup-sub')[0].classList.remove("hide");
+					document.getElementsByClassName('black-bg-opacity')[0].classList.add("show");
+					document.getElementsByClassName('black-bg-opacity')[0].classList.remove("hide");
+				}; 
             }
             
             
