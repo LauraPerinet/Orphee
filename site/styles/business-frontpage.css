@@ -466,6 +466,10 @@ video{width:100%;}
     display: none;
 }
 
+.carousel-item {
+    height: 500px;
+}
+
 #background-home {
     width: 100%;
     height: 65vh;
