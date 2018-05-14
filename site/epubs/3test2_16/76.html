@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<title>Red Hot Chili Pepper</title>
+		<link href="green.css" rel="stylesheet" type="text/css" />
+        
+	</head>
+	<body id="white" >
+        <header id="header">
+            <img src="logo.png" alt="logo" />	
+		</header>
+        
+		<div id="hero">
+			<img src="defaultCouverture.jpg" alt="image de couverture"/>
+			</div>
+		<div id="blocInfo">
+			<div id="Portrait">
+				<img id="Portrait1" src="defaultPortrait.jpg" alt="Red Hot Chili Pepper" />
+			</div>
+				
+			 <div id="informationsG">
+				 <div id="info">
+				<p >Nom: Red Hot Chili Pepper<br/>
+				Nationalité  :USA<br/>
+				Genre musical : Rock</p>
+			</div>
+		 </div>
+</div>
+	<div id="rectangle">
+		<div id="placement" >
+				  <button id="musique" onclick="changeScreen(false)">Musique</button >
+				 <button id="video" onclick="changeScreen(true)">Video</button >
+                    
+           
+			
+		</div>
+		<div id="Generalites">
+			<p >Le champs citation peut être vide </p>
+			<p >Aux origines, plutot un groupe de funk. Mais la drogue rendant necessaire de grosses arrivées d'argent régulières, ils ont fait de plus en plus de la merde. Mais on les aime quand même, c'est les red hot, quoi. </p>
+		</div>
+		<div id="extraitMusique">
+			<table>
+			<tr >
+					<td>
+						<img src="defaultMusique.jpg" alt="Eddy" />
+					</td><td>
+						<h3>Eddy<h3>
+						<audio controls="controls">
+						  <source src="EdSheeranShapeOfYou14.mp3" type="audio/mp3">
+						  Votre navigateur ne prend pas en charge l'élément <code>audio</code>.
+						</audio>
+						
+					</tr>
+		</table>
+		</div>
+		 Pas de video
+		
+				
+	</div>
+		
+		
+     <script>
+		var video = document.getElementById("videoTOTO");
+		var tableMusique=document.getElementById("extraitMusique");
+		function changeScreen( showVideo){
+			if(showVideo){
+			console.log("show video");
+				tableMusique.style.display="none";
+				video.style.display="block";
+			}else{
+				tableMusique.style.display="block";
+				video.style.display="none";
+			}
+		}
+	 </script>
+	</body>
+</html>

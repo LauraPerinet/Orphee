@@ -1,9 +1,4 @@
 <div class="container" id="completeOuvrage">
-	TO DO :<br/>
-	- Quand on supprime une page du bouquin, réordonner les num de pages dans la base de donnée. ça fait bugguer les fleches sinon.
-	<br/>- JS : drag and drop joli et tout
-	<br/>- lancement script python et suppression du dossier généré après.
-	<br/>- téléchargement automatique de l'epub
 	<?php  echo form_open_multipart("ouvrage/completerOuvrage/".$book->ID); ?>
 	<h2>Choississez les fiches de l'ouvrage</h2>
 	<div class="allSheets drop">

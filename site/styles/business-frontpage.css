@@ -155,7 +155,10 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
 }
-
+.preview_logo img{
+	width:20%;
+	margin:2%;
+}
 .btn_creer_fiche {
   font-size: 20px;
 }
@@ -205,68 +208,234 @@ h1 {
 
 /* Black CSS */
 .black{
-	background-color:#000;
-	color:#fff;
-	padding:30px;
-	font-size:130%;
-	font-family:arial, sans-serif;
-}
-.black #header{
-	height:250px;
-	overflow:hidden;
-}
-.black #header img{
-	width:100%;
-}
-.black #content{
 	background-color:#333;
-	padding:20px;
+	color:#fff;
+	border:30px solid #000;
+	font-size:110%;
+	font-family:arial, sans-serif;
+	overflow-y:auto;
 }
-.black #Generalites p{
-	display:inline-block;
-	float:left;
-	width:65%;
-	margin-right:5%;
+.black *{
+	position:relative;
 }
-.black #encartPortrait{
-	width:30%;
-	display:inline-block;
-	float:left;
-}
-.black #thumbPortrait{
-	overflow:hidden;
-	height:200px;
-}
-.black #thumbPortrait img{
-	width:99%;
-	border:1px solid #8ed1c1;
-}
-.black #encartPortrait h1{
-	font-size:140%;
-}
-.black #encartPortrait .genre{
-	text-align:center;
-	background-color:#555;
-	width:100%;
-	padding:10px 0;
-	border-radius:10px;
-}
-.black #citation{
-	clear:left;
-	font-style:italic;
-	font-size:150%;
-}
-.black #discographie .dateDisque{
-	color:#8ed1c1;
-}
-body.autreTemplate{
-	background-color:red;
-}
-video{width:100%;}
-.morceau img{
-	width:50px;
+.black .preview_Couverture{
+	height:150px;
 }
 
+.black .preview_Portrait {
+	background-size:100%;
+	background-repeat:no-repeat;
+}
+.black .preview_Portrait, .black .preview_Nom, .black .preview_SousTitre, .black .preview_Genre{
+	width:20%;
+	left:78%;
+	margin-right:2%;
+	display:block;
+}
+.black .preview_Nom{
+	font-size:120%;
+	font-weight:bold;
+}
+.black .preview_Description{
+	position:inherit;
+	display:block;
+	width:70%;
+	top:170px;
+	margin-left:2%;
+}
+.black .preview_Citation{
+	margin:0 2%;
+	position:normal;
+	display:block;
+	font-style:italic;
+}
+.black .preview_nationnalite, .black .preview_SousTitre, .black .preview_logo{
+	display:none;
+}
+.black .preview_titreMusique, .black .preview_titreVideo, .black .preview_titreHistorique{
+	position:normal;
+	display:block;
+	font-weight:bold;
+	font-size:120%;
+	margin-left:2%;
+}
+.black .preview_musiques{
+	list-style-type:none;
+	
+}
+.black .preview_musiques div{
+	display:inline-block;
+	width:80%;
+	vertical-align:middle;
+	line-height:0;
+}
+.black .preview_musiques img{
+	width:180px;
+}
+.black .preview_musiques img:first-child{
+	width:12%;
+}
+/* Curve template */
+
+.curve{
+	font-family:times, serif;
+	padding:10%;
+}
+
+.curve .preview_Couverture, .curve .preview_Citation{
+	display:none;
+	
+}
+.curve .preview_Portrait{
+	margin-top:20px;
+	width:50%;
+	height:33%;
+	float:left;
+	top: 60px;
+	border-radius: 50%;
+  -webkit-shape-outside:circle();
+  shape-outside:circle();
+}
+.curve .preview_Nom{
+	position:absolute;
+	display:block;
+	margin:2%;
+	top:0;
+	font-size:120%;
+	font-weight:bold;
+}
+.curve .preview_nationnalite, .curve .preview_genre, .curve .preview_Description, .curve .preview_Citation{
+	display:block;
+	margin-top:2%;
+	margin-left:5%;
+}
+.curve .preview_nationnalite::before{
+	content:"Nationnalité : ";
+}
+.curve .preview_Genre::before{
+	content:"Genre : ";
+}
+.curve .preview_titreHistorique, .curve .preview_titreMusique{
+	clear:left;
+	font-weight:bold;
+	font-size:120%;
+	display:block;
+
+}
+.curve .preview_logo {
+	text-align:right;
+	position:absolute;
+	top:0;
+	right:10%;
+	width:100%;
+}
+
+.curve .preview_SousTitre{
+	position:absolute;
+	display:block;
+	top:30px;
+	margin-left:2%;
+}
+.curve .preview_musiques{
+	list-style-type:none;
+	
+}
+.curve .preview_musiques div{
+	display:inline-block;
+	width:80%;
+	vertical-align:middle;
+	line-height:0;
+}
+.curve .preview_musiques img{
+	width:180px;
+}
+.curve .preview_musiques img:first-child{
+	width:12%;
+}
+.curve .preview_titreVideo{
+	padding:5px;
+	background-color:#eee;
+	border:1px solid #ccc;
+}
+
+/*green template */
+.green{
+	font-family:times, serif;
+}
+.green .preview_logo{
+	text-align:center;
+}
+.green .preview_Portrait{
+	margin:2%;
+	float:left;
+}
+.green .preview_Nom, .green .preview_nationnalite, .green .preview_Genre{
+	display:block;
+}
+.green .preview_Nom{
+	margin-top:20px;
+}
+.green .preview_Nom::before{
+	content:"Nom : ";
+}
+.green .preview_nationnalite::before{
+	content:"Nationnalité : ";
+}
+.green .preview_Genre::before{
+	content:"Genre : ";
+}
+.green .preview_titreHistorique, .green .preview_historique{
+	display:none;
+}
+.green .preview_titreMusique, .green .preview_titreVideo{
+	position:absolute;
+	padding:5px;
+	border:2px solid #8dcac7;
+	top:370px;
+	right:2%;
+}
+.green .preview_titreMusique{
+	background-color:#eee;
+	color:#8dcac7;
+	right:70px;
+}
+.green .preview_titreVideo{
+	background-color:#8dcac7;
+	color:#fff;
+}
+.green .preview_Citation, .green .preview_Description, .green .preview_musiques{
+	display:block;
+	margin:0 2%;
+	padding:2%;
+	clear:both;
+	border:2px #8dcac7 solid;
+}
+.green .preview_Citation{
+	border-bottom:none;
+	color:#8dcac7;
+}
+.green .preview_Description{
+	border-bottom:none;
+	border-top:none;
+	color:#8dcac7;
+}
+
+.green .preview_musiques{
+	list-style-type:none;
+	border-top:none;
+}
+.green .preview_musiques div{
+	display:inline-block;
+	width:80%;
+	vertical-align:middle;
+	line-height:0;
+}
+.green .preview_musiques img{
+	width:180px;
+}
+.green .preview_musiques img:first-child{
+	width:12%;
+}
 /* ORPHEE STYLE */
 .orphee-input {
     border:none;

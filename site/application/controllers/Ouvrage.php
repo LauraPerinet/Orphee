@@ -184,13 +184,20 @@ class Ouvrage extends CI_Controller{
 				 $template=str_replace("%".$key."%", $fiche->$key, $template);
 			}
 		}
-		
-		if(!copy(base_url()."uploads/".$fiche->Portrait, $directory.'/'.$fiche->Portrait)){ $data.=$fiche->Nom." n'a pas d'image Portrait !<br/><br/>";} ;
-		if(!copy(base_url()."uploads/".$fiche->Couverture, $directory.'/'.$fiche->Couverture)){$data.=$fiche->Nom." n'a pas d'image de couverture !<br/><br/>";} ;
-		if(isset($fiche->Video)){
-			copy(base_url()."uploads/".$fiche->Video, $directory.'/'.$fiche->Video);
+		if (file_exists(base_url()."uploads/".$fiche->Portrait)) {
+			if(!copy(base_url()."uploads/".$fiche->Portrait, $directory.'/'.$fiche->Portrait)){ $data.=$fiche->Nom." n'a pas d'image Portrait !<br/><br/>";} ;
 		}
-		copy(base_url()."uploads/logo.png", $directory.'/logo.png');
+		if (file_exists(base_url()."uploads/".$fiche->Couverture)) {
+			if(!copy(base_url()."uploads/".$fiche->Couverture, $directory.'/'.$fiche->Couverture)){$data.=$fiche->Nom." n'a pas d'image de couverture !<br/><br/>";} 
+		}
+		if(isset($fiche->Video)){
+			if (file_exists(base_url()."uploads/".$fiche->Video)) {
+				copy(base_url()."uploads/".$fiche->Video, $directory.'/'.$fiche->Video);
+			}
+		}
+		if (file_exists(base_url()."uploads/logo.png")) {
+			copy(base_url()."uploads/logo.png", $directory.'/logo.png');
+		}
 		file_put_contents($directory.'/'.$fiche->ID.'.html', $template);
 		if (!file_exists($directory.'/'.$fiche->template.'.css')) {
 			if(!copy(base_url().'epubs/templates/'.$fiche->template.'.css', $directory.'/'.$fiche->template.'.css')){ echo "<br/><br/>Probleme CSS<br/><br/>";};}
@@ -243,7 +250,7 @@ class Ouvrage extends CI_Controller{
 	
 	private function exportParams($book, $directory){
 		$directory=$directory.'/params';
-		mkdir($directory, 0777);
+		if(!file_exists($directory)) mkdir($directory, 0777);
 		$data = array(
 			"metadata"=>array (
 				array("title",$book->Nom),
@@ -267,26 +274,20 @@ class Ouvrage extends CI_Controller{
 				array("html1")
 			)
 		);
-		echo "From Ouvrage controller l.227<br/>";
-		echo "A completer :  gestion dynamique export fueilles de style";
 		
 		$i=2;
 		foreach($book->fiches as $fiche){
-			var_dump($fiche);
 			array_push($data["manifest"], array("html".$i,$fiche->ID.".html","application/xhtml+xml"));
 			array_push($data["manifest"], array("imgPortrait".$i,$fiche->Portrait,"image/".substr($fiche->Portrait, strrpos($fiche->Portrait, '.')+1)));
 			array_push($data["manifest"], array("imgCouverture".$i,$fiche->Couverture,"image/".substr($fiche->Couverture, strrpos($fiche->Couverture, '.')+1)));
 			if(isset($fiche->Video)){
 				array_push($data["manifest"], array("video".$i,$fiche->Video,"video/".substr($fiche->Video, strrpos($fiche->Video, '.')+1)));
-			}else{
-				var_dump($fiche);
 			}
 			
 			array_push($data["toc"], array("html".$i,$fiche->ID.".html",$fiche->Nom));
 			array_push($data["spine"], array("html".$i));
 			$mus=0;
 			$fiche->Musiques=$this->sheetManager->getMusiques($fiche->ID);
-			var_dump($fiche);
 			foreach($fiche->Musiques as $morceau){
 				array_push($data["manifest"], array("musique".$i.$mus,$morceau->Chemin,"audio/".substr($morceau->Chemin, strrpos($morceau->Chemin, '.')+1)));
 				$mus++;

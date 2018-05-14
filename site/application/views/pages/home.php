@@ -49,7 +49,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <?php //echo validation_errors(); ?>
+                <?php echo validation_errors(); ?>
                 <?php echo form_open('login/view'); ?>
                     <div class="form-group">
                         <label for="co_email">E-mail</label>
@@ -71,24 +71,28 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <form>
+
+                <?php echo form_open("login/creation"); ?>
                     <div class="form-group">
+						<?php if(isset($error)){?>
+							<p id="error"><?php echo $error; ?></p>
+						<?php } ?>
                         <label for="insc_name">Nom</label>
-                        <input type="text" class="form-control orphee-input" id="insc_name" aria-describedby="emailHelp" placeholder="">
+                        <input type="text" class="form-control orphee-input" id="insc_name" aria-describedby="emailHelp" placeholder="" name="Nom" required>
                     </div>
                     <div class="form-group">
                         <label for="insc_email">E-mail</label>
-                        <input type="email" class="form-control orphee-input" id="insc_email" aria-describedby="emailHelp" placeholder="">
+                        <input type="email" class="form-control orphee-input" id="insc_email" aria-describedby="emailHelp" placeholder="" name="Email" required>
                     </div>
                     <div class="form-group">
                         <label for="insc_mdp_1">Mot de passe</label>
-                        <input type="password" class="form-control orphee-input" id="insc_mdp_1" placeholder="">
+                        <input type="password" class="form-control orphee-input" id="insc_mdp_1" placeholder="" name="mdp"  required>
                     </div>
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <label for="insc_mdp_2">Confirmez le mot de passe</label>
-                        <input type="password" class="form-control orphee-input" id="insc_mdp_2" placeholder="">
-                    </div>
-                    <button type="submit" class="btn btn-primary orphee-btn">Se connecter</button>
+                        <input type="password" class="form-control orphee-input" id="insc_mdp_2" placeholder="" name="mdp" onchange="formValidation()" required>
+                    </div>-->
+                    <button  class="btn btn-primary orphee-btn" onclick="formValidation();">Créer le compte</button>
                     <p>Vous avez déjà un compte ? <a href="#" v-on:click="openPopUp('popup-log')" class="orphee-link">Connectez-vous en cliquant ici</a></p>
                 </form>
             </div>
@@ -104,6 +108,22 @@
         nav_link[i].style.color = "#ffffff";
     }
     document.getElementsByClassName('logo-nav')[0].src = "<?php echo base_url(); ?>img/arpeorphev3_white.png";
-    </script>
-
 </script>
+<script>
+	var mdp1=document.getElementById("insc_mdp_1");
+	var mdp2=document.getElementById("insc_mdp_2");
+	
+	function formValidation(){
+		console.log("mdp1 : "+mdp1.textContent);
+		console.log("mdp2 : "+mdp2.value);
+		if(mdp1.value!=mdp2.value){
+			console.log("nop");
+			mdp2.setCustomValidity("Le mot de passe est different !");
+		}else{
+			console.log("yes");
+			mdp2.setCustomValidity("");
+		}
+	}
+	
+</script>
+
