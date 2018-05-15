@@ -618,7 +618,7 @@ h1 {
     font-size: 18px;
     font-weight: 600;
     color: #ffffff;
-    background-color: #48CFAD;
+    background: linear-gradient(150deg,#48CFAD 15%,#52E3D9 70%,#35FFCC 94%);
     padding: 3px 15px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -637,6 +637,23 @@ h1 {
 
 .carousel-item {
     height: 500px;
+}
+
+a.selected {
+    font-weight: 600;
+    font-size: 120%;
+}
+
+.arrow-icon {
+    height: 40px;
+    fill: #D4D4D4;
+}
+.carousel-control-prev {left: -70px;}
+.carousel-control-next {right: -70px;}
+
+#imageCarousel {
+    padding-bottom: 5px;
+    border-bottom: solid 2px #E4E4E4;
 }
 
 #background-home {
