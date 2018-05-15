@@ -3,6 +3,11 @@
         <div class="col-12">
             <h1>Liste de vos fiches</h1>
         </div>
+        <div class="col-12">
+            <a href="<?php echo site_url('fiche/creation'); ?>">
+                <button class="orphee-btn">Créer une nouvelle fiche</button>
+            </a>
+        </div>
 
     </div>
     <div class="row">
@@ -154,8 +159,4 @@
                 ?>
             </div>
         </div>
-
-	<div>
-		<a href="<?php echo site_url('fiche/creation'); ?>" class="orphee-link">Créer une nouvelle fiche</a>
-	</div>
  </div>
