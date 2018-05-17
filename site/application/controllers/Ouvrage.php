@@ -128,6 +128,7 @@ class Ouvrage extends CI_Controller{
 	public function export($id){
 		// setting umask to export file with correct permission
 		$oldmask = umask(0);
+
 		$book=$this->bookManager->getBook($id);
 		$directory=$this->checkDirectory($book->ID);
 		$data["export"]="";
@@ -137,20 +138,38 @@ class Ouvrage extends CI_Controller{
 			$data["export"].=$this->exportSheet($sheet->ID, $directory);
 			$stylesheet[$sheet->template]=true;
 			array_push($summary, array("ID"=>$sheet->ID, "Nom"=>$sheet->Nom));
-
-
 		}
+
 		$data["export"].=$this->exportCouv($book, $directory);
 		$data["export"].=$this->exportSummary($summary, $directory);
 		$data['export'].=$this->exportParams($book, $directory, $stylesheet);
-		// setting old umask as current umask
-		
+
 		$dirname=$this->session->user->ID.$this->session->user->Nom.'_'.$book->ID;
 		exec("/var/www/html/orphee/site/epubs/epub_auto.py  ". $dirname ." > /var/www/html/orphee/site/epubs/test.log");
-		//exec("/var/www/html/orphee/site/epubs/epub\ auto.py ".$dirname." > test.log");
+
 		umask($oldmask);
-		$this->export_reussit($data);
+
+		//Define path on server
+		$pathtofile = base_url().'epubs/'.$filename;
+
+		$this->downloadBook($filename,$pathtofile);
+
+		//$this->export_reussit($data);
 	}
+
+	private function getFilename($book){
+		$bookname=$book->Nom;
+		$filename=str_replace(' ', '_', $bookname);
+		$filename = $filename . '.epub';
+		return $filename;
+	}
+
+	private function dowloadBook($filename,$pathtofile){
+		header('Content-type: application/epub+zip');
+		header('Content-Disposition: attachment; filename="' . $filename . '"');
+		readfile($pathtofile);
+	}
+
 	private function exportSheet($id_fiche, $directory){
 		$data="";
 		$fiche=$this->sheetManager->get_fiche($id_fiche);
