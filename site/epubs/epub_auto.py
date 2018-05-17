@@ -59,7 +59,7 @@ def write_container(content_fname):
     f.close()
 
 def write_content(content_fname):
-    f_content = open(absolutepath + pathout+content_fname,'w')
+    f_content = open(absolutepath + pathout + content_fname,'w')
     f_content.write('<?xml version="1.0"?>\n')
     # epub 2
     f_content.write('<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="dcidid" version="2.0">\n')
@@ -72,6 +72,7 @@ def write_content(content_fname):
     f_content.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\n')
     metadata = read_metadata()
     identifier = read_identifier()
+    print(identifier)
     # required attrs: title, language, identifier
     f_content.write('<dc:title>'+metadata['title']+'</dc:title>\n')
     f_content.write('<dc:language xsi:type="dcterms:RFC3066">'+metadata['lang']+"</dc:language>")
@@ -152,7 +153,7 @@ def make_all():
     title = eval(title)
     print(title)
     os.system('zip -X0 '+ absolutepath + pathout + title +'.epub '+ absolutepath + pathout +'mimetype')
-    os.system('zip -Xur9D '+ absolutepath + pathout + title +'.epub *')
+    os.system('zip -Xur9D '+ absolutepath + pathout + title +'.epub '+ absolutepath + pathout +'*')
     print(title)
     shutil.copyfile(absolutepath + pathout + title +'.epub', absolutepath +'/'+title+'.epub')
     shutil.rmtree(absolutepath + basepath)
