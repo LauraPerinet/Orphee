@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Kanye West</title>
+		<link href="curve.css" rel="stylesheet" type="text/css" />
+        
+			
+	</head>
+	
+    <header>
+		
+		<div id="logo">
+            <img src="logo.png" alt="Kanye West">
+        </div> 
+
+        <div id="Name">
+        		<h1>Kanye West</h1>
+        </div>
+
+        	
+	</header>
+	
+	<body>	
+            <div id="sous_titre">
+        		<h2>Génie</h2>
+        	</div>
+        	
+		<div class="image_description">
+			<div id="artisteimg">
+				<img src="5-joconde-mona-lisa2.jpg" alt="image de couverture" class="curve"/>
+			</div>
+			</div>
+      
+        	<div id="descriptionartist">
+
+			<p>Nom: Kanye West<br/>
+			Nationalité  :USA<br/>
+			Genre musical : Classique</p>
+			</div>
+        
+			
+			<div id="Generalites">
+			<p>yo</p>
+			<p>blabla </p>
+			</div>
+			<div id="discographie">
+				<h2>Discographie</h2>
+				
+			</div>
+			
+			<div id="extraitMusique">
+				<h2>Extraits musicaux</h2>
+				<table>
+					
+				</table>
+            </div>   
+			Pas de video
+			<button id="musique" onclick="changeScreen(false)">Musique</button >
+
+			<button id="video" onclick="changeScreen(true)"> Video</button >
+			
+         
+		<script>
+		var video = document.getElementById("videoTOTO");
+		var musiques=document.getElementById("extraitMusique");
+		
+		function changeScreen( showVideo){
+			if(showVideo){
+				musiques.style.display="none";
+				video.style.display="block";
+			}else{
+				musiques.style.display="block";
+				video.style.display="none";
+			}
+		}
+	 </script>
+    
+	</body>
+
+</html>
