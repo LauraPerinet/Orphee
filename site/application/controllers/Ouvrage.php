@@ -148,8 +148,8 @@ class Ouvrage extends CI_Controller{
 
 		umask($oldmask);
 
-		$this->_getFilename($book);
-		
+		$filename = $this->_getFilename($book);
+
 		//Define path on server
 		$pathtofile = base_url().'epubs/'.$filename;
 
@@ -170,7 +170,7 @@ class Ouvrage extends CI_Controller{
 		return $filename;
 	}
 
-	private function _dowloadBook($filename,$pathtofile){
+	private function _downloadBook($filename,$pathtofile){
 		header('Content-type: application/epub+zip');
 		header('Content-Disposition: attachment; filename="' . $filename . '"');
 		readfile($pathtofile);
