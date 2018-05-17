@@ -1,19 +1,21 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import os
 import sys
 import shutil
 
+absolutepath = '/var/www/html/orphee/site/epubs/'
 basepath = sys.argv[1] + '/'
 pathout = basepath + 'out/'
 
 def read_identifier():
-    f = open(basepath+'params/identifier','r')
+    f = open(absolutepath + basepath+'params/identifier','r')
     identifier = f.readline().strip().split(':')
     f.close()
     return identifier
 
 def read_metadata():
-    f = open(basepath+'params/metadata.csv','r')
+    f = open(absolutepath + basepath+'params/metadata.csv','r')
     lines = f.readlines()
     f.close
     metadata = dict()
@@ -23,31 +25,31 @@ def read_metadata():
     return metadata
 
 def read_manifest():
-    f = open(basepath+'params/manifest.csv','r')
+    f = open(absolutepath + basepath+'params/manifest.csv','r')
     rows = [ line.strip().split(':') for line in f.readlines() ]
     f.close()
     return rows
 
 def read_spine():
-    f = open(basepath+'params/spine.csv','r')
+    f = open(absolutepath + basepath +'params/spine.csv','r')
     ids = f.readlines()
     f.close()
     return [ id.strip() for id in ids ]
 
 def read_toc():
-    f = open(basepath+'params/toc.csv','r')
+    f = open(absolutepath + basepath +'params/toc.csv','r')
     rows = [ line.strip().split(':') for line in f.readlines() ]
     f.close()
     return rows
 
 def write_mimetype():
-    f = open(pathout+'mimetype','w')
+    f = open(absolutepath + pathout+'mimetype','w')
     f.write('application/epub+zip')
     f.close()
 
 def write_container(content_fname):
-    os.mkdir(pathout+'META-INF')
-    f = open(pathout+'META-INF/container.xml','w')
+    os.mkdir(absolutepath + pathout+'META-INF',0775)
+    f = open(absolutepath + pathout+'META-INF/container.xml','w')
     f.write('<?xml version="1.0"?>\n')
     f.write('<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">\n')
     f.write('<rootfiles>\n')
@@ -57,7 +59,7 @@ def write_container(content_fname):
     f.close()
 
 def write_content(content_fname):
-    f_content = open(pathout+content_fname,'w')
+    f_content = open(absolutepath + pathout + content_fname,'w')
     f_content.write('<?xml version="1.0"?>\n')
     # epub 2
     f_content.write('<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="dcidid" version="2.0">\n')
@@ -70,6 +72,7 @@ def write_content(content_fname):
     f_content.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\n')
     metadata = read_metadata()
     identifier = read_identifier()
+    print(identifier)
     # required attrs: title, language, identifier
     f_content.write('<dc:title>'+metadata['title']+'</dc:title>\n')
     f_content.write('<dc:language xsi:type="dcterms:RFC3066">'+metadata['lang']+"</dc:language>")
@@ -106,7 +109,7 @@ def write_toc():
     rows = read_toc()
     identifier = read_identifier()
     metadata = read_metadata()
-    f_toc = open(pathout+'toc.ncx','w')
+    f_toc = open(absolutepath + pathout+'toc.ncx','w')
     f_toc.write('<?xml version="1.0"?>\n')
     f_toc.write('<!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN" "http://www.daisy.org/z3986/2005/ncx-2005-1.dtd">\n')
     f_toc.write('<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">\n')
@@ -134,22 +137,26 @@ def write_toc():
 
 def copy_files():
     for row in read_manifest():
-        shutil.copyfile(basepath+row[1], pathout+row[1])
+        shutil.copyfile(absolutepath + basepath+row[1], absolutepath + pathout+row[1])
 
 
 def make_all():
-    os.mkdir(pathout) 
+    os.mkdir(absolutepath + pathout,0775) 
     write_mimetype() 
     write_container('content.opf') 
     write_content('content.opf')
     write_toc() 
     copy_files()
-    os.chdir(pathout)
-    os.system('zip -X0 Ton_ouvrage.epub mimetype')
-    os.system('zip -Xur9D Ton_ouvrage.epub *')
-    os.chdir('..')
-    os.chdir('..')
-    shutil.copyfile(pathout+'Ton_ouvrage.epub', os.curdir)
+    metadata = read_metadata()
+    title = metadata['title']
+    title = "_".join(title.split())
+    title = eval(title)
+    print(title)
+    os.system('zip -X0 '+ absolutepath + pathout + title +'.epub '+ absolutepath + pathout +'mimetype')
+    os.system('zip -Xur9D '+ absolutepath + pathout + title +'.epub '+ absolutepath + pathout +'*')
+    print(title)
+    shutil.copyfile(absolutepath + pathout + title +'.epub', absolutepath +'/'+title+'.epub')
+    shutil.rmtree(absolutepath + basepath)
 
 
 make_all()
