@@ -23,8 +23,7 @@ body.white{
 
 #Portrait1{
 	overflow:hidden;
-	height:200px;
-	width: 180px;
+	width: 80px;
 	float:left;
 }
 
@@ -47,7 +46,7 @@ body.white{
 	border-style:solid;
 	border-width:1px;
 	margin:0 auto;
-	margin-top: 180px;
+	margin-top:50px;
 	width:80%;
 	border-color: #8dcac7;
 	border-style: solid;

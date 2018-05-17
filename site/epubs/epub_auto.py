@@ -141,11 +141,17 @@ def copy_files():
 
 
 def make_all():
-    os.mkdir(absolutepath + pathout,0775) 
-    write_mimetype() 
-    write_container('content.opf') 
+    print('Create temp folder')
+    os.mkdir(absolutepath + pathout,0775)
+    print('Start write mimetype') 
+    write_mimetype()
+    print('Start write container')
+    write_container('content.opf')
+    print('Start write content')
     write_content('content.opf')
+    print('Start write toc')
     write_toc() 
+    print('Start copy files')
     copy_files()
     metadata = read_metadata()
     title = metadata['title']

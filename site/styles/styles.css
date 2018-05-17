@@ -60,27 +60,27 @@ footer{clear:both;}
 }
 .bloc, .book{clear:left;}
 .bloc .sheet{float:left;}
-.btnNew, input[type="submit"]{
-	clear:left;
-	border-radius:20px;
-	padding:10px;
-	min-width:20%;
-	max-width:80%;
-	margin:20px auto;
-	text-align:center;
-	border:2px solid #8dcac7;
-}
-.btnNew:hover, .btnNew:hover a, input[type="submit"]:hover{
-	background-color:#8dcac7;
-	color:#fff;
-}
-.btnNew a, input[type="submit"]{
-	color:#8dcac7;
-	font-size:1.4em;
-}
-.btnNew a{
-	display:block;
-}
+/*.btnNew, input[type="submit"]{*/
+	/*clear:left;*/
+	/*border-radius:20px;*/
+	/*padding:10px;*/
+	/*min-width:20%;*/
+	/*max-width:80%;*/
+	/*margin:20px auto;*/
+	/*text-align:center;*/
+	/*border:2px solid #8dcac7;*/
+/*}*/
+/*.btnNew:hover, .btnNew:hover a, input[type="submit"]:hover{*/
+	/*background-color:#8dcac7;*/
+	/*color:#fff;*/
+/*}*/
+/*.btnNew a, input[type="submit"]{*/
+	/*color:#8dcac7;*/
+	/*font-size:1.4em;*/
+/*}*/
+/*.btnNew a{*/
+	/*display:block;*/
+/*}*/
 .book{
 	border-top:1px solid #444;
 	background-color:#eee;

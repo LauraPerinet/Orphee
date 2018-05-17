@@ -88,6 +88,7 @@ class Fiche extends CI_Controller {
 		if($fiche->Video !=="" && $fiche->Video !==null && file_exists("./uploads/".$fiche->Video)) unlink("./uploads/".$fiche->Video);
 
 		$this->ficheManager->supprime($id_fiche);
+		redirect("fiche/show");
 		$this->show();
 	}
 	public function getDataFiche($modif){
@@ -116,8 +117,9 @@ class Fiche extends CI_Controller {
 			$ficheGenre= empty($this->input->post('Genre')) ? 1 : $this->input->post('Genre');
 	
 			$historique=array();
-			$dates=$this->input->post('dateHisto');
-			if(count($dates)>0){
+			$dates= $this->input->post('dateHisto');
+	
+			if( $dates !=null && count($dates)>0){
 				$descriptions=$this->input->post('descriptionHisto');
 				for($i=0; $i<count($dates);$i++){
 					$newHisto=array(
