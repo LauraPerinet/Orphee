@@ -144,12 +144,11 @@ class Ouvrage extends CI_Controller{
 		$data["export"].=$this->exportSummary($summary, $directory);
 		$data['export'].=$this->exportParams($book, $directory, $stylesheet);
 		// setting old umask as current umask
-		umask($oldmask);
+		
 		$dirname=$this->session->user->ID.$this->session->user->Nom.'_'.$book->ID;
-		exec("/var/www/html/orphee/site/epubs/test.py testarg",$test);
-		print_r($test);
-		exec("/var/www/html/orphee/site/epubs/epub_auto.py  3test2_19 > test.log");
+		exec("/var/www/html/orphee/site/epubs/epub_auto.py  ". $dirname ." > /var/www/html/orphee/site/epubs/test.log");
 		//exec("/var/www/html/orphee/site/epubs/epub\ auto.py ".$dirname." > test.log");
+		umask($oldmask);
 		$this->export_reussit($data);
 	}
 	private function exportSheet($id_fiche, $directory){

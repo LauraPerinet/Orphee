@@ -150,9 +150,8 @@ def make_all():
     title = metadata['title']
     title = "_".join(title.split())
     title = eval(title)
-    os.chdir(pathout)
     print(title)
-    os.system('zip -X0 '+ absolutepath + pathout + title +'.epub mimetype')
+    os.system('zip -X0 '+ absolutepath + pathout + title +'.epub '+ absolutepath + pathout +'mimetype')
     os.system('zip -Xur9D '+ absolutepath + pathout + title +'.epub *')
     print(title)
     shutil.copyfile(absolutepath + pathout + title +'.epub', absolutepath +'/'+title+'.epub')
