@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="dcidid" version="2.0">
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<dc:title>"Test Export 1"</dc:title>
+<dc:language xsi:type="dcterms:RFC3066">fr</dc:language><dc:creator opf:role="aut">test2</dc:creator>
+<dc:identifier id="dcidid" opf:scheme="31720180517,"></dc:identifier>
+<meta content="cover" name="cov_html"/>
+</metadata>
+<manifest>
+<item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+<item id="html0" href="couv.html" media-type="application/xhtml+xml"/>
+<item id="html1" href="summary.html" media-type="application/xhtml+xml"/>
+<item id="imgCouvOuvrage" href="defaultCouverture1.jpg" media-type="image/.jpg"/>
+<item id="css" href="black.css" media-type="text/css"/>
+<item id="css" href="curve.css" media-type="text/css"/>
+<item id="css" href="green.css" media-type="text/css"/>
+<item id="html2" href="70.html" media-type="application/xhtml+xml"/>
+<item id="imgPortrait2" href="1h.jpg" media-type="image/jpg"/>
+<item id="imgCouverture2" href="1f1.jpg" media-type="image/jpg"/>
+<item id="html3" href="69.html" media-type="application/xhtml+xml"/>
+<item id="imgPortrait3" href="1a_1.jpg" media-type="image/jpg"/>
+<item id="imgCouverture3" href="defaultCouverture.jpg" media-type="image/jpg"/>
+<item id="video3" href="kineticText_LauraPerinet-Marquet2.mp4" media-type="video/mp4"/>
+</manifest>
+<spine toc="ncx">
+<itemref idref="html0"/>
+<itemref idref="html1"/>
+<itemref idref="html2"/>
+<itemref idref="html3"/>
+</spine>
+</package>

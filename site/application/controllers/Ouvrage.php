@@ -126,6 +126,8 @@ class Ouvrage extends CI_Controller{
     }
     
 	public function export($id){
+		// setting umask to export file with correct permission
+		$oldmask = umask(0);
 		$book=$this->bookManager->getBook($id);
 		$directory=$this->checkDirectory($book->ID);
 		$data["export"]="";
@@ -137,6 +139,11 @@ class Ouvrage extends CI_Controller{
 		$data["export"].=$this->exportCouv($book, $directory);
 		$data["export"].=$this->exportSummary($summary, $directory);
 		$data['export'].=$this->exportParams($book, $directory);
+		// setting old umask as current umask
+		umask($oldmask);
+		$dirname=$this->session->user->ID.$this->session->user->Nom.'_'.$book->ID;
+		echo($dirname);
+		$output = shell_exec("/var/www/html/orphee/site/epubs/epub\ auto.py ".$dirname);
 		$this->export_reussit($data);
 	}
 	private function exportSheet($id_fiche, $directory){
@@ -184,23 +191,24 @@ class Ouvrage extends CI_Controller{
 				 $template=str_replace("%".$key."%", $fiche->$key, $template);
 			}
 		}
-		if (file_exists(base_url()."uploads/".$fiche->Portrait)) {
-			if(!copy(base_url()."uploads/".$fiche->Portrait, $directory.'/'.$fiche->Portrait)){ $data.=$fiche->Nom." n'a pas d'image Portrait !<br/><br/>";} ;
+		$serverPath = $_SERVER['DOCUMENT_ROOT']."/orphee/site/";
+		if (file_exists($serverPath."uploads/".$fiche->Portrait)) {
+			if(!copy($serverPath."uploads/".$fiche->Portrait, $directory.'/'.$fiche->Portrait)){ $data.=$fiche->Nom." n'a pas d'image Portrait !<br/><br/>";} ;
 		}
-		if (file_exists(base_url()."uploads/".$fiche->Couverture)) {
-			if(!copy(base_url()."uploads/".$fiche->Couverture, $directory.'/'.$fiche->Couverture)){$data.=$fiche->Nom." n'a pas d'image de couverture !<br/><br/>";} 
+		if (file_exists($serverPath."uploads/".$fiche->Couverture)) {
+			if(!copy($serverPath."uploads/".$fiche->Couverture, $directory.'/'.$fiche->Couverture)){$data.=$fiche->Nom." n'a pas d'image de couverture !<br/><br/>";} 
 		}
 		if(isset($fiche->Video)){
-			if (file_exists(base_url()."uploads/".$fiche->Video)) {
-				copy(base_url()."uploads/".$fiche->Video, $directory.'/'.$fiche->Video);
+			if (file_exists($serverPath."uploads/".$fiche->Video)) {
+				copy($serverPath."uploads/".$fiche->Video, $directory.'/'.$fiche->Video);
 			}
 		}
-		if (file_exists(base_url()."uploads/logo.png")) {
-			copy(base_url()."uploads/logo.png", $directory.'/logo.png');
+		if (file_exists($serverPath."uploads/logo.png")) {
+			copy($serverPath."uploads/logo.png", $directory.'/logo.png');
 		}
 		file_put_contents($directory.'/'.$fiche->ID.'.html', $template);
 		if (!file_exists($directory.'/'.$fiche->template.'.css')) {
-			if(!copy(base_url().'epubs/templates/'.$fiche->template.'.css', $directory.'/'.$fiche->template.'.css')){ echo "<br/><br/>Probleme CSS<br/><br/>";};}
+			if(!copy($serverPath.'epubs/templates/'.$fiche->template.'.css', $directory.'/'.$fiche->template.'.css')){ echo "<br/><br/>Probleme CSS<br/><br/>";};}
 		return $data;
 	}
 	private function exportCouv($book, $directory){
@@ -243,7 +251,7 @@ class Ouvrage extends CI_Controller{
 		$filename=FCPATH.'epubs/'.$dirname.'/';
 
 		if (!file_exists($filename)) {
-			mkdir(FCPATH.'epubs/'. $dirname, 0777);
+			mkdir(FCPATH.'epubs/'. $dirname, 0775);
 		} 
 		return FCPATH.'epubs/'. $dirname;
 	}

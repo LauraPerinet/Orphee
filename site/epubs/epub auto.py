@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 import os
 import sys
@@ -46,7 +47,7 @@ def write_mimetype():
     f.close()
 
 def write_container(content_fname):
-    os.mkdir(pathout+'META-INF')
+    os.mkdir(pathout+'META-INF',0775)
     f = open(pathout+'META-INF/container.xml','w')
     f.write('<?xml version="1.0"?>\n')
     f.write('<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">\n')
@@ -138,18 +139,25 @@ def copy_files():
 
 
 def make_all():
-    os.mkdir(pathout) 
+    os.mkdir(pathout,0775) 
     write_mimetype() 
     write_container('content.opf') 
     write_content('content.opf')
     write_toc() 
     copy_files()
+    metadata = read_metadata()
+    title = metadata['title']
+    title = "_".join(title.split())
+    title = eval(title)
     os.chdir(pathout)
-    os.system('zip -X0 Ton_ouvrage.epub mimetype')
-    os.system('zip -Xur9D Ton_ouvrage.epub *')
+    print(title)
+    os.system('zip -X0 '+ title +'.epub mimetype')
+    os.system('zip -Xur9D '+ title +'.epub *')
     os.chdir('..')
     os.chdir('..')
-    shutil.copyfile(pathout+'Ton_ouvrage.epub', os.curdir)
+    print(title)
+    shutil.copyfile(pathout + title +'.epub', os.getcwd()+'/'+title+'.epub')
+    shutil.rmtree(basepath)
 
 
 make_all()
