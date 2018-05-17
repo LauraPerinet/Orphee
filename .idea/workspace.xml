@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88d03c7c-3d1e-4c7c-85dd-4dc01b4ab40e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/site/application/views/pages/home.php" afterPath="$PROJECT_DIR$/site/application/views/pages/home.php" />
+      <change beforePath="$PROJECT_DIR$/site/application/config/database.php" afterPath="$PROJECT_DIR$/site/application/config/database.php" />
+      <change beforePath="$PROJECT_DIR$/site/application/views/forms/book.php" afterPath="$PROJECT_DIR$/site/application/views/forms/book.php" />
+      <change beforePath="$PROJECT_DIR$/site/application/views/forms/fiche.php" afterPath="$PROJECT_DIR$/site/application/views/forms/fiche.php" />
       <change beforePath="$PROJECT_DIR$/site/styles/business-frontpage.css" afterPath="$PROJECT_DIR$/site/styles/business-frontpage.css" />
+      <change beforePath="$PROJECT_DIR$/site/styles/styles.css" afterPath="$PROJECT_DIR$/site/styles/styles.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,82 +20,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="informationSheetSlider.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/site/application/views/pages/informationSheetSlider.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="36" column="79" lean-forward="true" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/site/application/views/pages/home.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="33" column="90" lean-forward="false" selection-start-line="33" selection-start-column="90" selection-end-line="33" selection-end-column="90" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="displayBooks.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/site/application/views/pages/displayBooks.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="55" column="36" lean-forward="false" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="summary.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/site/epubs/3test2_17/summary.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-50">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="business-frontpage.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="business-frontpage.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/site/styles/business-frontpage.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="85" column="17" lean-forward="false" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
+            <state relative-caret-position="378">
+              <caret line="678" column="0" lean-forward="false" selection-start-line="678" selection-start-column="0" selection-end-line="678" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fiche_old.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/site/application/views/forms/fiche_old.php">
+      <file leaf-file-name="book.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/site/application/views/forms/book.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="624">
+              <caret line="24" column="120" lean-forward="false" selection-start-line="24" selection-start-column="120" selection-end-line="24" selection-end-column="120" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu_book.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/site/application/views/forms/menu_book.php">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/site/styles/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="234">
+              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="2" selection-end-line="82" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sheetsInBook.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/site/application/views/forms/sheetsInBook.php">
+      <file leaf-file-name="fiche.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/site/application/views/forms/fiche.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="364">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="35" selection-end-column="26" />
+              <folding>
+                <marker date="1526596540553" expanded="true" signature="10177:10203" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -106,6 +71,7 @@
       <find>Créer un</find>
       <find>displ</find>
       <find>&quot;&gt;</find>
+      <find>card-body</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -120,12 +86,15 @@
         <option value="$PROJECT_DIR$/site/application/controllers/Pages.php" />
         <option value="$PROJECT_DIR$/site/.gitignore" />
         <option value="$PROJECT_DIR$/site/application/views/templates/header.php" />
-        <option value="$PROJECT_DIR$/site/application/config/database.php" />
         <option value="$PROJECT_DIR$/site/application/views/templates/footer.php" />
         <option value="$PROJECT_DIR$/site/application/views/pages/informationSheetSlider.php" />
         <option value="$PROJECT_DIR$/site/application/views/pages/displayBooks.php" />
         <option value="$PROJECT_DIR$/site/application/views/pages/home.php" />
+        <option value="$PROJECT_DIR$/site/application/config/database.php" />
+        <option value="$PROJECT_DIR$/site/application/views/forms/fiche.php" />
         <option value="$PROJECT_DIR$/site/styles/business-frontpage.css" />
+        <option value="$PROJECT_DIR$/site/application/views/forms/book.php" />
+        <option value="$PROJECT_DIR$/site/styles/styles.css" />
       </list>
     </option>
   </component>
@@ -194,6 +163,14 @@
               <item name="site" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="forms" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Orphee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Orphee" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="site" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -201,6 +178,12 @@
               <item name="Orphee" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="site" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="img" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Orphee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Orphee" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="site" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="styles" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Orphee" type="b2602c69:ProjectViewProjectNode" />
@@ -262,12 +245,12 @@
       <workItem from="1526316915534" duration="4870000" />
       <workItem from="1526394293162" duration="3948000" />
       <workItem from="1526543742998" duration="6994000" />
-      <workItem from="1526589007721" duration="3999000" />
+      <workItem from="1526589007721" duration="7098000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53314000" />
+    <option name="totallyTimeSpent" value="56413000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -403,13 +386,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/site/styles/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/site/application/views/forms/login.php" />
     <entry file="file://$PROJECT_DIR$/template/index.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -471,6 +447,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -492,27 +469,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/site/application/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/site/application/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="79" column="19" lean-forward="false" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/site/application/views/forms/fiche.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/site/application/views/forms/fiche_old.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -529,17 +485,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/site/application/views/forms/book.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="14" column="78" lean-forward="false" selection-start-line="14" selection-start-column="78" selection-end-line="14" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/site/application/views/pages/nothing.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -596,12 +546,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1525963736426" expanded="true" signature="3079:3111" ph="DELETE FROM fichegenre... " />
-            <marker date="1525963736426" expanded="true" signature="3154:3192" ph="DELETE FROM historique... " />
-            <marker date="1525963736426" expanded="true" signature="3978:4140" ph="SELECT fiche... fiche" />
-            <marker date="1525963736426" expanded="true" signature="4059:4119" ph="SELECT ID_Ge... fichegenre" />
-            <marker date="1525963736426" expanded="true" signature="4205:4271" ph="SELECT DateH... historique" />
-            <marker date="1525963736426" expanded="true" signature="4602:4644" ph="DELETE FROM ${$table}... " />
+            <marker date="1526594190264" expanded="true" signature="3079:3111" ph="DELETE FROM fichegenre... " />
+            <marker date="1526594190264" expanded="true" signature="3154:3192" ph="DELETE FROM historique... " />
+            <marker date="1526594190264" expanded="true" signature="3978:4140" ph="SELECT fiche... fiche" />
+            <marker date="1526594190264" expanded="true" signature="4059:4119" ph="SELECT ID_Ge... fichegenre" />
+            <marker date="1526594190264" expanded="true" signature="4205:4271" ph="SELECT DateH... historique" />
+            <marker date="1526594190264" expanded="true" signature="4602:4644" ph="DELETE FROM ${$table}... " />
           </folding>
         </state>
       </provider>
@@ -638,26 +588,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/site/application/views/pages/displayBooks.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="55" column="36" lean-forward="false" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/site/epubs/3test2_17/summary.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-50">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/site/application/views/pages/informationSheetSlider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="36" column="79" lean-forward="true" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="79" />
           <folding />
         </state>
       </provider>
@@ -670,10 +604,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/site/application/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/application/views/pages/informationSheetSlider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="36" column="79" lean-forward="false" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/application/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="79" column="19" lean-forward="false" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/application/views/pages/displayBooks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="55" column="36" lean-forward="false" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/application/views/forms/fiche.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="35" selection-end-column="26" />
+          <folding>
+            <marker date="1526596540553" expanded="true" signature="10177:10203" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/site/styles/business-frontpage.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="85" column="17" lean-forward="false" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
+        <state relative-caret-position="378">
+          <caret line="678" column="0" lean-forward="false" selection-start-line="678" selection-start-column="0" selection-end-line="678" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/application/views/forms/book.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="24" column="120" lean-forward="false" selection-start-line="24" selection-start-column="120" selection-end-line="24" selection-end-column="120" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/styles/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="2" selection-end-line="82" selection-end-column="3" />
           <folding />
         </state>
       </provider>

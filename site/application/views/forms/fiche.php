@@ -23,19 +23,20 @@
 					</div>
 					<div class="form-group col-12">
 						<label for="template">Gabarit fiche*</label>
-						<select name="template" class="form-control" id="template" v-model="template" maxlength="20" required>
+						<select name="template" class="form-control orphee-text-area" id="template" v-model="template" maxlength="20" required>
 							<option value="black">Black</option>
 							<option value="curve">Curve</option>
 							<option value="green">Green</option>
 						</select>
 					</div>
+                <h2 class="col-12">Biographie</h2>
                     <div class="form-group col-12">
                         <label for="Nom">Nom de l'artiste ou du groupe*</label>
-						<input id="Nom" name="Nom" <?php if(isset($fiche)) echo 'value="'.$fiche->Nom.'"'; ?> class="form-control" id="Nom" v-model="Nom" maxlength="30"required>					
+						<input id="Nom" name="Nom" <?php if(isset($fiche)) echo 'value="'.$fiche->Nom.'"'; ?> class="form-control orphee-input" id="Nom" v-model="Nom" maxlength="30"required>
 					</div>
                     <div class="form-group col-12">
                             <label for="Genre">Genre musical*</label>
-							<select name="Genre" class="form-control" id="Genre" v-model="Genre" maxlength="20" required>
+							<select name="Genre" class="form-control orphee-text-area" id="Genre" v-model="Genre" maxlength="20" required>
 								<?php 
 								
 								foreach($genres as $genre){ ?>
@@ -46,48 +47,48 @@
 					</div>
                     <div class="form-group col-12">
 						<label for="nationnalite">Nationnalité*</label>
-						<input name="nationnalite" id="nationnalite" <?php if(isset($fiche)) echo 'value="'.$fiche->nationnalite.'"'; ?> class="form-control" v-model="nationnalite" maxlength="42" required>
+						<input name="nationnalite" id="nationnalite" <?php if(isset($fiche)) echo 'value="'.$fiche->nationnalite.'"'; ?> class="form-control orphee-input" v-model="nationnalite" maxlength="42" required>
 					</div>
                     <div class="form-group col-12">
 						<label for="SousTitre">Sous-titre*</label>
-						<input name="SousTitre" <?php if(isset($fiche)) echo 'value="'.$fiche->SousTitre.'"'; ?> class="form-control" id="SousTitre" v-model="SousTitre" maxlength="40" >
+						<input name="SousTitre" <?php if(isset($fiche)) echo 'value="'.$fiche->SousTitre.'"'; ?> class="form-control orphee-input" id="SousTitre" v-model="SousTitre" maxlength="40" >
 					</div>
                     <div class="form-group col-12">
 						<label for="Description">Description*</label>
-						<textarea name="Description" class="form-control" id="Description" rows="3" v-model="Description" maxlength="650" required ><?php if(isset($fiche)) echo $fiche->Description; ?></textarea>
+						<textarea name="Description" class="form-control orphee-text-area" id="Description" rows="3" v-model="Description" maxlength="650" required ><?php if(isset($fiche)) echo $fiche->Description; ?></textarea>
 					</div>
                     <div class="form-group col-12">
 						<label for="Citation">Citation*</label>
-						<textarea name="Citation" class="form-control" id="Citation" rows="1" v-model="Citation" maxlength="100" ><?php if(isset($fiche)) echo $fiche->Citation;?></textarea>
+						<textarea name="Citation" class="form-control orphee-text-area" id="Citation" rows="1" v-model="Citation" maxlength="100" ><?php if(isset($fiche)) echo $fiche->Citation;?></textarea>
 					</div>
-					 <h2 class="col-12">Discographie*</h2>
+					 <h2 class="col-12">Discographie</h2>
                         <div class="form-group col-12">
                             <div class="row">
                                 <div class="col-12 col-sm-4">
-                                    <label for="artiste_discographie_date">Date*</label>
-                                    <input type="number" class="form-control" id="artiste_discographie_date" v-model="dateHisto" id="dateHistorique" required>
+                                    <label for="artiste_discographie_date">Année*</label>
+                                    <input type="number" class="form-control orphee-input" id="artiste_discographie_date" v-model="dateHisto" id="dateHistorique" required min="1900" max="2018">
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <label for="artiste_discographie_nom">Nom de l'album*</label>
-                                    <input type="text" class="form-control" id="artiste_discographie_nom" v-model="descriptionHisto" id="DescriptionHistorique" required>
+                                    <input type="text" class="form-control orphee-input" id="artiste_discographie_nom" v-model="descriptionHisto" id="DescriptionHistorique" required>
                                     
                                 </div> 
                                 <div class="col-12 col-sm-2">
                                     <label for="artiste_discographie_nom">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                    <button type="button" class="btn btn-primary" @click="ajouter()" >+</button>
+                                    <button type="button" class="btn btn-primary orphee-btn" @click="ajouter()" >+</button>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group col-12">
                             <div class="row" v-for="(dates, index) in histo">
                                 <div class="col-12 col-sm-4">
-                                    <input type="number" class="form-control" id="artiste_discographie_date" v-bind:value="dates.date" name="dateHisto[]">
+                                    <input type="number" class="form-control orphee-input" id="artiste_discographie_date" v-bind:value="dates.date" name="dateHisto[]">
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control" id="artiste_discographie_nom" v-bind:value="dates.description" name="descriptionHisto[]">       
+                                    <input type="text" class="form-control orphee-input" id="artiste_discographie_nom" v-bind:value="dates.description" name="descriptionHisto[]">
                                 </div> 
                                 <div class="col-12 col-sm-2">
-                                    <button type="button" class="btn btn-danger" @click="supprimer(index)">-</button>
+                                    <button type="button" class="btn orphee-btn orphee-btn-error" @click="supprimer(index)">-</button>
                                 </div>
                             </div>
                         </div>
@@ -95,16 +96,16 @@
 					<div class="row col-12">
 						<p class="error">{{ problemesImg }}</p>
 					</div>
-					<div class="row col-12">
-                            <div class="form-group col-xs-12 col-md-6">
-                                <label for="Portrait">Photo portrait*</label>
-                                <input type="file" class="form-control-file" id="Portrait" @change="previewImage($event,'Portrait')" accept=".jpg, .jpeg, .png, .gif" required name="Portrait">
+					<div class="row col-6">
+                            <div class="form-group col-12">
+                                <label for="Portrait" class="orphee-label-file orphee-btn">Photo portrait*</label>
+                                <input type="file" class="form-control-file orphee-input-file" id="Portrait" @change="previewImage($event,'Portrait')" accept=".jpg, .jpeg, .png, .gif" required name="Portrait">
                             </div>
 					</div>
-					<div class="row col-12">
-                            <div class="form-group col-xs-12 col-md-6">
-                                <label for="Couverture">Image de couverture</label>
-                                <input type="file" class="form-control-file" id="Couverture" @change="previewImage($event,'Couverture')" accept=".jpg, .jpeg, .png, .gif" name="Couverture">
+					<div class="row col-6">
+                            <div class="form-group col-12">
+                                <label for="Couverture" class="orphee-label-file orphee-btn">Image de couverture</label>
+                                <input type="file" class="form-control-file orphee-input-file" id="Couverture" @change="previewImage($event,'Couverture')" accept=".jpg, .jpeg, .png, .gif" name="Couverture">
                             </div>
                     </div>
 					<h2 class="col-12">Musique</h2>
@@ -119,17 +120,17 @@
 						</tr>
 						<tr>
 							<th>1</th>
-							<td><input name="nomMusique0" id="nomMusique0" v-model="Musiques[0]"/></td>
+							<td><input name="nomMusique0" id="nomMusique0" v-model="Musiques[0]" class="orphee-input"/></td>
 							<td><input type="file" name="mp3Musique0" id="mp3Musique0" accept=".mp3" @change="test_file($event, 'Morceau 1')" /></td>
 						</tr>
 						<tr>
 						<th>2</th>
-							<td><input name="nomMusique1" id="nomMusique1" v-model="Musiques[1]"/></td>
+							<td><input name="nomMusique1" id="nomMusique1" v-model="Musiques[1]" class="orphee-input"/></td>
 							<td><input type="file" name="mp3Musique1" id="mp3Musique1" accept=".mp3" @change="test_file($event, 'Morceau 2')" /></td>
 						</tr>
 						<tr>
 							<th>3</th>
-							<td><input name="nomMusique2" id="nomMusique2" v-model="Musiques[2]"/></td>
+							<td><input name="nomMusique2" id="nomMusique2" v-model="Musiques[2]" class="orphee-input"/></td>
 							<td><input type="file" name="mp3Musique2" id="mp3Musique2" accept=".mp3" @change="test_file($event, 'Morceau 3')" /></td>
 						</tr>
 					</table>
@@ -184,7 +185,7 @@
 	
 	</div>
 	<div class="col-xs-12 centrer">
-		<button type="submit" class="btn btn-primary col-xs-12 btn_creer_fiche" v-on:click="valider_form"><?php echo isset($fiche)?"Modifier":"Créer"; ?> la fiche</button>    
+		<button type="submit" class="btn btn-primary col-xs-12 orphee-btn" v-on:click="valider_form"><?php echo isset($fiche)?"Modifier":"Créer"; ?> la fiche</button>
 	</div>
 </div>
 <?php
