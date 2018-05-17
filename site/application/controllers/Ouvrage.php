@@ -132,13 +132,17 @@ class Ouvrage extends CI_Controller{
 		$directory=$this->checkDirectory($book->ID);
 		$data["export"]="";
 		$summary=array();
+		$stylesheet=array("green"=>false, "black"=>false, "curve"=>false);
 		foreach($book->fiches as $sheet){
 			$data["export"].=$this->exportSheet($sheet->ID, $directory);
+			$stylesheet[$sheet->template]=true;
 			array_push($summary, array("ID"=>$sheet->ID, "Nom"=>$sheet->Nom));
+
+
 		}
 		$data["export"].=$this->exportCouv($book, $directory);
 		$data["export"].=$this->exportSummary($summary, $directory);
-		$data['export'].=$this->exportParams($book, $directory);
+		$data['export'].=$this->exportParams($book, $directory, $stylesheet);
 		// setting old umask as current umask
 		umask($oldmask);
 		$dirname=$this->session->user->ID.$this->session->user->Nom.'_'.$book->ID;
@@ -258,7 +262,7 @@ class Ouvrage extends CI_Controller{
 		return FCPATH.'epubs/'. $dirname;
 	}
 	
-	private function exportParams($book, $directory){
+	private function exportParams($book, $directory, $stylesheet){
 		$directory=$directory.'/params';
 		if(!file_exists($directory)) mkdir($directory, 0777);
 		$data = array(
@@ -270,10 +274,8 @@ class Ouvrage extends CI_Controller{
 			"manifest"=>array(
 				array("html0","couv.html","application/xhtml+xml"),
 				array("html1","summary.html","application/xhtml+xml"),
-				array("imgCouvOuvrage",$book->imagecouverture,"image/".substr($book->imagecouverture, strrpos($book->imagecouverture, '.'))),
-				array("css","black.css","text/css"),
-				array("css","curve.css","text/css"),
-				array("css","green.css","text/css")
+				array("imgCouvOuvrage",$book->imagecouverture,"image/".substr($book->imagecouverture, strrpos($book->imagecouverture, '.')))
+
 			),
 			"toc"=>array(
 				array("html0","couv.html","Couverture"),
@@ -285,6 +287,7 @@ class Ouvrage extends CI_Controller{
 			)
 		);
 		
+
 		$i=2;
 		foreach($book->fiches as $fiche){
 			array_push($data["manifest"], array("html".$i,$fiche->ID.".html","application/xhtml+xml"));
@@ -303,6 +306,9 @@ class Ouvrage extends CI_Controller{
 				$mus++;
 			}
 			$i++;
+		}
+		foreach($stylesheet as $style => $file){
+			if($file) array_push($data['manifest'], array("css",$style.".css","text/css"));
 		}
 		foreach($data as $filename=>$content){
 			$fp = fopen($directory.'/'.$filename.'.csv', 'w');

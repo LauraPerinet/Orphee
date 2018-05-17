@@ -44,7 +44,7 @@ class Login extends CI_Controller {
 		$data=[];
 
 		if($this->db->query('SELECT * FROM utilisateur where email="'.$this->input->post("Email").'"' )->row() || $this->db->query('SELECT * FROM utilisateur where Nom="'.$this->input->post("Nom").'"' )->row()){
-				echo "existe";
+
 				$data["error"]="Le compte demandé existe déjà";
 				$this->load->view('templates/header', $data);
 				$this->load->view('pages/home', $data);
