@@ -144,27 +144,33 @@ class Ouvrage extends CI_Controller{
 		$data["export"].=$this->exportSummary($summary, $directory);
 		$data['export'].=$this->exportParams($book, $directory, $stylesheet);
 
-		$dirname=$this->session->user->ID.$this->session->user->Nom.'_'.$book->ID;
-		exec("/var/www/html/orphee/site/epubs/epub_auto.py  ". $dirname ." > /var/www/html/orphee/site/epubs/test.log");
+		$this->_generateEPUB($book);
 
 		umask($oldmask);
 
+		$this->_getFilename($book);
+		
 		//Define path on server
 		$pathtofile = base_url().'epubs/'.$filename;
 
-		$this->downloadBook($filename,$pathtofile);
+		$this->_downloadBook($filename,$pathtofile);
 
 		//$this->export_reussit($data);
 	}
 
-	private function getFilename($book){
+	private function _generateEPUB($book){
+		$dirname=$this->session->user->ID.$this->session->user->Nom.'_'.$book->ID;
+		exec("/var/www/html/orphee/site/epubs/epub_auto.py  ". $dirname ." > /var/www/html/orphee/site/epubs/test.log");
+	}
+
+	private function _getFilename($book){
 		$bookname=$book->Nom;
 		$filename=str_replace(' ', '_', $bookname);
 		$filename = $filename . '.epub';
 		return $filename;
 	}
 
-	private function dowloadBook($filename,$pathtofile){
+	private function _dowloadBook($filename,$pathtofile){
 		header('Content-type: application/epub+zip');
 		header('Content-Disposition: attachment; filename="' . $filename . '"');
 		readfile($pathtofile);
