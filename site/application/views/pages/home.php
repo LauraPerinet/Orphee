@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-sm-4 my-4">
             <div class="orphee-card">
-                <img class="card-img-top" src="http://placehold.it/300x200" alt="">
+                <img class="card-img-top" src="<?php echo base_url();?>img/orphee-icons-01.png" alt="">
                 <div class="card-body">
                     <h4 class="card-title">Créez</h4>
                     <p class="card-text">Créez vos fiches descriptives artistes.</p>
@@ -22,7 +22,7 @@
         </div>
         <div class="col-sm-4 my-4">
             <div class="orphee-card">
-                <img class="card-img-top" src="http://placehold.it/300x200" alt="">
+                <img class="card-img-top" src="<?php echo base_url();?>img/orphee-icons-02.png" alt="">
                 <div class="card-body">
                     <h4 class="card-title">Assemblez</h4>
                     <p class="card-text">Assemblez vos fiches dans un ouvrage préalablement mis en page.</p>
@@ -31,7 +31,7 @@
         </div>
         <div class="col-sm-4 my-4">
             <div class="orphee-card">
-                <img class="card-img-top" src="http://placehold.it/300x200" alt="">
+                <img class="card-img-top" src="<?php echo base_url();?>img/orphee-icons-03.png" alt="">
                 <div class="card-body">
                     <h4 class="card-title">Imprimez / Téléchargez</h4>
                     <p class="card-text">Imprimez / téléchargez votre ouvrage.</p>

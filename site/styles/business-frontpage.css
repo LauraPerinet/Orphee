@@ -82,6 +82,10 @@ h1 {
   text-align: center;
 }
 
+.card-body {
+    height: 129px;
+}
+
 .fiche_form_apercu {
   padding-bottom: 50px; 
 }
