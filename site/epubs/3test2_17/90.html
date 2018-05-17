@@ -1,78 +1,38 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta charset="utf-8" />
-		<title>Page 3</title>
-		<link href="green.css" rel="stylesheet" type="text/css" />
-        
-	</head>
-	<body id="white" >
-        <header id="header">
-            <img src="logo.png" alt="logo" />	
-		</header>
-        
-		<div id="hero">
-			<img src="defaultCouverture.jpg" alt="image de couverture"/>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>MALAA</title>
+	<link href="black.css" type="text/css" rel="stylesheet">
+<head>
+<body class="black">
+	<div id="header">
+		<img src="./defaultCouverture.jpg" alt="Image de couverture"/>
+	</div>
+	<div id="content">
+		<div id="Generalites">
+			<p>Text descriptif</p>
+			<div id="encartPortrait">
+				<div id="thumbPortrait"><img src="v0.jpg" alt="Portrait de MALAA"></div>
+				<h1>MALAA</h1>
+				<p class="genre">Métal</p>
 			</div>
-		<div id="blocInfo">
-			<div id="Portrait">
-				<img id="Portrait1" src="defaultPortrait.jpg" alt="Page 3" />
-			</div>
-				
-			 <div id="informationsG">
-				 <div id="info">
-				<p >Nom: Page 3<br/>
-				Nationalité  :gfqdgfdq<br/>
-				Genre musical : Rock</p>
-			</div>
-		 </div>
-</div>
-	<div id="rectangle">
-		<div id="placement" >
-				  <button id="musique" onclick="changeScreen(false)">Musique</button >
-				 <button id="video" onclick="changeScreen(true)">Video</button >
-                    
-           
+		</div>
+		<div id="citation">
+
+			<p>Citation</p>
+		</div>
+		<div id="discographie">
+			<h2>Discographie</h2>
 			
 		</div>
-		<div id="Generalites">
-			<p > </p>
-			<p >gdfqgqdf </p>
-		</div>
 		<div id="extraitMusique">
-			<table>
-			<tr >
-					<td>
-						<img src="defaultMusique.jpg" alt="test" />
-					</td><td>
-						<h3>test<h3>
-						<audio controls="controls">
-						  <source src="EdSheeranShapeOfYou12.mp3" type="audio/mp3">
-						  Votre navigateur ne prend pas en charge l'élément <code>audio</code>.
-						</audio>
-						
-					</tr>
-		</table>
+			<h2>Extrait musical</h2>
+			
 		</div>
-		 Pas de video
-		
-				
+		<div id="video">
+			Pas de video
+		</div>
 	</div>
-		
-		
-     <script>
-		var video = document.getElementById("videoTOTO");
-		var tableMusique=document.getElementById("extraitMusique");
-		function changeScreen( showVideo){
-			if(showVideo){
-			console.log("show video");
-				tableMusique.style.display="none";
-				video.style.display="block";
-			}else{
-				tableMusique.style.display="block";
-				video.style.display="none";
-			}
-		}
-	 </script>
-	</body>
+</body>
 </html>

@@ -13,14 +13,6 @@
     <div class="row">
         <div class="col-12">
             <div id="imageCarousel" class="carousel slide" data-interval="false" data-ride="carousel" data-wrap="true">
-<!--                <ol class="carousel-indicators">-->
-<!--                    --><?php
-//                    for($i=0;$i<count($InformationSheets);$i++) {?>
-<!--                        <li data-target="#imageCarousel" data-slide-to="--><?php //echo $i; ?><!--" class="--><?php //if($i==0) echo "active";?><!--"></li>-->
-<!--                    --><?php
-//                    }
-//                    ?>
-<!--                </ol>-->
                     <div class="carousel-inner">
                         <?php
                             $firstOcc = true;
@@ -96,4 +88,7 @@
             </div>
         </div>
  </div>
+<script>
+
+</script>
 

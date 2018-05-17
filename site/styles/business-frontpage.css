@@ -471,14 +471,15 @@ h1 {
   background-color: #ffffff;
   transition: all 0.4s ease;
   cursor: pointer;
-  box-shadow: 0px 0px 1px #676767;
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.3);
   color: #000000;
 }
 .orphee-btn:hover, .orphee-btn:focus {
-  background-color: #48CFAD;
+    background: linear-gradient(150deg,#48CFAD 15%,#52E3D9 70%,#35FFCC 94%);
+  /*background-color: #48CFAD;*/
   color: #ffffff;
   border-radius: 50px;
-  box-shadow: 0px 1px 10px #A2A2A2;
+  box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
   outline: none;
 }
 .orphee-btn:active {
