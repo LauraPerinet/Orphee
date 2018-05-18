@@ -1,5 +1,5 @@
 #logo img {
-	
+	max-height:120px;
 	display: block;
 	float:right;
 }
@@ -25,9 +25,12 @@
   -webkit-shape-outside:circle();
   shape-outside:circle();
 }
+#Generalites{
+  page-break-after: always;
+}
 
 #descriptionartist p{
-	padding-top: 50px;
+  padding-top: 50px;
 }
 
 #informationsG p{

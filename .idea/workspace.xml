@@ -3,15 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="88d03c7c-3d1e-4c7c-85dd-4dc01b4ab40e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/site/application/config/database.php" afterPath="$PROJECT_DIR$/site/application/config/database.php" />
+      <change beforePath="$PROJECT_DIR$/site/application/controllers/Fiche.php" afterPath="$PROJECT_DIR$/site/application/controllers/Fiche.php" />
+      <change beforePath="$PROJECT_DIR$/site/application/controllers/Ouvrage.php" afterPath="$PROJECT_DIR$/site/application/controllers/Ouvrage.php" />
       <change beforePath="$PROJECT_DIR$/site/application/views/forms/menu_book.php" afterPath="$PROJECT_DIR$/site/application/views/forms/menu_book.php" />
-      <change beforePath="$PROJECT_DIR$/site/application/views/forms/sheetsInBook.php" afterPath="$PROJECT_DIR$/site/application/views/forms/sheetsInBook.php" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_17/couv.html" afterPath="$PROJECT_DIR$/site/epubs/3test2_17/couv.html" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_17/params/manifest.csv" afterPath="$PROJECT_DIR$/site/epubs/3test2_17/params/manifest.csv" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_17/params/spine.csv" afterPath="$PROJECT_DIR$/site/epubs/3test2_17/params/spine.csv" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_17/params/toc.csv" afterPath="$PROJECT_DIR$/site/epubs/3test2_17/params/toc.csv" />
-      <change beforePath="$PROJECT_DIR$/site/epubs/3test2_17/summary.html" afterPath="$PROJECT_DIR$/site/epubs/3test2_17/summary.html" />
-      <change beforePath="$PROJECT_DIR$/site/styles/business-frontpage.css" afterPath="$PROJECT_DIR$/site/styles/business-frontpage.css" />
-      <change beforePath="$PROJECT_DIR$/site/styles/styles.css" afterPath="$PROJECT_DIR$/site/styles/styles.css" />
+      <change beforePath="$PROJECT_DIR$/site/application/views/pages/nothing.php" afterPath="$PROJECT_DIR$/site/application/views/pages/nothing.php" />
+      <change beforePath="$PROJECT_DIR$/site/epubs/Test_Export_3.epub" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/site/epubs/epub_auto.py" afterPath="$PROJECT_DIR$/site/epubs/epub_auto.py" />
+      <change beforePath="$PROJECT_DIR$/site/epubs/templates/black.css" afterPath="$PROJECT_DIR$/site/epubs/templates/black.css" />
+      <change beforePath="$PROJECT_DIR$/site/epubs/templates/curve.css" afterPath="$PROJECT_DIR$/site/epubs/templates/curve.css" />
+      <change beforePath="$PROJECT_DIR$/site/epubs/templates/green.css" afterPath="$PROJECT_DIR$/site/epubs/templates/green.css" />
+      <change beforePath="$PROJECT_DIR$/site/epubs/test.log" afterPath="$PROJECT_DIR$/site/epubs/test.log" />
+      <change beforePath="$PROJECT_DIR$/site/uploads/kineticText_LauraPerinet-Marquet216.mp4" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/site/uploads/kineticText_LauraPerinet-Marquet217.mp4" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -92,13 +96,13 @@
         <entry file="file://$PROJECT_DIR$/site/application/views/templates/footer.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="768">
-              <caret line="115" column="51" lean-forward="true" selection-start-line="115" selection-start-column="51" selection-end-line="115" selection-end-column="51" />
+              <caret line="115" column="51" lean-forward="false" selection-start-line="115" selection-start-column="51" selection-end-line="115" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/site/styles/styles.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="526">
@@ -108,11 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu_book.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="menu_book.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/site/application/views/forms/menu_book.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="4" selection-end-column="14" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -129,9 +133,9 @@
       <find>&quot;&gt;</find>
       <find>card-body</find>
       <find>icon-up</find>
-      <find>.book</find>
       <find>url(</find>
       <find>border-bott</find>
+      <find>.book</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -153,10 +157,10 @@
         <option value="$PROJECT_DIR$/site/application/config/database.php" />
         <option value="$PROJECT_DIR$/site/application/views/forms/fiche.php" />
         <option value="$PROJECT_DIR$/site/application/views/forms/book.php" />
-        <option value="$PROJECT_DIR$/site/application/views/forms/menu_book.php" />
         <option value="$PROJECT_DIR$/site/styles/business-frontpage.css" />
         <option value="$PROJECT_DIR$/site/application/views/forms/sheetsInBook.php" />
         <option value="$PROJECT_DIR$/site/styles/styles.css" />
+        <option value="$PROJECT_DIR$/site/application/views/forms/menu_book.php" />
       </list>
     </option>
   </component>
@@ -348,12 +352,12 @@
       <workItem from="1526316915534" duration="4870000" />
       <workItem from="1526394293162" duration="3948000" />
       <workItem from="1526543742998" duration="6994000" />
-      <workItem from="1526589007721" duration="15605000" />
+      <workItem from="1526589007721" duration="15752000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64920000" />
+    <option name="totallyTimeSpent" value="65067000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -709,7 +713,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -719,7 +723,7 @@
         <state relative-caret-position="-171646">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -729,7 +733,7 @@
         <state relative-caret-position="189">
           <caret line="8841" column="0" lean-forward="false" selection-start-line="8840" selection-start-column="0" selection-end-line="8841" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -753,7 +757,7 @@
     <entry file="file://$PROJECT_DIR$/site/application/views/templates/footer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="768">
-          <caret line="115" column="51" lean-forward="true" selection-start-line="115" selection-start-column="51" selection-end-line="115" selection-end-column="51" />
+          <caret line="115" column="51" lean-forward="false" selection-start-line="115" selection-start-column="51" selection-end-line="115" selection-end-column="51" />
           <folding />
         </state>
       </provider>
@@ -777,18 +781,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/site/application/views/forms/menu_book.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="4" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/site/styles/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="526">
           <caret line="84" column="23" lean-forward="false" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/application/views/forms/menu_book.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -1,16 +1,28 @@
-  adding: var/www/html/orphee/site/epubs/3test2_19/out/mimetype (stored 0%)
-  adding: var/www/html/orphee/site/epubs/3test2_19/out/5-joconde-mona-lisa2.jpg (deflated 0%)
-  adding: var/www/html/orphee/site/epubs/3test2_19/out/73.html (deflated 50%)
-  adding: var/www/html/orphee/site/epubs/3test2_19/out/EdSheeranShapeOfYou51.mp3 (deflated 1%)
-  adding: var/www/html/orphee/site/epubs/3test2_19/out/META-INF/container.xml (deflated 34%)
-  adding: var/www/html/orphee/site/epubs/3test2_19/out/black.css (deflated 56%)
-  adding: var/www/html/orphee/site/epubs/3test2_19/out/content.opf (deflated 57%)
-  adding: var/www/html/orphee/site/epubs/3test2_19/out/couv.html (deflated 40%)
-  adding: var/www/html/orphee/site/epubs/3test2_19/out/deadmau5minilivedj1.jpg (deflated 0%)
-  adding: var/www/html/orphee/site/epubs/3test2_19/out/defaultCouverture3.jpg (deflated 1%)
-  adding: var/www/html/orphee/site/epubs/3test2_19/out/kineticText_LauraPerinet-Marquet218.mp4 (deflated 47%)
-  adding: var/www/html/orphee/site/epubs/3test2_19/out/summary.html (deflated 32%)
-  adding: var/www/html/orphee/site/epubs/3test2_19/out/toc.ncx (deflated 58%)
-['31920180517,', '']
-Test_Export_3
-Test_Export_3
+  adding: var/www/html/orphee/site/epubs/4test_20/out/mimetype (stored 0%)
+  adding: var/www/html/orphee/site/epubs/4test_20/out/76.html (deflated 62%)
+  adding: var/www/html/orphee/site/epubs/4test_20/out/77.html (deflated 57%)
+  adding: var/www/html/orphee/site/epubs/4test_20/out/EdSheeranShapeOfYou121.mp3 (deflated 1%)
+  adding: var/www/html/orphee/site/epubs/4test_20/out/EdSheeranShapeOfYou51211.mp3 (deflated 1%)
+  adding: var/www/html/orphee/site/epubs/4test_20/out/EdSheeranShapeOfYou52.mp3 (deflated 1%)
+  adding: var/www/html/orphee/site/epubs/4test_20/out/META-INF/container.xml (deflated 34%)
+  adding: var/www/html/orphee/site/epubs/4test_20/out/content.opf (deflated 67%)
+  adding: var/www/html/orphee/site/epubs/4test_20/out/couv.html (deflated 39%)
+  adding: var/www/html/orphee/site/epubs/4test_20/out/curve.css (deflated 45%)
+  adding: var/www/html/orphee/site/epubs/4test_20/out/defaultCouverture.jpg (deflated 1%)
+  adding: var/www/html/orphee/site/epubs/4test_20/out/defaultCouverture12.jpg (deflated 1%)
+  adding: var/www/html/orphee/site/epubs/4test_20/out/defaultPortrait.jpg (deflated 1%)
+  adding: var/www/html/orphee/site/epubs/4test_20/out/kineticText_LauraPerinet-Marquet2141.mp4 (deflated 47%)
+  adding: var/www/html/orphee/site/epubs/4test_20/out/kineticText_LauraPerinet-Marquet2172.mp4 (deflated 47%)
+  adding: var/www/html/orphee/site/epubs/4test_20/out/summary.html (deflated 41%)
+  adding: var/www/html/orphee/site/epubs/4test_20/out/toc.ncx (deflated 62%)
+  adding: var/www/html/orphee/site/epubs/4test_20/out/trombiCerfs-2014-11.jpg (deflated 0%)
+  adding: var/www/html/orphee/site/epubs/4test_20/out/trombiCerfs-2014-111.jpg (deflated 0%)
+Create temp folder
+Start write mimetype
+Start write container
+Start write content
+['42020180518,', '']
+Start write toc
+Start copy files
+Test_Export_2
+Test_Export_2

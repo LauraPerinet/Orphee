@@ -147,7 +147,7 @@ class Ouvrage extends CI_Controller{
 		$data['export'].=$this->exportParams($book, $directory, $stylesheet);
 
 		$this->_generateEPUB($book);
-
+		
 		umask($oldmask);
 
 		$filename = $this->_getFilename($book);
@@ -231,11 +231,13 @@ class Ouvrage extends CI_Controller{
 			if(!copy($serverPath."uploads/".$fiche->Couverture, $directory.'/'.$fiche->Couverture)){$data.=$fiche->Nom." n'a pas d'image de couverture !<br/><br/>";} 
 		}
 		if(isset($fiche->Video)){
+			echo($fiche->Video);
 			if (file_exists($serverPath."uploads/".$fiche->Video)) {
 				copy($serverPath."uploads/".$fiche->Video, $directory.'/'.$fiche->Video);
 			}
 		}
 		if (file_exists($serverPath."uploads/logo.png")) {
+			echo('logo file found');
 			copy($serverPath."uploads/logo.png", $directory.'/logo.png');
 		}
 		file_put_contents($directory.'/'.$fiche->ID.'.html', $template);

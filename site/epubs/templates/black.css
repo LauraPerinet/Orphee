@@ -29,7 +29,7 @@ body.black{
 }
 .black #thumbPortrait{
 	overflow:hidden;
-	height:200px;
+	height:100px;
 }
 .black #thumbPortrait img{
 	width:99%;
