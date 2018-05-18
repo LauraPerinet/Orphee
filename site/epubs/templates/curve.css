@@ -25,10 +25,6 @@
   -webkit-shape-outside:circle();
   shape-outside:circle();
 }
-#Generalites{
-  page-break-after: always;
-}
-
 #descriptionartist p{
   padding-top: 50px;
 }
