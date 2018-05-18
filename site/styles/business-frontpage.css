@@ -573,7 +573,6 @@ h1 {
     transition: all 0.4s ease;
     box-shadow: 0 0 8px rgba(0,0,0,0.2);
     margin-top: 20px;
-    background-image: url("https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fpeopledotcom.files.wordpress.com%2F2018%2F01%2F070816-chicago-kanye-west.jpg&w=700&q=85");
     -webkit-background-size: cover;
     background-size: cover;
     background-position: center;
@@ -605,14 +604,15 @@ h1 {
 .icon-remove {
     margin-right: 18px;
 }
-.icon-update path, .icon-remove path {
+
+.icon-update path, .icon-remove path, .icon-plus path, .icon-del {
     fill: #ffffff;
     transition: all 0.4s ease;
 }
-.icon-update:hover path {
+.icon-update:hover path, .icon-plus:hover path {
     fill: #48CFAD;
 }
-.icon-remove:hover path {
+.icon-remove:hover path, .icon-del:hover path {
     fill: #BF263C;
 }
 

@@ -82,6 +82,7 @@ footer{clear:both;}
 	/*display:block;*/
 /*}*/
 .book{
-	border-top:1px solid #444;
+	border-top: solid 4px #E4E4E4;
 	background-color:#eee;
+	margin-top: 20px;
 }
